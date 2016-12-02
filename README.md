@@ -1,2 +1,2 @@
-# tjhzs.com
- a new version for tjhzs.com ,the core is module integration
+# TJHZS
+ a new version for TJHZS ,the core is module integration
