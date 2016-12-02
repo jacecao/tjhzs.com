@@ -1,22 +1,23 @@
 <template>
   <div id="app">
     <navbar></navbar>
+    <headershow></headershow>
   </div>
 </template>
 
 <script>
-// import Hello from './components/Hello'
 import Navbar from './components/Navbar'
+import Headershow from './components/Headershow'
 
 export default {
   name: 'app',
   components: {
-    Navbar
+    Navbar, Headershow
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
