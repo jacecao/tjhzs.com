@@ -1,0 +1,117 @@
+$size: 90px;
+$bgcolor: #1bba5e;
+$border: 1px solid #17a051;
+$color: #c8c9ca;
+%size{
+  width: $size;
+  height: $size;
+}
+.header-bar
+{
+  position: absolute;
+  width: 420px;
+  bottom: 0;
+  left: 50%;
+  color: $color;
+  ul{
+    @extend %ul;
+    li{
+      position: relative;
+      background-color: $bgcolor;
+      float: left;
+    }
+  }
+  .weixin, .time, .header-info{
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 500ms;
+    &:hover{
+      box-shadow: 0 0 5px rgba(0,0,0,0.4);
+      transform: scale(1.1);
+      z-index: 100;
+      color: #fff;
+    }
+  }
+  .weixin, .time
+  {
+    @extend %size;
+  }
+  .weixin{
+    border-left: $border;
+    border-right: $border;
+  }
+  .header-info{
+    height: 70px;
+    font-size: smaller;
+    padding: 10px;
+    p {
+      @extend %h1;
+      letter-spacing: 1px;
+      margin-top: 6px;
+    }
+  }
+}
+.weixin::after, .small-time,
+.weixin::before, .time::before
+{
+  display: block;
+  position: absolute;
+  text-align: center;
+  height: $size;
+  width: $size;
+  top: 0;
+  transition: all 500ms;
+}
+.weixin::before
+{
+  line-height: 30px;
+  letter-spacing: 3px;
+  font-size: 1.5 * $font;
+  margin-top: 15px;
+  left: 0;
+}
+.weixin::before{
+  content: '公众\A账号';
+}
+.time::before
+{
+  content: '';
+  background-image: url(../../../static/images/header/clock.png);
+  background-size: cover;
+}
+.weixin::after
+{
+  content:'';
+  /* 这里的地址根据引用位置来确定，而不是根据该文件位置来确定 */
+  background-image: url(../../../static/images/header/weixin.png);
+  background-size: cover;
+  left: $size;
+}
+.small-time{
+  font-size: 4 * $font;
+  text-align: center;
+  line-height: $size;
+  margin-left: -5px;
+  left: $size;
+}
+.weixin:hover, .time:hover{
+  &:before{
+    left: -$size;
+  }
+  &:after{
+    left: 0;
+  }
+}
+.time:hover{
+  .small-time{
+    left: 0;
+  }
+}
+
+/* 大的倒计时显示 */
+.big-time{
+  position: absolute;
+  top: -100px;
+  width: 300px;
+  height: 200px;
+}

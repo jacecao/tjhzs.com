@@ -1,4 +1,29 @@
+$navheight: 50px;
+$navcolor: #868686;
+$hovercolor: #fe0058;
+$headerheight: 450px;
+$header-title-color: #fff;
+$font: 1em;
+
 @mixin a_css($color) {
 	text-decoration: none;
 	color: $color;
+}
+
+%width {
+	width: 900px;
+  min-width: 900px;
+  width: 100vw;
+  margin: 0 auto;
+}
+
+%h1 {
+	padding: 0;
+	margin: 0;
+}
+
+%ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }

@@ -33,33 +33,29 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import '../sass/_base.scss';
-$headercolor: #868686;
-$hovercolor: #fe0058;
 a{
   transition: color 700ms;
-  @include a_css($headercolor);
+  @include a_css($navcolor);
 }
 a:hover, .active{
   color: $hovercolor;
 }
-$font: 1em;
-%base{
-  height: 50px;
-  line-height: 50px;
-}
 
 .nav-bar{
-  height: 50px;
-  width: 100%;
-  background-color: #000;
+  position: relative;
+  top: 0;
+  height: $navheight;
+  @extend %width;
 }
 .logo{
-  position: relative;
+  position: absolute;
+  top: 0;
   left: 72px;
   span {
     display: inline-block;
-    color: $headercolor;
-    @extend %base;
+    color: $navcolor;
+    height: 50px;
+    line-height: 50px;
   }
   img {
     float: left;
@@ -68,11 +64,13 @@ $font: 1em;
     width: 50px;
   }
 }
+
 ul{
   position: absolute;
+  width: 300px;
   right: 102px;
   top: 0;
-  margin: 0;
+  margin: 0 0 0 100px;
   li{
     display: inline-block;
     margin-right: 46px;
