@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-bar">
+  <div :style="background" class="nav-bar">
     <div class="logo">
       <a href="/"><img v-bind:src="logo" alt="HBHZ"></a>
       <span>{{title}}</span>
@@ -17,8 +17,10 @@ export default {
   name: 'nav-bar',
   data () {
     return {
+      // 这里得数据需要从服务器获取
       title: '和谐 / 包容 / 发展 / 共赢',
       logo: '../../static/images/header_logo.png',
+      // background: {background: '#fff'},
       isActive: true
     }
   },
@@ -33,6 +35,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import '../sass/_base.scss';
+$navbg: #000;
 a{
   transition: color 700ms;
   @include a_css($navcolor);
@@ -44,8 +47,9 @@ a:hover, .active{
 .nav-bar{
   position: relative;
   top: 0;
+  background: $navbg; 
   height: $navheight;
-  @extend %width;
+  width: 100%;
 }
 .logo{
   position: absolute;
@@ -66,11 +70,11 @@ a:hover, .active{
 }
 
 ul{
-  position: absolute;
+  position: relative;
   width: 300px;
-  right: 102px;
+  left: 880px;
   top: 0;
-  margin: 0 0 0 100px;
+  margin: 0;
   li{
     display: inline-block;
     margin-right: 46px;

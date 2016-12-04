@@ -2,13 +2,11 @@
   <div v-bind:style="" class="header">
     <div v-on:mousemove='hoverMover' class="mask"></div>
     <headertitle></headertitle>
-    <headerbar></headerbar>
   </div>
 </template>
 
 <script>
 import Headertitle from './header/Headertitle'
-import Headerbar from './header/Headerbar'
 export default {
   name: 'header-show',
   data () {
@@ -22,7 +20,7 @@ export default {
     }
   },
   components: {
-    Headertitle, Headerbar
+    Headertitle
   }
 }
 </script>
@@ -39,6 +37,13 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 0;
+  border-bottom: 2px solid #b8b8b8;
+  box-shadow: 0 2px 4px #b8b8b8;
+  &:hover{
+    .mask{
+      opacity: 0.4;
+    }
+  }
 }
 .mask{
   // content: '';
@@ -48,7 +53,10 @@ export default {
   left: 0;
   width: 100%;
   height: $headerheight;
+  background: rgba(20,20,20,0.5);
   background: -webkit-linear-gradient(top, rgba(20,20,20,0.5) 100%,rgba(20,20,20,0.5) 100%);
+  transition: all 500ms;
+  opacity: 1;
   // cursor: pointer;
 }
 </style>

@@ -9,14 +9,24 @@ $font: 1em;
 	text-decoration: none;
 	color: $color;
 }
-
-%width {
-	width: 900px;
-  min-width: 900px;
-  width: 100vw;
-  margin: 0 auto;
+/* 单行省略设置 */
+@mixin break($width) {
+	width: $width;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
+%width {
+	width: 1300px;
+  min-width: 1300px;
+  margin: 0 auto;
+}
+%mainwidth {
+  width: 1200px;
+  min-width: 1200px;
+  margin: 0 auto;
+}
 %h1 {
 	padding: 0;
 	margin: 0;

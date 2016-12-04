@@ -5,11 +5,15 @@
       <p>主办方：<span>{{zhuban}}</p>
       <p>承办方：<span>{{chengban}}</span></p>
     </div>
-    <img :src="smallimg" alt="展馆图片">
+    <span class="img-box">
+      <img :src="bigimg" alt="展馆图片">
+    </span>
+    <headerbar></headerbar>
   </div>
 </template>
 
 <script>
+import Headerbar from './Headerbar'
 export default {
   name: 'header-title',
   data () {
@@ -21,6 +25,9 @@ export default {
       smallimg: '../../../static/images/header/small.jpg',
       bigimg: '../../../static/images/header/big.jpg'
     }
+  },
+  components: {
+    Headerbar
   }
 }
 </script>
@@ -28,6 +35,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import '../../sass/_base.scss';
+$width: 186px;
+$height: 98px;
   .header-title
   {
     position: absolute;
@@ -37,22 +46,34 @@ export default {
     h1{
       @extend %h1;
       letter-spacing: 0.15 * $font;
+      font-weight: lighter;
     }
     p{
       @extend %h1;
       margin-top: 10px;
       font-size: smaller;
     }
-    img{
+
+    .img-box{
+      display: block;
       margin-top: 16px;
-      height: 98px;
-      width: 186px;
+      height: $height;
+      width: $width;
       background-color: #6af2c4;
-      transition: transform 300ms linear;
       border: 2px solid #00bcd4;
+      transition: box-shadow 400ms linear;
+      overflow: hidden;
       cursor: pointer;
-      @at-root img:hover {
+      img{
+        height: $height;
+        width: $width;
+        transition: transform 400ms linear;
+      }
+      @at-root .img-box:hover {
         box-shadow: 0 0 13px rgba(106,142,130,.6);
+        img{
+          transform: scale(1.2);
+        }
       }
     }
   }

@@ -32,4 +32,10 @@ export default {
 <style scoped lang="scss">
 @import '../../sass/_base.scss';
 @import '../../sass/header.scss';
+.header-bar{
+  position: absolute;
+  width: 420px;
+  bottom: 6px;
+  left: 200px;
+}
 </style>

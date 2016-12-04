@@ -1,6 +1,6 @@
 $size: 90px;
-$bgcolor: #1bba5e;
-$border: 1px solid #17a051;
+$bgcolor: #009688;
+$border: 1px solid #18867c;
 $color: #c8c9ca;
 %size{
   width: $size;
@@ -8,10 +8,6 @@ $color: #c8c9ca;
 }
 .header-bar
 {
-  position: absolute;
-  width: 420px;
-  bottom: 0;
-  left: 50%;
   color: $color;
   ul{
     @extend %ul;
@@ -24,7 +20,7 @@ $color: #c8c9ca;
   .weixin, .time, .header-info{
     cursor: pointer;
     overflow: hidden;
-    transition: all 500ms;
+    transition: all 400ms;
     &:hover{
       box-shadow: 0 0 5px rgba(0,0,0,0.4);
       transform: scale(1.1);
