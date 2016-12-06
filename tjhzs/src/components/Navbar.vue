@@ -49,7 +49,7 @@ a:hover, .active{
   top: 0;
   background: $navbg; 
   height: $navheight;
-  width: 100%;
+  @extend %width;
 }
 .logo{
   position: absolute;
@@ -72,7 +72,7 @@ a:hover, .active{
 ul{
   position: relative;
   width: 300px;
-  left: 880px;
+  left: 850px;
   top: 0;
   margin: 0;
   li{

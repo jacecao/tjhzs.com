@@ -1,9 +1,11 @@
 $navheight: 50px;
 $navcolor: #868686;
-$hovercolor: #fe0058;
-$headerheight: 450px;
+$hovercolor: #fe005b;
+$headerheight: 500px;
 $header-title-color: #fff;
 $font: 1em;
+$bgcolor: #32b16c;
+$footerheight: 250px;
 
 @mixin a_css($color) {
 	text-decoration: none;
@@ -17,16 +19,27 @@ $font: 1em;
 	text-overflow: ellipsis;
 }
 
+.clearfix::after{
+	content: '\20';
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
 %width {
-	width: 1300px;
-  min-width: 1300px;
+	width: 100%;
+  min-width: 1200px;
   margin: 0 auto;
 }
+
 %mainwidth {
   width: 1200px;
   min-width: 1200px;
   margin: 0 auto;
 }
+
 %h1 {
 	padding: 0;
 	margin: 0;

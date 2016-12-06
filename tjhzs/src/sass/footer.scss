@@ -1,0 +1,68 @@
+@import './_base.scss';
+$height: 100px;
+$width: 300px;
+$color: #868686;
+$bg: #b1b1b1;
+$hoverbg: #5a5a5a;
+$hover: #fff;
+%block{
+	height: $height;
+	color: $color;
+	background-color: $bg;
+}
+.footer-box{
+	position: absolute;
+	left: 50%;
+	margin: -50px 0 0 -535px;
+	top: 50%;
+	width: 1070px;
+	height: $height;
+	// background-color: #000;
+}
+.footer-block{
+	@extend %block;
+	width: $width;
+	text-align: center;
+	float: left;
+	margin-left: 10px;
+	p {
+		margin: 0;
+		height: 40px;
+		line-height: 50px;
+	}
+	.title {
+		color: $hovercolor;
+		padding-top: 10px;
+		font-size: 2 * $font;
+		font-weight: bold;
+	}
+	.samlltitle {
+		letter-spacing: 5px;
+	}
+	&:first-child{
+		margin-left: 0;
+	}
+}
+
+.footer-address{
+	float: left;
+	margin-left: 10px;
+	@extend %block;
+	width: 450px;
+	p {
+		margin: 0;
+		padding-left: 20px;
+		height: 30px;
+		line-height: 45px;
+	}
+}
+.footer-block
+{
+	transition: all 400ms;
+	&:hover {
+		background-color: $hoverbg;
+		.samlltitle{
+			color: $hover;
+		}
+	}
+} 

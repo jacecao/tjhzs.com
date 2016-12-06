@@ -30,7 +30,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@import '../../sass/_base.scss';
 @import '../../sass/header.scss';
 .header-bar{
   position: absolute;

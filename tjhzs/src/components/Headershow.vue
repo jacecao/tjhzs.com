@@ -30,7 +30,7 @@ export default {
 @import '../sass/_base.scss';
 .header{
   position: relative;
-  width: 100%;
+  @extend %width;
   height: $headerheight;
   background-color: #32b16c;
   background-image: url(../../static/images/header/headerbg.jpg);
