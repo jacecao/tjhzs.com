@@ -35,7 +35,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import '../../sass/_base.scss';
-$height: 242px;
+$height: 247px;
   .header-title
   {
     position: absolute;
@@ -67,7 +67,7 @@ $height: 242px;
     p{
       @extend %h1;
       margin-top: 10px;
-      font-size: smaller;
+      // font-size: smaller;
     }
     $imgwidth: 186px;
     $imgheight: 98px;
