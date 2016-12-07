@@ -27,7 +27,7 @@ export default {
 <style scoped lang="scss">
 @import '../sass/_base.scss';
   .app-content{
-    margin-top: 30px;
+    margin: 30px 0;
   }
   .main-content{
     @extend %mainwidth;

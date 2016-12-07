@@ -11,6 +11,7 @@ $color: #e6e6e6;
   color: $color;
   ul{
     @extend %ul;
+    width: 500px;
     li{
       position: relative;
       background-color: $bgcolor;

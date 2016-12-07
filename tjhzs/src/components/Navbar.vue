@@ -6,7 +6,7 @@
     </div>
     <ul v-on:click='test'>
       <li><a :class='{active: isActive}' href="/">首页</a></li>
-      <li><a href="">展台制作展示</a></li>
+      <li><a href="">产品案例展示</a></li>
       <li><a href="">关于我们</a></li>
     </ul>
   </div>

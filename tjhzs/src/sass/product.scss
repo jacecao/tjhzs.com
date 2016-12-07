@@ -1,0 +1,56 @@
+@import './_base.scss';
+$height: 400px;
+$imgwidth: 700px;
+$padding: 20px;
+$imgpadding: 20px;
+.product_box {
+	background-color: #f7f7f7;
+	section {
+		.img_box {
+			height: $height - (2 * $padding);
+			width: $imgwidth - (2 * $padding);
+			padding: $padding;
+			float: left;
+			img {
+				padding: $imgpadding;
+				height: $height - (2 * $padding) - (2 * $imgpadding);
+				width: $imgwidth - (2 * $padding) - (2 * $imgpadding);;
+				background-color: #e7e7e7;
+			}
+		}
+		.product_info {
+			position: relative;
+			height: $height;
+			float: left;
+			color: $bgcolor;
+			div{
+				position: absolute;
+				width: 300px;
+				height: 154px;
+				top: 50%;
+				margin-top: -77px;
+				padding-left: 170px;
+			}
+			h3 {
+				font-size: 1.5 * $font;
+			}
+		}
+		
+	}
+	section:nth-child(even) {
+		background-color: rgba(0,0,0,0.15);
+		.img_box{
+			float: right;
+		}
+		.product_info
+		{
+			float: left;
+		}
+	}
+	section:nth-child(odd) {
+		background-color: rgba(0,0,0,0.1);
+		img {
+			background-color: #efefef;
+		}
+	}
+}

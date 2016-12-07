@@ -38,7 +38,6 @@ export default {
 @import '../sass/footer.scss';
   .footer{
     position: relative;
-    margin-top: 40px;
     @extend %width;
     height: $footerheight;
     background-color: #d4d4d4;

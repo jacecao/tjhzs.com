@@ -1,6 +1,6 @@
 <template>
   <div class="header-bar">
-    <ul>
+    <ul class="clearfix">
       <li class="time">
         <span class="small-time">{{day}}</span>
       </li>
@@ -21,7 +21,7 @@ export default {
     return {
       startime: '2017-3-20至22日',
       endtime: '2017-3-23至25日',
-      addr: '成都国际会展中心',
+      addr: '成都国际会展中心熊猫饺子',
       day: 12
     }
   }
@@ -33,7 +33,7 @@ export default {
 @import '../../sass/header.scss';
 .header-bar{
   position: absolute;
-  width: 420px;
+  // width: 420px;
   bottom: 6px;
   left: 200px;
 }
