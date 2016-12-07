@@ -3,7 +3,7 @@
     <div class="footer-box">
       <!-- 注意这里如果需要动态传入数据 需要使用v-bind来绑定props,使其认为式js运算 -->
       <block v-for="item in items" :info="item"></block>
-      <info></info>
+      <info/>
     </div>
   </div>
 </template>

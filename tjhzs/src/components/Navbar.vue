@@ -20,7 +20,7 @@ export default {
       // 这里得数据需要从服务器获取
       title: '和谐 / 包容 / 发展 / 共赢',
       logo: '../../static/images/header_logo.png',
-      // background: {background: '#fff'},
+      background: '',
       isActive: true
     }
   },

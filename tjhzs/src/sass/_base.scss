@@ -1,13 +1,15 @@
 $navheight: 50px;
 $navcolor: #868686;
+/* 文字hover时的色彩 */
 $hovercolor: #fe005b;
 $headerheight: 500px;
 $header-title-color: #fff;
 $font: 1em;
+/* 网页主要色彩 */ 
 $bgcolor: #32b16c;
 $footerheight: 250px;
 
-@mixin a_css($color) {
+@mixin a_css($color: inherit) {
 	text-decoration: none;
 	color: $color;
 }

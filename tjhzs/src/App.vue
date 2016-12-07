@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <div id="tjhzs">
     <navbar></navbar>
-    <headershow></headershow>
-    <maincontent></maincontent>
+    <headershow/>
+    <maincontent/>
     <appfooter></appfooter>
   </div>
 </template>

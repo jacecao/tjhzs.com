@@ -1,5 +1,9 @@
 <template>
-  <div class="footer-block" v-bind:style=" info.pointer ? style : ''">
+  <a v-if="info.pointer" :href="info.url ? info.url : '/'" class="footer-block" v-bind:style=" info.pointer ? style : ''">
+    <p class="title">{{info.title}}</p>
+    <p class="samlltitle">{{info.samlltitle}}</p>
+  </a>
+  <div v-else="info.pointer" class="footer-block" v-bind:style=" info.pointer ? style : ''">
     <p class="title">{{info.title}}</p>
     <p class="samlltitle">{{info.samlltitle}}</p>
   </div>

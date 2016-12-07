@@ -1,7 +1,7 @@
 <template>
-  <div v-bind:style="" class="header">
+  <div v-bind:style="bgimg" class="header">
     <div v-on:mousemove='hoverMover' class="mask"></div>
-    <headertitle></headertitle>
+    <headertitle />
   </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   name: 'header-show',
   data () {
     return {
-      bgimg: {backgroundImage: '-webkit-linear-gradient(top, rgba(20,20,20,0.5) 100%,rgba(20,20,20,0.5) 100%),url(../../static/images/header/headerbg.jpg)'}
+      bgimg: {backgroundImage: 'url(../../static/images/header/headerbg.jpg)'}
     }
   },
   methods: {
@@ -33,7 +33,6 @@ export default {
   @extend %width;
   height: $headerheight;
   background-color: #32b16c;
-  background-image: url(../../static/images/header/headerbg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 0;
