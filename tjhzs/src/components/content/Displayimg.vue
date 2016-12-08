@@ -1,7 +1,7 @@
 <template>
   <div class="display-img">
     <ul id="show_img">
-      <li>
+      <li >
         <a href="">
           <img src="../../../static/images/content/test.jpg" alt="...">
           <span>这里有一段你的说明文件来介绍这个东东</span>
@@ -14,12 +14,17 @@
 </template>
 
 <script>
+// import cont from '../../js/header/header.js'
 export default {
   name: 'main-content',
   data () {
     return {}
   },
-  components: {}
+  methods: {
+    greet: function () {
+      window.alert('hello')
+    }
+  }
 }
 </script>
 

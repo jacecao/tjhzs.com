@@ -4,15 +4,16 @@ $width: 740px;
 $imgtextbg: rgba(0,0,0,0.4);
 $textheight: 30px;
 $textcolor: #fff;
+$padding: 10px;
 /* show image css */ 
 %showsize {
-	$img-height: $height;
-	$img-width: $width;
-	height: $img-height;
-	width: $img-width;
+	height: $height - (2 * $padding);
+	width: $width - (2 * $padding);
 }
 .display-img{
 	@extend %showsize;
+	padding: $padding;
+	background-color: #eee;
 	// border: 2px solid #68abc6;
 	ul{
 		@extend %ul;
@@ -81,11 +82,11 @@ $textcolor: #fff;
 	}
 	#control_right
 	{
-		right: 0;
+		right: $padding;
 	}
 	#control_left
 	{
-		left: 0;
+		left: $padding;
 	}
 }
 
@@ -155,7 +156,7 @@ $textcolor: #fff;
 	height: $logoheight;
 	width: $logowidth;
 	position: absolute;
-	top: 20px;
+	top: 14px;
 	left: 0;
 	h3{
 		margin: 0;

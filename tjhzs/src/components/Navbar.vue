@@ -5,14 +5,15 @@
       <span>{{title}}</span>
     </div>
     <ul v-on:click='test'>
-      <li><a :class='{active: isActive}' href="/">首页</a></li>
-      <li><a href="">产品案例展示</a></li>
-      <li><a href="">关于我们</a></li>
+      <li><v-link href="/">首页</v-link></li>
+      <li><v-link href="/product">产品案例展示</v-link></li>
+      <li><v-link href="/about">关于我们</v-link></li>
     </ul>
   </div>
 </template>
 
 <script>
+import VLink from './link/VLink'
 export default {
   name: 'nav-bar',
   data () {
@@ -28,7 +29,8 @@ export default {
     test () {
       this.isActive = !this.isActive
     }
-  }
+  },
+  components: { VLink }
 }
 </script>
 

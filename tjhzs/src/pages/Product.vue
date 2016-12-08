@@ -1,20 +1,16 @@
 <template>
-  <div id="tjhzs_product">
-  	<nav-bar/>
+  <main-layout>
     <product/>
-    <app-footer/>
-  </div>
+  </main-layout>
 </template>
 
 <script>
 import Product from '../components/product/Product'
-import NavBar from '../components/Navbar'
-import HeaderShow from '../components/Headershow'
-import AppFooter from '../components/Appfooter'
+import MainLayout from '../layouts/Main'
 
 export default {
   name: 'tjhzs_product',
-  components: { Product, NavBar, HeaderShow, AppFooter }
+  components: { Product, MainLayout }
 }
 </script>
 
