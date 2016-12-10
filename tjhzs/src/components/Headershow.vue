@@ -2,16 +2,21 @@
   <div v-bind:style="bgimg" class="header">
     <div v-on:mousemove='hoverMover' class="mask"></div>
     <headertitle />
+    <!-- 绑定data数据到组件的props -->
+    <timer :time='day'/>
   </div>
 </template>
 
 <script>
 import Headertitle from './header/Headertitle'
+import Timer from './header/Timer.vue'
+
 export default {
   name: 'header-show',
   data () {
     return {
-      bgimg: {backgroundImage: 'url(../../static/images/header/headerbg.jpg)'}
+      bgimg: {backgroundImage: 'url(../../static/images/header/headerbg.jpg)'},
+      day: 24
     }
   },
   methods: {
@@ -20,7 +25,7 @@ export default {
     }
   },
   components: {
-    Headertitle
+    Headertitle, Timer
   }
 }
 </script>
