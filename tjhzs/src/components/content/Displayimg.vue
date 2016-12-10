@@ -1,29 +1,63 @@
 <template>
   <div class="display-img">
-    <ul id="show_img">
-      <li >
-        <a href="">
-          <img src="../../../static/images/content/test.jpg" alt="...">
-          <span>这里有一段你的说明文件来介绍这个东东</span>
+    <ul id="show_img" class="clearfix img_box">
+      <li v-for="item in items">
+        <a :href="item.url">
+          <img :src="item.imgurl">
+          <span>{{item.desc}}</span>
         </a>
       </li>
     </ul>
     <span class="control" id="control_left">&lt;</span>
-    <span class="control" id="control_right">&gt;</span>  
+    <span class="control" id="control_right">&gt;</span>
   </div>
 </template>
 
 <script>
-// import cont from '../../js/header/header.js'
+import play from '../../js/PlayImg.js'
 export default {
   name: 'main-content',
   data () {
-    return {}
+    return {
+      items: [
+        {
+          url: '/',
+          imgurl: '../../../static/images/content/1.jpg',
+          desc: '说明文件来介绍图片的故事'
+        },
+        {
+          url: '/',
+          imgurl: '../../../static/images/content/2.jpg',
+          desc: '说明文件来介绍图片的故事'
+        },
+        {
+          url: '/',
+          imgurl: '../../../static/images/content/3.jpg',
+          desc: '说明文件来介绍图片的故事'
+        },
+        {
+          url: '/',
+          imgurl: '../../../static/images/content/4.jpg',
+          desc: '说明文件来介绍图片的故事'
+        }
+      ]
+    }
   },
   methods: {
     greet: function () {
       window.alert('hello')
     }
+  },
+  mounted: function () {
+    // 轮播图控制
+    play({
+      step: 740, // 每次移动的总步长(也就是每张图片的宽度)
+      time: 4000, // 每张图片展示时长
+      fatherbox: '.display-img', // 父容器名字
+      imgbox: '.img_box',
+      prev: '#control_left',
+      next: '#control_right'
+    })
   }
 }
 </script>

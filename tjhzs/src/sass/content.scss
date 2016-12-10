@@ -7,16 +7,17 @@ $textcolor: #fff;
 $padding: 10px;
 /* show image css */ 
 %showsize {
-	height: $height - (2 * $padding);
-	width: $width - (2 * $padding);
+	height: $height;
+	width: $width;
 }
 .display-img{
 	@extend %showsize;
-	padding: $padding;
 	background-color: #eee;
-	// border: 2px solid #68abc6;
+	overflow: hidden;
 	ul{
 		@extend %ul;
+		position: absolute;
+		top: 0;
 	}
 	li{
 		@extend %showsize;
@@ -74,6 +75,7 @@ $padding: 10px;
 		}
 	}
 }
+
 .display-img:hover
 {
 	.control{
@@ -82,11 +84,11 @@ $padding: 10px;
 	}
 	#control_right
 	{
-		right: $padding;
+		right: 10px;
 	}
 	#control_left
 	{
-		left: $padding;
+		left: 10px;
 	}
 }
 

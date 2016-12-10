@@ -12,6 +12,7 @@
 import Displayimg from './content/Displayimg'
 import News from './content/News'
 import Hotel from './content/Hotel'
+
 export default {
   name: 'main-content',
   data () {

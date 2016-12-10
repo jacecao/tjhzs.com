@@ -1,5 +1,5 @@
 <template>
-  <div class="tjhzs_container">
+  <div class="tjhzs_container" style="{background-color: color}">
     <nav-bar/>
     <slot></slot>
     <app-footer/>
@@ -10,6 +10,7 @@
   import NavBar from '../components/Navbar.vue'
   import AppFooter from '../components/Appfooter.vue'
   export default {
+    props: ['color'],
     components: {
       NavBar, AppFooter
     }

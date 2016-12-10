@@ -1,14 +1,16 @@
 <template>
   <div class="product_box">
     <section v-for="item in items" class="clearfix">
-      <div class="img_box">
-        <img :src="item.img" :alt="item.title">
-      </div>
-      <div class="product_info">
-        <div>
-          <h3>{{item.title}}</h3>
-          <p>会期时间：{{item.time}}</p>
-          <p>洽谈酒店：{{item.hotel}}</p>
+      <div class="item_box">
+        <div class="img_box">
+          <img :src="item.img" :alt="item.title">
+        </div>
+        <div class="product_info">
+          <div class="info_box">
+            <h3>{{item.title}}</h3>
+            <p>会期时间：{{item.time}}</p>
+            <p>洽谈酒店：{{item.hotel}}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -58,7 +60,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import '../../sass/product.scss';
 .product_box{
   @extend %width;

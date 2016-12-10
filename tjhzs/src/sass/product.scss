@@ -3,15 +3,22 @@ $height: 400px;
 $imgwidth: 700px;
 $padding: 20px;
 $imgpadding: 20px;
+$color: #000;
 .product_box {
-	background-color: #f7f7f7;
+	background-color: #e6e6e6;
 	section {
+		.item_box{
+			@extend %mainwidth;
+		}
 		.img_box {
+			position: relative;
 			height: $height - (2 * $padding);
 			width: $imgwidth - (2 * $padding);
 			padding: $padding;
 			float: left;
 			img {
+				position: absolute;
+				left: 0;
 				padding: $imgpadding;
 				height: $height - (2 * $padding) - (2 * $imgpadding);
 				width: $imgwidth - (2 * $padding) - (2 * $imgpadding);;
@@ -22,7 +29,7 @@ $imgpadding: 20px;
 			position: relative;
 			height: $height;
 			float: left;
-			color: $bgcolor;
+			color: $color;
 			div{
 				position: absolute;
 				width: 300px;
