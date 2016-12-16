@@ -5,7 +5,7 @@
         v-on:mouseover="hover"
         v-on:mouseout='out'
       >
-        <span class="small-time">{{newday}}</span>
+        <span class="small-time">{{time.day}}</span>
       </li>
       <li class="weixin"></li>
       <li class="header-info">
@@ -14,18 +14,24 @@
         <p>展会地址：<span>{{addr}}</span></p>
       </li>
     </ul>
+    <timer :time="time" :isActive="isActive"/>
   </div>
 </template>
 
 <script>
+import Timer from './Timer.vue'
+import info from '../../data/index-header-message.js'
 export default {
   name: 'header-title',
+  props: {
+    time: Object
+  },
   data () {
     return {
-      startime: '2017-3-20至22日',
-      endtime: '2017-3-23至25日',
-      addr: '成都国际会展中心熊猫饺子',
-      day: 12
+      startime: info.startime,
+      endtime: info.endtime,
+      addr: info.addr,
+      isActive: false
     }
   },
   computed: {
@@ -33,19 +39,18 @@ export default {
       // 计算的属性会直接改变原来的属性
       // 如这里的day就已经改变了
       // 但需要注意的是不运行这个程序就不会有变化
-      return this.day * 2
+      // return this.day * 2
     }
   },
   methods: {
     hover: function () {
-      const timer = document.querySelector('#header_timer')
-      timer.className = 'header_timer'
+      this.isActive = true
     },
     out: function () {
-      const timer = document.querySelector('#header_timer')
-      timer.className = ''
+      this.isActive = false
     }
-  }
+  },
+  components: {Timer}
 }
 </script>
 
@@ -56,6 +61,6 @@ export default {
   position: absolute;
   // width: 420px;
   bottom: 6px;
-  left: 200px;
+  left: 0;
 }
 </style>

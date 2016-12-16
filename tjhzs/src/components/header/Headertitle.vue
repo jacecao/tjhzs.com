@@ -5,25 +5,29 @@
       <p>主办方：<span>{{zhuban}}</p>
       <p>承办方：<span>{{chengban}}</span></p>
     </div>
-    <span class="img-box">
-      <img :src="bigimg" alt="展馆图片">
-    </span>
-    <headerbar></headerbar>
+   <!--  <span class="img-box">
+      <img :src="pavilionimg" alt="展馆图片">
+    </span> -->
+    <headerbar :time='time'></headerbar>
   </div>
 </template>
 
 <script>
 import Headerbar from './Headerbar'
+import info from '../../data/index-header-message.js'
+
 export default {
   name: 'header-title',
+  props: {
+    time: Object
+  },
   data () {
     return {
-      city: '成都',
-      season: '春季',
-      zhuban: '中国糖业酒类集团公司',
-      chengban: '中糖新世纪国际会展有限公司',
-      smallimg: '../../../static/images/header/small.jpg',
-      bigimg: '../../../static/images/header/big.jpg'
+      city: info.city,
+      season: info.season,
+      zhuban: info.zhuban,
+      chengban: info.chengban,
+      pavilionimg: info.pavilionimg
     }
   },
   components: {
@@ -41,7 +45,7 @@ $height: 247px;
     position: absolute;
     height: $height;
     top:  ($headerheight - $height) / 2;
-    left: 72px;
+    left: 160px;
     color: $header-title-color;
     z-index: 2;
     $color: #00ab88;

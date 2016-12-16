@@ -1,5 +1,5 @@
 <template>
-  <div class="tjhzs_container" style="{background-color: color}">
+  <div id="tjhzs_container" style="{background-color: color}">
     <nav-bar/>
     <slot></slot>
     <app-footer/>
@@ -23,7 +23,7 @@ body{
   background-color: #f7f8f8;
   @extend %width;
 }
-#app {
+#tjhzs_container {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

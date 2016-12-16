@@ -1,5 +1,5 @@
 <template>
-  <div class="app-content">
+  <div class="tjhzs-content">
     <section class="main-content">
       <displayimg></displayimg>
       <news></news>
@@ -27,7 +27,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import '../sass/_base.scss';
-  .app-content{
+  .tjhzs-content{
     margin: 30px 0;
   }
   .main-content{
