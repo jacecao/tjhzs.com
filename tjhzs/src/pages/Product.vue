@@ -1,13 +1,12 @@
 <template>
-  <product/>
+  <card/>
 </template>
 
 <script>
-import Product from '../components/product/Product'
-
+import Card from '../components/product/Card'
 export default {
   name: 'tjhzs_product',
-  components: { Product }
+  components: { Card }
 }
 </script>
 

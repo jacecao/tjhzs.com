@@ -40,7 +40,7 @@ export default {
     position: relative;
     @extend %width;
     height: $footerheight;
-    background-color: #a5a5a5;
+    background-color: #e2e2e2;
   }
 
 </style>

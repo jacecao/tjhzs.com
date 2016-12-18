@@ -1,6 +1,6 @@
 // 定路由组件
 import Home from './pages/Home'
-import Product from './components/product/Product'
+import Product from './pages/product'
 import news from './pages/news'
 // import Undefined from './pages/404'
 
