@@ -3,7 +3,7 @@
     <p class="title">{{info.title}}</p>
     <p class="samlltitle">{{info.samlltitle}}</p>
   </a>
-  <div v-else="info.pointer" class="footer-block" v-bind:style=" info.pointer ? style : ''">
+  <div v-else class="footer-block" v-bind:style=" info.pointer ? style : ''">
     <p class="title">{{info.title}}</p>
     <p class="samlltitle">{{info.samlltitle}}</p>
   </div>

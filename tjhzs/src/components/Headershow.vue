@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:style="bgimg" class="header">
+  <div v-bind:style="bgimg" class="header-show">
     <div v-on:mousemove='hoverMover' class="mask"></div>
     <!-- 绑定data数据到组件的props -->
     <headertitle :time='timerobj' />
@@ -33,7 +33,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import '../sass/_base.scss';
-.header{
+.header-show{
   position: relative;
   @extend %width;
   height: $headerheight;

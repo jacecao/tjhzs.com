@@ -1,24 +1,19 @@
 import Vue from 'vue'
-import routes from './routes'
+import VueRouter from 'vue-router'
+import routes from './routes.js'
+import Main from './layouts/Main'
 
-const app = new Vue({
-  el: '#app',
-  data: {
-    currentRoute: window.location.pathname
-  },
-  computed: {
-    ViewComponent () {
-      const matchingView = routes[this.currentRoute]
-      return matchingView
-        ? require('./pages/' + matchingView + '.vue')
-        : require('./pages/404.vue')
-    }
-  },
-  render (h) {
-    return h(this.ViewComponent)
-  }
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  base: __dirname,
+  routes: routes
 })
 
-window.addEventListener('popstate', () => {
-  app.currentRoute = window.location.pathname
-})
+new Vue({
+  router: router,
+  // 加入主视图模块
+  // 其他模块根据路径按需加载
+  render: (h) => h(Main)
+}).$mount('#app')
+

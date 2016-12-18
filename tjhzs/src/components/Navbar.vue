@@ -1,36 +1,29 @@
 <template>
-  <div :style="background" class="nav-bar">
+  <header class="nav-bar">
     <div class="logo">
       <a href="/"><img v-bind:src="logo" alt="HBHZ"></a>
       <span>{{title}}</span>
     </div>
-    <ul v-on:click='test'>
-      <li><v-link href="/">首页</v-link></li>
-      <li><v-link href="/product">产品案例展示</v-link></li>
-      <li><v-link href="/about">关于我们</v-link></li>
+    <ul>
+      <li><router-link to="/" active-class="active">首页</router-link></li>
+      <li><router-link to="/product" active-class="active">产品案例展示</router-link></li>
+      <li><router-link to="/about" active-class="active">关于我们</router-link></li>
     </ul>
-  </div>
+  </header>
 </template>
 
 <script>
-import VLink from './link/VLink'
+// import VLink from './link/VLink'
 export default {
   name: 'nav-bar',
   data () {
     return {
       // 这里得数据需要从服务器获取
       title: '和谐 / 包容 / 发展 / 共赢',
-      logo: '../../static/images/header_logo.png',
-      background: '',
-      isActive: true
+      logo: '../../static/images/header_logo.png'
     }
-  },
-  methods: {
-    test () {
-      this.isActive = !this.isActive
-    }
-  },
-  components: { VLink }
+  }
+  // components: { VLink }
 }
 </script>
 

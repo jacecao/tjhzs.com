@@ -3,9 +3,9 @@
     <h3>我们新动态</h3>
     <ul>
       <li v-for="item in items">
-        <a v-bind:href="item.url" v-bind:title="item.title">
+        <router-link v-bind:to="item.url" v-bind:title="item.title">
           <h4>{{item.title}}</h4><span>{{item.time}}</span>
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -18,38 +18,38 @@ export default {
     return {
       items: [
         {
-          url: '/',
+          url: '/news/1',
           title: '这是一测试信息显示条，正在测试中',
           time: '2016-12-05'
         },
         {
-          url: '/',
+          url: '/news/2',
           title: '这是一测试信息显示条，正在测试中',
           time: '2016-12-05'
         },
         {
-          url: '/',
+          url: '/news/3',
           title: '这是一测试信息显示条，正在测试中',
           time: '2016-12-05'
         },
         {
-          url: '/',
+          url: '/news/4',
           title: '这是一测试信息显示条，正在测试中',
           time: '2016-12-05'
         },
         {
-          url: '/',
+          url: '/news/5',
           title: '这是一测试信息显示条，正在测试中',
           time: '2016-12-05'
         },
         {
-          url: '/',
+          url: '/news/6',
           title: '这是一测试信息显示条，正在测试中',
           time: '2016-12-05'
         },
         {
-          url: '/',
-          title: '这是一测试信息显示条，正在测试中',
+          url: '/news/7',
+          title: '7这是一测试信息显示条，正在测试中7',
           time: '2016-12-05'
         }
       ]

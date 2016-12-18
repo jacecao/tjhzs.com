@@ -2,6 +2,8 @@ $navheight: 50px;
 $navcolor: #868686;
 /* 文字hover时的色彩 */
 $hovercolor: #fe005b;
+$pcolor: #555;
+$hcolor: #424141;
 $headerheight: 500px;
 $header-title-color: #fff;
 $font: 1em;
@@ -33,12 +35,12 @@ $footerheight: 250px;
 %width {
 	width: 100%;
   min-width: 1200px;
+  max-width: 1360px;
   margin: 0 auto;
 }
 
 %mainwidth {
   width: 1200px;
-  min-width: 1200px;
   margin: 0 auto;
 }
 

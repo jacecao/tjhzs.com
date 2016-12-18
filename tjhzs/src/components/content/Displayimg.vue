@@ -1,11 +1,15 @@
 <template>
   <div class="display-img">
     <ul id="show_img" class="clearfix img_box">
-      <li v-for="item in items">
+      <li v-if='isLink' v-for="item in items">
         <a :href="item.url">
           <img :src="item.imgurl">
           <span>{{item.desc}}</span>
         </a>
+      </li>
+      <li v-else v-for="item in items">
+        <img :src="item.imgurl">
+        <span>{{item.desc}}</span>
       </li>
     </ul>
     <span class="control" id="control_left">&lt;</span>
@@ -17,6 +21,12 @@
 import play from '../../js/PlayImg.js'
 export default {
   name: 'main-content',
+  props: {
+    isLink: {
+      type: Boolean,
+      default: true
+    }
+  },
   data () {
     return {
       items: [

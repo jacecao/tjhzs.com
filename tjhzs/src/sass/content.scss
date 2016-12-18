@@ -27,25 +27,25 @@ $padding: 10px;
 		overflow: hidden;
 		a{
 			display: block;
-			img{
-				@extend %showsize;
-			}
+		}
+		img{
+			@extend %showsize;
+		}
+		span{
+			display: block;
+			position: absolute;
+			background-color: $imgtextbg;
+			bottom: -$textheight;
+			width: 100%;
+			height: $textheight;
+			line-height: $textheight;
+			padding: 0 10px 0 10px;
+			transition: all 500ms;
+			color: $textcolor;
+		}
+		&:hover{
 			span{
-				display: block;
-				position: absolute;
-				background-color: $imgtextbg;
-				bottom: -$textheight;
-				width: 100%;
-				height: $textheight;
-				line-height: $textheight;
-				padding: 0 10px 0 10px;
-				transition: all 500ms;
-				color: $textcolor;
-			}
-			&:hover{
-				span{
-					bottom: 0;
-				}
+				bottom: 0;
 			}
 		}
 	}
@@ -107,6 +107,7 @@ $padding: 10px;
 	}
 	ul{
 		@extend %ul;
+		padding: 0 10px;
 		$li-height: 40px;
 		$textColor: #7d7d7d;
 		li{
@@ -125,7 +126,7 @@ $padding: 10px;
 			}
 			h4 {
 				display: inline;
-				@include break(310px);
+				@include break(290px);
 				margin: 0;
 				padding: 0;
 				font-size: 0.9 * $font;

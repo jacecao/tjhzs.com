@@ -1,7 +1,8 @@
 <template>
   <div id="tjhzs_container" style="{background-color: color}">
     <nav-bar/>
-    <slot></slot>
+    <header-show/>
+    <router-view></router-view>
     <app-footer/>
   </div>
 </template>
@@ -9,10 +10,11 @@
 <script>
   import NavBar from '../components/Navbar.vue'
   import AppFooter from '../components/Appfooter.vue'
+  import HeaderShow from '../components/Headershow.vue'
   export default {
     props: ['color'],
     components: {
-      NavBar, AppFooter
+      NavBar, HeaderShow, AppFooter
     }
   }
 </script>
