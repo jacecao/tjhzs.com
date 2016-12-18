@@ -4,6 +4,12 @@
 
 <script>
 import Card from '../components/product/Card'
+// Card.data = () => {
+//   return {
+//     item: 'asdasdasdasd',
+//     desc: 'sssssssssss'
+//   }
+// }
 export default {
   name: 'tjhzs_product',
   components: { Card }

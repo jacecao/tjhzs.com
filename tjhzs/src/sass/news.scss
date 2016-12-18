@@ -21,13 +21,14 @@
 		width: 740px;
 		margin: 30px auto;
 		padding: 0;
-		border-bottom: 1px solid #32b16c;
+		// border-bottom: 1px solid #32b16c;
 	}
 	.new-content{
 		p{
 			text-indent: 2em;
 			line-height: 2 * $font;
 			color: $pcolor;
+			font-size: 1.1 * $font
 		}
 	}
 }
