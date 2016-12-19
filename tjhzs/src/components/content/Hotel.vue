@@ -6,10 +6,10 @@
     </div>
     <ul class="hotel-list">
       <li v-for="item in items">
-        <a class="img-box" v-bind:href="item.url">
+        <router-link class="img-box" :to="item.url">
           <img :src="item.imgsrc" alt="">
           <span>{{item.title}}</span>
-        </a>
+        </router-link>
       </li>
     </ul>
   </section>
@@ -23,22 +23,22 @@ export default {
       title: '热点商务洽谈酒店介绍',
       items: [
         {
-          url: '/',
+          url: '/hotels/1',
           title: '成都市锦江宾馆',
           imgsrc: '../../../static/images/hotel/one.jpg'
         },
         {
-          url: '/',
+          url: '/hotels/2',
           title: '这是正在测试中',
           imgsrc: '../../../static/images/hotel/one.jpg'
         },
         {
-          url: '/',
+          url: '/hotels/3',
           title: '成都市锦江宾馆',
           imgsrc: '../../../static/images/hotel/one.jpg'
         },
         {
-          url: '/',
+          url: '/hotels/3',
           title: '成都市锦江宾馆',
           imgsrc: '../../../static/images/hotel/one.jpg'
         }
@@ -57,7 +57,7 @@ export default {
   position: relative;
   background: #eee;
   height: 150px;
-  margin-top: 30px;
+  margin-top: 80px;
   background-color: $bgcolor;
 }
 </style>

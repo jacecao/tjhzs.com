@@ -1,14 +1,16 @@
 <template>
-  <div class="display-img">
-    <ul id="show_img" class="clearfix img_box">
-      <li v-if='isLink' v-for="item in items">
+  <div class="display-img" :style="_style_">
+    <ul v-if='isLink' id="show_img" class="clearfix img_box">
+      <li v-for="item in images" :style='size'>
         <a :href="item.url">
-          <img :src="item.imgurl">
+          <img :src="item.imgurl" :style='size'>
           <span>{{item.desc}}</span>
         </a>
       </li>
-      <li v-else v-for="item in items">
-        <img :src="item.imgurl">
+    </ul>
+    <ul v-else id="show_img" class="clearfix img_box">
+      <li v-for="item in images" :style='size'>
+        <img :src="item.imgurl" :style='size'>
         <span>{{item.desc}}</span>
       </li>
     </ul>
@@ -22,47 +24,39 @@ import play from '../../js/PlayImg.js'
 export default {
   name: 'main-content',
   props: {
+    // 是否含有链接
     isLink: {
       type: Boolean,
       default: true
-    }
-  },
-  data () {
-    return {
-      items: [
-        {
-          url: '/',
-          imgurl: '../../../static/images/content/1.jpg',
-          desc: '说明文件来介绍图片的故事'
-        },
-        {
-          url: '/',
-          imgurl: '../../../static/images/content/2.jpg',
-          desc: '说明文件来介绍图片的故事'
-        },
-        {
-          url: '/',
-          imgurl: '../../../static/images/content/3.jpg',
-          desc: '说明文件来介绍图片的故事'
-        },
-        {
-          url: '/',
-          imgurl: '../../../static/images/content/4.jpg',
-          desc: '说明文件来介绍图片的故事'
+    },
+    // 轮播图尺寸
+    size: {
+      type: Object,
+      default () {
+        return {
+          height: '300px',
+          width: '740px'
         }
-      ]
-    }
+      }
+    },
+    // 轮播图CSS
+    style: Object,
+    // 轮播图图片
+    images: Array
   },
-  methods: {
-    greet: function () {
-      window.alert('hello')
+  computed: {
+    _style_: function () {
+      // 将尺寸和元素定位反应给父元素
+      // 这里使用了ES6中赋值对象功能
+      return Object.assign(this.size, this.style)
     }
   },
   mounted: function () {
+    let _step = parseInt(this.size.width)
     // 轮播图控制
     play({
-      step: 740, // 每次移动的总步长(也就是每张图片的宽度)
-      time: 4000, // 每张图片展示时长
+      step: _step, // 每次移动的总步长(也就是每张图片的宽度)
+      time: 5000, // 每张图片展示时长
       fatherbox: '.display-img', // 父容器名字
       imgbox: '.img_box',
       prev: '#control_left',
@@ -77,7 +71,10 @@ export default {
 @import '../../sass/content.scss';
   .display-img{
     position: relative;
-    float: left;
+    margin: 0 auto;
+    // height: 300px;
+    // width: 740px;
+    // float: left;
     // background-color: #32b16c;
   }
 </style>

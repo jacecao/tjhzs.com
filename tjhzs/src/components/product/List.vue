@@ -1,25 +1,22 @@
 <template>
-  <div class="tjhzs-content">
-    <section class="main-content">
-      <displayimg :style="style" :images='images'></displayimg>
-      <news></news>
-    </section>
-    <Hotel></Hotel> 
-  </div>
+	<section class="product-list" :style="bgcolor">
+		<h3>{{item}}</h3>
+		<span>实力设计、创意无敌</span>
+		<span>彰显品牌实力</span>
+		<play-img :isLink="false" :images="images"/>
+		<span class="color-text">{{desc}}</span>
+	</section>
 </template>
 
 <script>
-import Displayimg from './content/Displayimg'
-import News from './content/News'
-import Hotel from './content/Hotel'
+import PlayImg from '../content/Displayimg.vue'
 
 export default {
-  name: 'main-content',
+  name: 'list',
   data () {
     return {
-      style: {
-        'float': 'left'
-      },
+      item: '展台制作案例展示',
+      desc: '用心设计 —— 匠心制作',
       images: [
         {
           url: '/',
@@ -41,25 +38,19 @@ export default {
           imgurl: '../../../static/images/content/4.jpg',
           desc: '说明文件来介绍图片的故事'
         }
-      ]
+      ],
+      bgcolor: {backgroundColor: '#fff'}
     }
   },
   components: {
-    Displayimg, News, Hotel
+    PlayImg
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@import '../sass/_base.scss';
-  .tjhzs-content{
-    margin: 60px auto;
-  }
-  .main-content{
-    @extend %mainwidth;
-    position: relative;
-    // background: #fff;
-    height: 300px;
-  }
+	@import '../../sass/product.scss';
+	.product-list{
+		@extend %middlewidth;
+	}
 </style>

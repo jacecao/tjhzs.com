@@ -1,5 +1,5 @@
 <template>
-	<section class="product-item">
+	<section class="product-item" :style="cardStyle">
 		<h3>{{item}}</h3>
 		<div class="item-img-box">
 			<img :src="img" alt="">
@@ -12,6 +12,9 @@
 <script>
 export default {
   name: 'card',
+  props: {
+    cardStyle: Object
+  },
   data () {
     return {
       item: '展示设计',
@@ -23,5 +26,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-	@import '../../sass/product.scss'
+	@import '../../sass/product.scss';
 </style>

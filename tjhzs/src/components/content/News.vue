@@ -68,7 +68,7 @@ $width: 400px;
     float: right;
     height: $height;
     width: $width;
-    // background-color: #32b16c;
+    background-color: #fff;
     overflow: hidden;
   }
 </style>

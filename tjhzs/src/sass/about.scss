@@ -1,0 +1,54 @@
+@import './_base.scss';
+$width: 504px;
+.tjhzs_about{
+	.about_list{
+		width: $width;
+		margin: 50px auto;
+	}
+	.head{
+		margin-bottom: 30px;
+		text-align: center;
+		.title {
+			font-size: 24px;
+			height: 30px;
+			line-height: 30px;
+			display: flex;
+			-webkit-box-flex: 1;
+			-webkit-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
+			&::before{
+				margin-right: 20px;
+				content: ' ';
+				display: inline-block;
+				border-top: 1.5px solid #ccc;
+				left: 0;
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				-ms-flex: 1;
+				flex: 1;
+				height: 0px;
+				margin-top: 14px;
+			}
+			&::after{
+				margin-left: 20px;
+				content: ' ';
+				display: inline-block;
+				border-top: 1.5px solid #ccc;
+				right: 0;
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				-ms-flex: 1;
+				flex: 1;
+				height: 0px;
+				margin-top: 14px;
+			}
+		}
+	}
+	p{
+		font-size: 16px;
+		color: #242729;
+		line-height: 28px;
+		text-align: center;
+	}
+}

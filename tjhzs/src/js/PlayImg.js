@@ -150,7 +150,7 @@ export default function (config) {
 
   // 自动播放功能
   var play = function () {
-    TIMER = setInterval(nextMover, 3000)
+    TIMER = setInterval(nextMover, config.time)
   }
   play()
   // 停止自动播放

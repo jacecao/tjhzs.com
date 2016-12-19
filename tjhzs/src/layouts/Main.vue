@@ -1,5 +1,5 @@
 <template>
-  <div id="tjhzs_container" style="{background-color: color}">
+  <div id="tjhzs_container">
     <nav-bar/>
     <header-show/>
     <router-view></router-view>
@@ -12,7 +12,6 @@
   import AppFooter from '../components/Appfooter.vue'
   import HeaderShow from '../components/Headershow.vue'
   export default {
-    props: ['color'],
     components: {
       NavBar, HeaderShow, AppFooter
     }

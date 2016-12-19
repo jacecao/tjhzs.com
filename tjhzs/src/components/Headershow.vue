@@ -13,9 +13,16 @@ import timer from '../js/timer.js'
 
 export default {
   name: 'header-show',
+  props: {
+    bgimg: {
+      type: Object,
+      default () {
+        return info.backgroundImage
+      }
+    }
+  },
   data () {
     return {
-      bgimg: info.backgroundImage,
       timerobj: timer(info.startime)
     }
   },
