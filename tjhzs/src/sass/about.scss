@@ -4,6 +4,12 @@ $width: 504px;
 	.about_list{
 		width: $width;
 		margin: 50px auto;
+		p{
+			font-size: 16px;
+			color: #242729;
+			line-height: 28px;
+			text-align: center;
+		}
 	}
 	.head{
 		margin-bottom: 30px;
@@ -45,10 +51,59 @@ $width: 504px;
 			}
 		}
 	}
-	p{
-		font-size: 16px;
-		color: #242729;
-		line-height: 28px;
-		text-align: center;
+	
+	.conrow{
+		display: flex;
+		font-size: $font;
+		text-align: left;
+		.item{
+			-webkit-box-flex: 1;
+			flex: 1;
+			height: 30px;
+			margin: 10px 0;
+			span{
+				vertical-align: text-bottom;
+			}
+			.icons{
+				font-size: 24px;
+				margin-right: 10px;
+			}
+			.icon-house{
+				color: #8bc34a;
+				&::before{
+					content: '\e903';
+				}
+			}
+			.icon-travel{
+				color: #cddc39;
+				&::before{
+					content: '\e90f';
+				}
+			}
+			.icon-film{
+				color: #00dfff;
+				&::before{
+					content: '\e913';
+				}
+			}
+			.icon-learn{
+				color: #ffc107;
+				&::before{
+					content: '\e920';
+				}
+			}
+			.icon-money{
+				color: #673ab7;
+				&::before{
+					content: '\e93e';
+				}
+			}
+			.icon-heart{
+				color: #e91e63;
+				&::before{
+					content: '\e9da';
+				}
+			}
+		}
 	}
 }
