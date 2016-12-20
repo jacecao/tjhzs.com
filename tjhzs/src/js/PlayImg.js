@@ -14,6 +14,7 @@
 //   });
 // };
 // initStart 轮播动画起始位置
+
 export default function (config) {
   // 每次移动的总步长(也就是每张图片的宽度)
   const step = config.step
@@ -38,7 +39,6 @@ export default function (config) {
   var next = container.querySelector(config.next)
   var buttons = config.button ? container.querySelectorAll(config.button) : false
   TOTAL = list.length - 1
-  console.log(TOTAL + 1)
   RANGE = TOTAL * step
   // 设置ul的宽度
   WIDTH = list.length * step

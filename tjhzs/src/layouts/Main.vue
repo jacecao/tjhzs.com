@@ -2,6 +2,7 @@
   <div id="tjhzs_container">
     <nav-bar/>
     <header-show/>
+    <!-- 注意这里有一个问题加入过渡后轮播动画有问题 -->
     <transition name="slide-fade">
       <router-view></router-view>
     </transition>

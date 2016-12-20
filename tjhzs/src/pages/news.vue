@@ -20,9 +20,7 @@ import NewsData from '../data/newsData.js'
 export default {
   name: 'news_page',
   data () {
-    return {
-      // images: this.news.images
-    }
+    return {}
   },
   computed: {
     news: function () {

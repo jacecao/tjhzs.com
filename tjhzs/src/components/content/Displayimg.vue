@@ -54,7 +54,6 @@ export default {
   mounted: function () {
     let _step = parseInt(this.size.width)
     // 轮播图控制
-    const _len = this.images.length
     play({
       step: _step, // 每次移动的总步长(也就是每张图片的宽度)
       time: 5000, // 每张图片展示时长
@@ -63,7 +62,6 @@ export default {
       prev: '#control_left',
       next: '#control_right'
     })
-    console.log(_len + ' ' + this.images.length)
   }
 }
 </script>
