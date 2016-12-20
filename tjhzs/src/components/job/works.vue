@@ -1,20 +1,18 @@
 <template>
   <div class="tjhzs_job_content">
-    <div class="job_item">
+    <div v-for="job in Jobs" class="job_item">
       <div class="title">
-        <span class="name">销售经理</span>
-        <span class="note">(带团队、做全局销售规划)</span>
+        <span class="name">{{job.name}}</span>
+        <span class="note">({{job.note}})</span>
       </div>
       <div class="location">
-        <span>位置：</span><span>成都</span>
+        <span>位置：</span><span>{{job.location}}</span>
       </div>
       <div class="requirement">
-        <span>要求：</span><span>具备销售工作经验、能有工作担当、攻坚期能抗压力和加班、对销售前景有很好的预测和规划</span>
+        <span>要求：</span><span>{{job.requirement}}</span>
       </div>
       <div class="job_des">岗位描述
-        <p>1、带领团队运作指定项目;</p>
-        <p>2、对项目销售做前期规划;</p>
-        <p>3、完成和严格执行公司高层的销售安排;</p>
+        <p v-for="(text, index) in job.describe">{{index+1}}、{{text}};</p>
       </div>
     </div>
   </div>  
@@ -23,6 +21,9 @@
 <script>
 export default {
   name: 'job_content',
+  props: {
+    Jobs: Array
+  },
   data () {
     return {}
   }
@@ -32,7 +33,7 @@ export default {
 <style lang="scss">
 @import '../../sass/about.scss';
 .tjhzs_job_content{
-	padding: 40px 0;
+	padding: 20px 0 40px 0;
   margin-bottom: 100px;
   border-top: 2px solid #ccc;
   border-bottom: 2px solid #ccc;
@@ -42,6 +43,7 @@ export default {
     position: relative;
     top: 0px;
     padding: 0 50px;
+    margin-top: 30px;
     height: auto;
     line-height: 36px;
 

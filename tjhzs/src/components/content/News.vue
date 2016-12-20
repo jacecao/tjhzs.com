@@ -1,9 +1,9 @@
 <template>
   <div class="news">
-    <h3>我们新动态</h3>
+    <h3>我们最新动态</h3>
     <ul>
-      <li v-for="item in items">
-        <router-link v-bind:to="item.url" v-bind:title="item.title">
+      <li v-for="item in news">
+        <router-link v-bind:to="'/news/'+item.id" v-bind:title="item.title">
           <h4>{{item.title}}</h4><span>{{item.time}}</span>
         </router-link>
       </li>
@@ -12,47 +12,19 @@
 </template>
 
 <script>
+// 加载新闻数据
+import NewsData from '../../data/newsData.js'
 export default {
   name: 'news',
   data () {
     return {
-      items: [
-        {
-          url: '/news/1',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        },
-        {
-          url: '/news/2',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        },
-        {
-          url: '/news/3',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        },
-        {
-          url: '/news/4',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        },
-        {
-          url: '/news/5',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        },
-        {
-          url: '/news/6',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        },
-        {
-          url: '/news/7',
-          title: '7这是一测试信息显示条，正在测试中7',
-          time: '2016-12-05'
-        }
-      ]
+      items: NewsData
+    }
+  },
+  computed: {
+    news: function () {
+      // 这里只获取最新的6条新闻数据
+      return this.items.slice(0, 6)
     }
   },
   components: {}

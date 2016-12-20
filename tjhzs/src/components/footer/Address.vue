@@ -1,20 +1,19 @@
 <template>
   <div class="footer-address">
-    <p>{{name}}</p>
-    <p>地址：{{address}}</p>
-    <p>备案号：{{webinfo}}</p>
+    <p>{{webinfo.name}}</p>
+    <p>地址：{{webinfo.address}}</p>
+    <p>备案号：{{webinfo.number}}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: 'address',
+  props: {
+    webinfo: Object
+  },
   data () {
-    return {
-      name: '成都和邦会议展览服务有限公司',
-      address: '成都市下南大街2号宏达国际广场8楼6-12号(总部)',
-      webinfo: '京ICP备10037209'
-    }
+    return {}
   },
   components: {}
 }

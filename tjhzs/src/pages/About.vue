@@ -1,23 +1,11 @@
 <template>
   <div class="tjhzs_about">
-  	<section class="about_list future">
+  	<section v-for='item in info' class="about_list">
       <div class="head">
-        <div class="title">我们的愿景</div>
+        <div class="title">{{item.title}}</div>
       </div>
       <div class="content">
-        <p>未来的我们将融合大数据</p>
-        <p>会展的优势将会体现的更加优越</p>
-        <p>助力企业更快更好的发展</p>
-      </div>
-    </section>
-    <section class="about_list about_us">
-      <div class="head">
-        <div class="title">关于我们</div>
-      </div>
-      <div class="content">
-        <p>成都和邦会议展览服务有限公司</p>
-        <p>我们全心全意服务于全国糖酒会</p>
-        <p>设计、销售、推广为一体的会展服务公司</p>
+        <p v-for="text in item.content">{{text}}</p>
       </div>
     </section>
     <section class="about_list about_weal">
@@ -54,18 +42,27 @@
           </div>
       </div>
     </section>
-    <job-head/>
-    <Works/>
+    <job-head :contact="Work.contact"/>
+    <Works :Jobs="Work.jobs"/>
   </div>  
 </template>
 
 <script>
 import JobHead from '../components/job/Jobheader'
 import Works from '../components/job/works'
+// 加载公司简介数据
+import aboutINFO from '../data/about.js'
+// 加载招聘数据
+import Jobs from '../data/jobs.js'
+
 export default {
   name: 'tjhzs_about',
   data () {
-    return {}
+    return {
+      info: aboutINFO.tjhzs,
+      // 这里的数据将传给工作子组件
+      Work: Jobs
+    }
   },
   components: {JobHead, Works}
 }

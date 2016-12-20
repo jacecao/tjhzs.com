@@ -3,7 +3,7 @@
     <div class="title">招聘岗位</div>
     <div class="email">
       <span>简历投递邮箱：</span>
-      <span class="hrEmail">hrxbvip@163.com</span>
+      <span class="hrEmail">{{contact.email}}</span>
     </div>
   </div>  
 </template>
@@ -11,6 +11,9 @@
 <script>
 export default {
   name: 'job_head',
+  props: {
+    contact: Object
+  },
   data () {
     return {}
   }

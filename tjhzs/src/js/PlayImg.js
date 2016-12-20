@@ -38,6 +38,7 @@ export default function (config) {
   var next = container.querySelector(config.next)
   var buttons = config.button ? container.querySelectorAll(config.button) : false
   TOTAL = list.length - 1
+  console.log(TOTAL + 1)
   RANGE = TOTAL * step
   // 设置ul的宽度
   WIDTH = list.length * step

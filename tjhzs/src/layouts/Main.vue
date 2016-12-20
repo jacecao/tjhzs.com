@@ -2,7 +2,9 @@
   <div id="tjhzs_container">
     <nav-bar/>
     <header-show/>
-    <router-view></router-view>
+    <transition name="slide-fade">
+      <router-view></router-view>
+    </transition>
     <app-footer/>
   </div>
 </template>
@@ -47,5 +49,20 @@ body{
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+// 路由过渡动画
+.slide-fade-enter-active {
+  transition: all .4s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-leave-active {
+  transform: translateX(10px);
+  opacity: 0;
+}
+.slide-fade-enter {
+  transform: translateX(-10px);
+  opacity: 0;
 }
 </style>
