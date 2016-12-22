@@ -52,7 +52,7 @@ a:hover, .active{
 .logo{
   position: absolute;
   width: auto;
-  left: 200px;
+  left: 240px;
   span {
     display: inline-block;
     color: $navcolor;
@@ -69,7 +69,7 @@ a:hover, .active{
 
 ul{
   position: absolute;
-  right: 280px;
+  right: 200px;
   width: 300px;
   margin: 0;
   li{

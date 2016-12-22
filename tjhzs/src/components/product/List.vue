@@ -1,10 +1,10 @@
 <template>
-	<section class="product-list" :style="bgcolor">
-		<h3>{{item}}</h3>
-		<span>实力设计、创意无敌</span>
-		<span>彰显品牌实力</span>
-		<play-img :isLink="false" :images="images"/>
-		<span class="color-text">{{desc}}</span>
+	<section class="product-list" :style="bgcolor" :key="index">
+		<h3>{{item.title}}</h3>
+		<span>{{item.note[0]}}</span>
+		<span>{{item.note[1]}}</span>
+		<play-img :isLink="false" :images="item.images"/>
+		<span class="color-text">{{item.ad}}</span>
 	</section>
 </template>
 
@@ -13,6 +13,10 @@ import PlayImg from '../content/Displayimg.vue'
 
 export default {
   name: 'list',
+  props: {
+    index: Number,
+    item: Object
+  },
   data () {
     return {
       item: '展台制作案例展示',

@@ -2,13 +2,13 @@
   <section class="hotel-content">
     <div class="hot-logo">
       <h3><span class="red">HOT</span><span>EL</span></h3>
-      <span class="title">{{title}}</span>
+      <span class="title">热点商务洽谈酒店介绍</span>
     </div>
     <ul class="hotel-list">
       <li v-for="item in items">
-        <router-link class="img-box" :to="item.url">
-          <img :src="item.imgsrc" alt="">
-          <span>{{item.title}}</span>
+        <router-link class="img-box" :to="'/hotels/' + item.id">
+          <img :src="item.images[0].imgurl" alt="">
+          <span>{{item.name}}</span>
         </router-link>
       </li>
     </ul>
@@ -16,33 +16,14 @@
 </template>
 
 <script>
+// 加载热门酒店数据
+import Hotels from '../../data/hotelData.js'
+
 export default {
   name: 'hotels',
   data () {
     return {
-      title: '热点商务洽谈酒店介绍',
-      items: [
-        {
-          url: '/hotels/1',
-          title: '成都市锦江宾馆',
-          imgsrc: '../../../static/images/hotel/one.jpg'
-        },
-        {
-          url: '/hotels/2',
-          title: '这是正在测试中',
-          imgsrc: '../../../static/images/hotel/one.jpg'
-        },
-        {
-          url: '/hotels/3',
-          title: '成都市锦江宾馆',
-          imgsrc: '../../../static/images/hotel/one.jpg'
-        },
-        {
-          url: '/hotels/3',
-          title: '成都市锦江宾馆',
-          imgsrc: '../../../static/images/hotel/one.jpg'
-        }
-      ]
+      items: Hotels
     }
   },
   components: {}

@@ -28,7 +28,6 @@ $color-text: #00bcd4;
 		margin: $padding;
 		overflow: hidden;
 		height: $imgheight;
-		background-image: url(../../../static/images/product/park_01.jpg);
 		background-size: cover;
 		img{
 			@extend %absolute;
