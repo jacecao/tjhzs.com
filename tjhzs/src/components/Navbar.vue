@@ -50,9 +50,9 @@ a:hover, .active{
   border: 1px solid #e2e2e2;
 }
 .logo{
-  float: left;
+  position: absolute;
   width: auto;
-  margin-left: 150px;
+  left: 200px;
   span {
     display: inline-block;
     color: $navcolor;
@@ -68,10 +68,10 @@ a:hover, .active{
 }
 
 ul{
-  float: left;
+  position: absolute;
+  right: 280px;
   width: 300px;
   margin: 0;
-  margin-left: 460px;
   li{
     display: inline-block;
     margin-right: 46px;

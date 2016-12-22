@@ -42,10 +42,11 @@ export default {
 $height: 247px;
   .header-title
   {
-    position: absolute;
+    position: relative;
+    @extend %mainwidth;
     height: $height;
     top:  ($headerheight - $height) / 2;
-    left: 160px;
+    // left: 160px;
     color: $header-title-color;
     z-index: 2;
     $color: #00ab88;

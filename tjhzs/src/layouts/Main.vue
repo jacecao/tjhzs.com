@@ -35,7 +35,6 @@
   font-style: normal;
 }
 body{
-  background-color: #f7f8f8;
   @extend %width;
 }
 [class^="icon-"], [class*=" icon-"] {
@@ -51,6 +50,7 @@ body{
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f7f8f8;
 }
 // 路由过渡动画
 .slide-fade-enter-active {

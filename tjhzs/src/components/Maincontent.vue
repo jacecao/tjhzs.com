@@ -12,7 +12,8 @@
 import Displayimg from './content/Displayimg'
 import News from './content/News'
 import Hotel from './content/Hotel'
-
+// 加载新闻数据
+import NewsData from '../data/newsData.js'
 export default {
   name: 'main-content',
   data () {
@@ -20,28 +21,22 @@ export default {
       style: {
         'float': 'left'
       },
-      images: [
-        {
-          url: '/',
-          imgurl: '../../../static/images/content/1.jpg',
-          desc: '说明文件来介绍图片的故事'
-        },
-        {
-          url: '/',
-          imgurl: '../../../static/images/content/2.jpg',
-          desc: '说明文件来介绍图片的故事'
-        },
-        {
-          url: '/',
-          imgurl: '../../../static/images/content/3.jpg',
-          desc: '说明文件来介绍图片的故事'
-        },
-        {
-          url: '/',
-          imgurl: '../../../static/images/content/4.jpg',
-          desc: '说明文件来介绍图片的故事'
-        }
-      ]
+      items: NewsData
+    }
+  },
+  computed: {
+    images () {
+      const _url = '/news/'
+      let _images = []
+      let _arr = this.items.slice(0, 6)
+      for (let n of _arr) {
+        _images.push({
+          url: _url + n.id,
+          imgurl: n.images[0].imgurl,
+          desc: n.images[0].desc
+        })
+      }
+      return _images
     }
   },
   components: {

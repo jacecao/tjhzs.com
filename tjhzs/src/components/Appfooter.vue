@@ -57,7 +57,7 @@ export default {
     position: relative;
     @extend %width;
     height: $footerheight;
-    background-color: #e2e2e2;
+    background-color: #fff;
   }
 
 </style>

@@ -25,6 +25,7 @@ export default {
   computed: {
     news: function () {
       for (let news of NewsData) {
+        // this.$route.params这里获取我们路由中规定的匹配值
         if (news.id === this.$route.params.id) {
           return news
         }

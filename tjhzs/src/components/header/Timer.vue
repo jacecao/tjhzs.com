@@ -30,7 +30,7 @@ export default {
   position: absolute;
   width: 450px;
   top: -250px;
-  right: -520px;
+  right: -700px;
   opacity: 0;
   background: rgba(0,0,0,0.5);
   transition: all 500ms;
