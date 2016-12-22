@@ -3,7 +3,8 @@
     <nav-bar/>
     <header-show/>
     <!-- 注意这里有一个问题加入过渡后轮播动画有问题 -->
-    <transition name="slide-fade">
+    <!-- 解决这个问题的棺就是加入过渡模式 -->
+    <transition name="slide-fade" mode="out-in">
       <router-view></router-view>
     </transition>
     <app-footer/>

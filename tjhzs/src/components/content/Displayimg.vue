@@ -1,6 +1,6 @@
 <template>
   <div class="display-img" :style="_style_">
-    <ul v-if='isLink' id="show_img" class="clearfix img_box">
+    <ul v-if='isLink' id="show_img" class="clearfix img_box" key="link">
       <li v-for="item in images" :style='size'>
         <router-link :to="item.url">
           <img :src="item.imgurl" :style='size'>
@@ -8,7 +8,7 @@
         </router-link>
       </li>
     </ul>
-    <ul v-else id="show_img" class="clearfix img_box">
+    <ul v-else id="show_img" class="clearfix img_box" key="img">
       <li v-for="item in images" :style='size'>
         <img :src="item.imgurl" :style='size'>
         <span>{{item.desc}}</span>
