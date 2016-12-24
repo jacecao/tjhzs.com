@@ -1,5 +1,5 @@
 <template>
-<div class="undefined">
+<div class="undefined tjhzs-main-content">
 	<p>对不起你已经偏离我们已经规划好的路线</p>
 	<p>麻烦你回到正常路线</p>
 </div>

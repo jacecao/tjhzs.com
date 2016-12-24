@@ -19,30 +19,6 @@ export default {
   },
   data () {
     return {
-      item: '展台制作案例展示',
-      desc: '用心设计 —— 匠心制作',
-      images: [
-        {
-          url: '/',
-          imgurl: '../../../static/images/content/1.jpg',
-          desc: '说明文件来介绍图片的故事'
-        },
-        {
-          url: '/',
-          imgurl: '../../../static/images/content/2.jpg',
-          desc: '说明文件来介绍图片的故事'
-        },
-        {
-          url: '/',
-          imgurl: '../../../static/images/content/3.jpg',
-          desc: '说明文件来介绍图片的故事'
-        },
-        {
-          url: '/',
-          imgurl: '../../../static/images/content/4.jpg',
-          desc: '说明文件来介绍图片的故事'
-        }
-      ],
       bgcolor: {backgroundColor: '#fff'}
     }
   },

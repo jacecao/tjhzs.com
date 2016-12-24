@@ -1,5 +1,5 @@
 <template>
-	<div class="tjhzs-new">
+	<div class="tjhzs-new tjhzs-main-content">
 		<header>
 			<h3>{{hotel.name}}</h3>
 		</header>

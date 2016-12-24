@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tjhzs-main-content">
   	<div class="product-header clearfix">
   		<Card :cardStyle="cardFirst" 
         background="../../static/images/product/park_01.jpg"

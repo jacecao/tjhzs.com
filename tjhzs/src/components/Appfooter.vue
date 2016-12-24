@@ -1,11 +1,11 @@
 <template>
-  <div class="footer">
+  <footer class="footer">
     <div class="footer-box">
       <!-- 注意这里如果需要动态传入数据 需要使用v-bind来绑定props,使其认为式js运算 -->
       <block v-for="item in blocks" :info="item"></block>
       <info :webinfo='webInfo'/>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>

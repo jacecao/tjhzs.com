@@ -1,5 +1,5 @@
 <template>
-  <div class="tjhzs_about">
+  <div class="tjhzs_about tjhzs-main-content">
   	<section v-for='item in info' class="about_list">
       <div class="head">
         <div class="title">{{item.title}}</div>

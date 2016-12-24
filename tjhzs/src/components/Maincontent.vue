@@ -1,5 +1,5 @@
 <template>
-  <div class="tjhzs-content">
+  <div class="tjhzs-content tjhzs-main-content">
     <section class="main-content">
       <displayimg :style="style" :images='images'></displayimg>
       <news></news>
