@@ -7,7 +7,7 @@ const root = '../../../static/images/hotel/'
 export default [
   {
     // 识别加载路径,应该来自数据库的id
-    id: 'n_4',
+    id: 'h_4',
     name: '锦江宾馆',
     images: [
       {
@@ -27,7 +27,7 @@ export default [
   },
   {
     // 识别加载路径,应该来自数据库的id
-    id: 'n_3',
+    id: 'h_3',
     name: '岷山饭店',
     images: [
       {
@@ -47,7 +47,7 @@ export default [
   },
   {
     // 识别加载路径,应该来自数据库的id
-    id: 'n_2',
+    id: 'h_2',
     name: '梨园祥酒店',
     images: [
       {
@@ -67,7 +67,7 @@ export default [
   },
   {
     // 识别加载路径,应该来自数据库的id
-    id: 'n_1',
+    id: 'h_1',
     name: '西藏饭店',
     images: [
       {

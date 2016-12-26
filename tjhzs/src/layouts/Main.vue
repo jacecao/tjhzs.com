@@ -51,6 +51,14 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f7f8f8;
+  // flex布局
+  // display: flex;
+  // flex-flow: row wrap;
+  // .tjhzs-main-content
+  // {
+  //   min-height: 100%;
+  //   flex-grow: 1;
+  // }
 }
 // 路由过渡动画
 .slide-fade-enter-active {

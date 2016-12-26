@@ -1,7 +1,7 @@
 @import './_base.scss';
 $size: 90px;
 $border: 1px solid #288954;
-$color: #e6e6e6;
+$color: #00ffde;
 %size{
   width: $size;
   height: $size;
@@ -11,7 +11,6 @@ $color: #e6e6e6;
   color: $color;
   ul{
     @extend %ul;
-    width: 500px;
     li{
       position: relative;
       background-color: $bgcolor;
@@ -107,6 +106,7 @@ $color: #e6e6e6;
 
 /* 大的倒计时显示 */
 #header_timer{
+  $color: #fff;
   text-align: center;
   color: $color;
   h3{

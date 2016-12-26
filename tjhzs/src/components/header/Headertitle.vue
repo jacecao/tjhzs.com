@@ -1,13 +1,10 @@
 <template>
   <div class="header-title">
     <h1>{{city}} - {{season}}<span>{{city}} - {{season}}</span></h1>
-    <div>
-      <p>主办方：<span>{{zhuban}}</p>
-      <p>承办方：<span>{{chengban}}</span></p>
+    <div class="metting-info">
+      <p>主办方：{{zhuban}}</p>
+      <p>承办方：{{chengban}}</p>
     </div>
-   <!--  <span class="img-box">
-      <img :src="pavilionimg" alt="展馆图片">
-    </span> -->
     <headerbar :time='time'></headerbar>
   </div>
 </template>
@@ -39,12 +36,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 @import '../../sass/_base.scss';
-$height: 247px;
+$height: 300px;
   .header-title
   {
     position: relative;
     @extend %mainwidth;
     height: $height;
+    width: 1280px;
     top:  ($headerheight - $height) / 2;
     // left: 160px;
     color: $header-title-color;
@@ -60,7 +58,7 @@ $height: 247px;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: bold;
-      font-size: 4 * $font;
+      font-size: 6 * $font;
       span{
         position: absolute;
         left: 0;
@@ -69,10 +67,15 @@ $height: 247px;
         z-index: -1;
       }
     }
-    p{
-      @extend %h1;
-      margin-top: 10px;
-      // font-size: smaller;
+    .metting-info{
+      p{
+        @extend %h1;
+        margin-top: 10px;
+        padding-left: 20px;
+        font-size: 1.5 * $font;
+        color: #e2e2e2;
+      }
+      
     }
     $imgwidth: 186px;
     $imgheight: 98px;

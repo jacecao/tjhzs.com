@@ -5,7 +5,7 @@ const bg = 'header_1.jpg'
 export default {
   startime: '2017-3-20至22日',
   endtime: '2017-3-23至25日',
-  addr: '成都国际会展中心熊猫饺子',
+  addr: '成都国际会展中心熊猫娇子会议中心',
   city: '成都',
   season: '春季',
   zhuban: '中国糖业酒类集团公司',

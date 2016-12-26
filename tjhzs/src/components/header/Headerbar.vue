@@ -1,20 +1,22 @@
 <template>
   <div class="header-bar">
-    <ul class="clearfix">
-      <li class="time" 
-        v-on:mouseover="hover"
-        v-on:mouseout='out'
-      >
-        <span class="small-time">{{time.day}}</span>
-      </li>
-      <li class="weixin"></li>
-      <li class="header-info">
-        <p>布展时间：<span>{{startime}}</span></p>
-        <p>开展时间：<span>{{endtime}}</span></p>
-        <p>展会地址：<span>{{addr}}</span></p>
-      </li>
-    </ul>
-    <timer :time="time" :isActive="isActive"/>
+    <div class="header-info-box">
+      <ul class="clearfix">
+        <li class="time" 
+          v-on:mouseover="hover"
+          v-on:mouseout='out'
+        >
+          <span class="small-time">{{time.day}}</span>
+        </li>
+        <li class="weixin"></li>
+        <li class="header-info">
+          <p>布展时间：<span>{{startime}}</span></p>
+          <p>开展时间：<span>{{endtime}}</span></p>
+          <p>展会地址：<span>{{addr}}</span></p>
+        </li>
+      </ul>
+      <timer :time="time" :isActive="isActive"/>
+    </div>
   </div>
 </template>
 
@@ -62,5 +64,8 @@ export default {
   // width: 420px;
   bottom: 6px;
   left: 0;
+  .header-info-box{
+    position: relative;
+  }
 }
 </style>
