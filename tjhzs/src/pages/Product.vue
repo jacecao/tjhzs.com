@@ -2,18 +2,18 @@
   <div class="tjhzs-main-content">
   	<div class="product-header clearfix">
   		<Card :cardStyle="cardFirst" 
-        background="../../static/images/product/park_01.jpg"
+        background="/beta/static/images/product/park_01.jpg"
         :item="ProductData[0]"
         v-on:click.native="get_f"
       />
   		<Card :cardStyle="cardStyle" 
-        background="../../static/images/product/park_02.jpg"
+        background="/beta/static/images/product/park_02.jpg"
         :item="ProductData[1]"
         v-on:click.native="get_s"
       />
       <!-- 通过给组件绑定原始事件，来实现对当前key值的更新 -->
   		<Card :cardStyle="cardStyle" 
-        background="../../static/images/product/park_03.jpg"
+        background="/beta/static/images/product/park_03.jpg"
         :item="ProductData[2]"
         v-on:click.native="get_t"
       />

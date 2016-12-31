@@ -6,7 +6,7 @@
     </div>
     <ul class="hotel-list">
       <li v-for="item in items">
-        <router-link class="img-box" :to="'/hotels/' + item.id">
+        <router-link class="img-box" :to="'/beta/hotels/' + item.id">
           <img :src="item.images[0].imgurl" alt="">
           <span>{{item.name}}</span>
         </router-link>

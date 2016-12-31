@@ -3,7 +3,7 @@
     <h3>我们最新动态</h3>
     <ul>
       <li v-for="item in news">
-        <router-link v-bind:to="'/news/'+item.id" v-bind:title="item.title">
+        <router-link v-bind:to="'/beta/news/'+item.id" v-bind:title="item.title">
           <h4>{{item.title}}</h4><span>{{item.time}}</span>
         </router-link>
       </li>

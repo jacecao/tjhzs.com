@@ -7,10 +7,10 @@ import About from './pages/About'
 import Undefined from './pages/404'
 
 export default [
-  {path: '/', component: Home},
-  {path: '/product', component: Product},
-  {path: '/news/:id', component: news},
-  {path: '/hotels/:id', component: Hotels},
-  {path: '/about', component: About},
-  {path: '*', component: Undefined}
+  {path: '/beta/', component: Home},
+  {path: '/beta/product', component: Product},
+  {path: '/beta/news/:id', component: news},
+  {path: '/beta/hotels/:id', component: Hotels},
+  {path: '/beta/about', component: About},
+  {path: '/beta/*', component: Undefined}
 ]

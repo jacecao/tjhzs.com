@@ -5,9 +5,9 @@
       <span>{{title}}</span>
     </div>
     <ul>
-      <li><router-link to="/" active-class="active" exact>首页</router-link></li>
-      <li><router-link to="/product" active-class="active">产品案例展示</router-link></li>
-      <li><router-link to="/about" active-class="active">关于我们</router-link></li>
+      <li><router-link to="/beta/" active-class="active" exact>首页</router-link></li>
+      <li><router-link to="/beta/product" active-class="active">产品案例展示</router-link></li>
+      <li><router-link to="/beta/about" active-class="active">关于我们</router-link></li>
     </ul>
   </header>
 </template>
