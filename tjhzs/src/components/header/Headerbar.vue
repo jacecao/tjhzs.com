@@ -60,9 +60,9 @@ export default {
 <style scoped lang="scss">
 @import '../../sass/header.scss';
 .header-bar{
-  position: absolute;
+  position: relative;
   // width: 420px;
-  bottom: 6px;
+  top: 20px;
   left: 0;
   .header-info-box{
     position: relative;

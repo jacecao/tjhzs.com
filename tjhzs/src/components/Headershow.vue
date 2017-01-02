@@ -52,7 +52,7 @@ export default {
   box-shadow: 0 2px 4px #b8b8b8;
   &:hover{
     .mask{
-      opacity: 0.4;
+      opacity: 0.6;
     }
   }
 }

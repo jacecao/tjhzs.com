@@ -58,6 +58,7 @@ export default {
     @extend %width;
     height: $footerheight;
     background-color: #fff;
+    border-top: 1px solid #e2e2e2;
   }
 
 </style>

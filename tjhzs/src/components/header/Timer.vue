@@ -30,12 +30,12 @@ export default {
   position: absolute;
   width: 450px;
   top: -250px;
-  right: -730px;
+  left: 810px;
   opacity: 0;
   background: rgba(0,0,0,0.5);
   transition: all 500ms;
   &.header_timer{
-    top: -100px;
+    top: -120px;
     opacity: 1;
     box-shadow: 0 0 10px #eee;
   }

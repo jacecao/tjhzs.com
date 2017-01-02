@@ -1,16 +1,20 @@
 <template>
-<div class="undefined tjhzs-main-content">
-	<span>404PAGE</span>
-	<div class="message">
-		<p>对不起你已经偏离我们已经规划好的路线，回头是岸呀！</p>
+<div>
+	<header-show/>
+	<div class="undefined tjhzs-main-content">
+		<span>404PAGE</span>
+		<div class="message">
+			<p>对不起你已经偏离我们已经规划好的路线，回头是岸呀！</p>
+		</div>
 	</div>
 </div>
 </template>
 
 <script>
+  import HeaderShow from '../components/Headershow.vue'
   export default {
     name: 'undefined_page',
-    components: {}
+    components: {HeaderShow}
   }
 </script>
 
@@ -20,7 +24,7 @@
 		@extend %middlewidth;
 		height: 800px;
 		height: 40vh;
-		margin-top: 100px;
+		margin: 100px auto;
 		color: $navcolor;
 		text-align: center;
 		span{

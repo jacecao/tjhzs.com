@@ -41,5 +41,6 @@ export default {
 .tjhzs-new{
 	@extend %middlewidth;
 	margin: 50px auto;
+  padding-top: 30px;
 }
 </style>

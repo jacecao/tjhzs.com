@@ -87,6 +87,7 @@ export default {
 .product-header{
 	width: 960px;
 	margin: 50px auto;
+  padding-top: 60px;
 }
 .bottom-text {
 	display: block;
@@ -97,5 +98,4 @@ export default {
 	letter-spacing: 5px;
 	color: #d7d7d7;
 }
-
 </style>

@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     images () {
-      const _url = '/news/'
+      const _url = '/beta/news/'
       let _images = []
       let _arr = this.items.slice(0, 6)
       for (let n of _arr) {
@@ -49,7 +49,7 @@ export default {
 <style scoped lang="scss">
 @import '../sass/_base.scss';
   .tjhzs-content{
-    margin: 60px auto;
+    margin: 30px auto 0 auto;
   }
   .main-content{
     @extend %mainwidth;

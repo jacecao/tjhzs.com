@@ -1,7 +1,6 @@
 <template>
   <div id="tjhzs_container">
     <nav-bar/>
-    <header-show/>
     <!-- 注意这里有一个问题加入过渡后轮播动画有问题 -->
     <!-- 解决这个问题的棺就是加入过渡模式 -->
     <transition name="slide-fade" mode="out-in">
@@ -75,4 +74,5 @@ body{
   transform: translateX(-10px);
   opacity: 0;
 }
+
 </style>

@@ -71,7 +71,9 @@ export default {
 <style lang="scss">
 @import '../sass/about.scss';
 .tjhzs_about{
-	@extend %middlewidth
+	@extend %middlewidth;
+  padding-top: 60px;
 }
+
 
 </style>

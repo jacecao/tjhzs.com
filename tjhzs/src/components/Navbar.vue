@@ -47,7 +47,7 @@ a:hover, .active{
   height: $navheight;
   z-index: 1000;
   @extend %width;
-  border: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
 }
 .logo{
   position: absolute;

@@ -38,7 +38,7 @@ export default {
   position: relative;
   background: #eee;
   height: 150px;
-  margin-top: 80px;
+  margin: 40px auto;
   background-color: $bgcolor;
 }
 </style>
