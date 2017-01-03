@@ -23,7 +23,7 @@ export default {
   },
   data () {
     return {
-      timerobj: timer(info.startime)
+      timerobj: timer(info.showtime)
     }
   },
   methods: {

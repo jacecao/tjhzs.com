@@ -11,7 +11,7 @@
         <li class="weixin"></li>
         <li class="header-info">
           <p>布展时间：<span>{{startime}}</span></p>
-          <p>开展时间：<span>{{endtime}}</span></p>
+          <p>开展时间：<span>{{showtime}}</span></p>
           <p>展会地址：<span>{{addr}}</span></p>
         </li>
       </ul>
@@ -31,7 +31,7 @@ export default {
   data () {
     return {
       startime: info.startime,
-      endtime: info.endtime,
+      showtime: info.showtime,
       addr: info.addr,
       isActive: false
     }
