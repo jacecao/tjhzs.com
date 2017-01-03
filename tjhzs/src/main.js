@@ -1,9 +1,14 @@
 import Vue from 'vue'
+// 引入路由插件和路由配置文件
 import VueRouter from 'vue-router'
 import routes from './routes.js'
+// 引入ajax模块文件
+import VueResource from 'vue-resource'
+// 引入主模板
 import Main from './layouts/Main'
-
+// 将中间件引入到实例中
 Vue.use(VueRouter)
+Vue.use(VueResource)
 
 const router = new VueRouter({
   base: __dirname,
