@@ -6,7 +6,7 @@
       <h3>距离本届糖酒会开幕</h3>
       <p><span>还有</span>{{time.day}}<span>天</span></p>
     </div>
-    <div v-else="!time.isOld">
+    <div v-else>
       <h3>新一轮的招商已启动</h3>
       <p><span>今天已经</span>{{time.day}}<span>号啦</span></p>
     </div>

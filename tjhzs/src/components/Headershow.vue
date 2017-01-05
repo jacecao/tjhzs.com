@@ -1,38 +1,58 @@
 <template>
-  <div v-bind:style="bgimg" class="header-show">
-    <div v-on:mousemove='hoverMover' class="mask"></div>
-    <!-- 绑定data数据到组件的props -->
-    <headertitle :time='timerobj' />
-  </div>
+  <transition name="main-fade" mode="out-in">
+    <div v-if="ready" v-bind:style="{backgroundImage: 'url(/beta/static/images/header/' + headerinfo.bgimg +')'}" class="header-show" key="show">
+      <div class="mask"></div>
+      <!-- 绑定data数据到组件的props -->
+      <headertitle :headerinfo='headerinfo' />
+    </div>
+    <!-- 在相同标签中使用过去时需要添加key属性来予以区别 -->
+    <div v-else class="header-show" key="loading">
+      <loading/>
+    </div>
+  </transition>
 </template>
 
 <script>
 import Headertitle from './header/Headertitle'
-import info from '../data/index-header-message.js'
-import timer from '../js/timer.js'
-
+import Loading from './loading/Loading'
 export default {
   name: 'header-show',
-  props: {
-    bgimg: {
-      type: Object,
-      default () {
-        return info.backgroundImage
-      }
-    }
-  },
   data () {
     return {
-      timerobj: timer(info.showtime)
+      headerinfo: {
+        startime: '2016-12-31',
+        showtime: '2016-12-31',
+        addr: 'addr',
+        city: 'City',
+        season: 'Season',
+        zhuban: 'chengdu-china',
+        chengban: 'chengdu-china',
+        bgimg: 'header_1.jpg'
+      },
+      ready: false
     }
   },
+  mounted: function () {
+    this.getinfo()
+  },
   methods: {
-    hoverMover () {
-
+    getinfo () {
+      let vm = this
+      vm.$http.get('/beta/static/data/headerinfo.json').then(function (res) {
+        // 这里一定要注意如果data中headerinfo:{},那么这里的数据是没办法得到响应的
+        // 类似mongodb中的schema一样需要预先定义headerinfo，然后再通过这里获取变更传到子组件
+        vm.headerinfo = res.body
+        // 在头部图片加载完成后关闭掉loding画面
+        let img = new window.Image()
+        img.src = '/beta/static/images/header/' + vm.headerinfo.bgimg
+        img.onload = () => { vm.ready = true }
+      }, function (err) {
+        console.log('获取头部信息出现错误：' + err + '\n' + '请检查配置信息是否正确或者网络故障')
+      })
     }
   },
   components: {
-    Headertitle
+    Headertitle, Loading
   }
 }
 </script>

@@ -2,7 +2,7 @@
   <div id="tjhzs_container">
     <nav-bar/>
     <!-- 注意这里有一个问题加入过渡后轮播动画有问题 -->
-    <!-- 解决这个问题的棺就是加入过渡模式 -->
+    <!-- 解决这个问题需要加入过渡模式 -->
     <transition name="slide-fade" mode="out-in">
       <router-view></router-view>
     </transition>
@@ -74,5 +74,17 @@ body{
   transform: translateX(-10px);
   opacity: 0;
 }
-
+// 加载过度
+.main-fade-enter-active {
+  transition: all 1s ease;
+}
+.main-fade-leave-active {
+  transition: all 0.5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.main-fade-leave-active {
+  opacity: 0;
+}
+.main-fade-enter {
+  opacity: 0;
+}
 </style>

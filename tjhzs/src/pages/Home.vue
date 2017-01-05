@@ -1,8 +1,8 @@
 <template>
-	<section>
+	<div class="homepage">
 		<header-show/>
 		<main-content/>
-	</section>
+	</div>
 </template>
 
 <script>

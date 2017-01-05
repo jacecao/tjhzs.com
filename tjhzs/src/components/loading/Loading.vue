@@ -15,7 +15,7 @@
     props: {
       loading_info: {
         type: String,
-        default: '正在加载中哦'
+        default: '--正在加载--'
       }
     },
     components: {

@@ -18,7 +18,8 @@
         v-on:click.native="get_t"
       />
   	</div>
-    <!-- 通过key来实现多个相同组件过渡动画 -->
+    <!-- 通过key来实现多个相同组件过渡动画, 请查看这里的List组件中的Key属性 -->
+    <!-- 可查看官方文档中《过渡效果》中的《多个组件过渡》 -->
     <transition name="fade-in" mode="out-in">
       <!-- key值的更新使得过渡动画生效，并将指定数据传入组件渲染 -->
       <list :index="Index" :item="ProductData[Index].show"/>

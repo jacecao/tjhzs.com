@@ -1,6 +1,6 @@
 // 建立header数据模型集
-var mongoose = require('mongoose')
-var headerSchema = new mongoose.Schema({
+var mongoose = require('mongoose');
+var HeaderSchema = new mongoose.Schema({
   startime: String,
   showtime: String,
   addr: String,
@@ -8,6 +8,6 @@ var headerSchema = new mongoose.Schema({
   season: String,
   zhuban: String,
   chengban: String
-})
+});
 
-module.exports = headerSchema
+module.exports = HeaderSchema;

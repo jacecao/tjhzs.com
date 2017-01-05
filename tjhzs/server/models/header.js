@@ -1,5 +1,5 @@
-var mongoose = require('mongoose')
-var HeaderSchema = require('../schemas/header.js')
-var Header = mongoose.model('Header', HeaderSchema)
+var mongoose = require('mongoose');
+var HeaderSchema = require('../schemas/header.js');
+var Header = mongoose.model('Header', HeaderSchema);
 
-module.exports = Header
+module.exports = Header;

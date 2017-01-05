@@ -1,31 +1,23 @@
 <template>
   <div class="header-title">
-    <h1>{{city}} - {{season}}<span>{{city}} - {{season}}</span></h1>
+    <h1>{{headerinfo.city}} - {{headerinfo.season}}<span>{{headerinfo.city}} - {{headerinfo.season}}</span></h1>
     <div class="metting-info">
-      <p>主办方：{{zhuban}}</p>
-      <p>承办方：{{chengban}}</p>
+      <p>主办方：{{headerinfo.zhuban}}</p>
+      <p>承办方：{{headerinfo.chengban}}</p>
     </div>
-    <headerbar :time='time'></headerbar>
+    <headerbar :headertime='headerinfo'></headerbar>
   </div>
 </template>
 
 <script>
 import Headerbar from './Headerbar'
-import info from '../../data/index-header-message.js'
-
 export default {
   name: 'header-title',
   props: {
-    time: Object
+    headerinfo: Object
   },
-  data () {
-    return {
-      city: info.city,
-      season: info.season,
-      zhuban: info.zhuban,
-      chengban: info.chengban,
-      pavilionimg: info.pavilionimg
-    }
+  mounted: function () {
+    // console.log(this.headerinfo)
   },
   components: {
     Headerbar
