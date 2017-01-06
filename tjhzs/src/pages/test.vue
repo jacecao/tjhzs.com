@@ -1,16 +1,16 @@
 <template>
 <div class="test">
 	<!-- <header-show/> -->
-		<loading/>
+		<app-img src=""/>
 </div>
 </template>
 
 <script>
   import HeaderShow from '../components/Headershow.vue'
-  import Loading from '../components/loading/Loading.vue'
+  import AppImg from '../components/img/AppImg'
   export default {
     name: 'test_page',
-    components: {HeaderShow, Loading}
+    components: {HeaderShow, AppImg}
   }
 </script>
 
@@ -20,5 +20,6 @@
 	height: 410px;
 	width: 500px;
 	margin: 0 auto;
+  overflow: hidden;
 }
 </style>

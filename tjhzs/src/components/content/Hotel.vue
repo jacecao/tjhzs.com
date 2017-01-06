@@ -40,5 +40,6 @@ export default {
   height: 150px;
   margin: 40px auto;
   background-color: $bgcolor;
+  box-shadow:  $shadow;
 }
 </style>

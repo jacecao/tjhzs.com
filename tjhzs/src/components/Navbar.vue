@@ -1,7 +1,7 @@
 <template>
-  <header class="nav-bar" :style="style">
+  <nav class="nav-bar" :style="style">
     <div class="logo">
-      <a href="/"><img v-bind:src="logo" alt="HBHZ"></a>
+      <a href="/"><img src="../assets/logo.png" alt="HBHZ"></a>
       <span>{{title}}</span>
     </div>
     <ul>
@@ -9,7 +9,7 @@
       <li><router-link to="/beta/product" active-class="active">产品案例展示</router-link></li>
       <li><router-link to="/beta/about" active-class="active">关于我们</router-link></li>
     </ul>
-  </header>
+  </nav>
 </template>
 
 <script>
@@ -20,7 +20,6 @@ export default {
     return {
       // 这里得数据需要从服务器获取
       title: navdata.title,
-      logo: navdata.logo,
       style: {
         'background-color': navdata.backgroundColor,
         'background-image': navdata.backgroundImage,
@@ -61,7 +60,7 @@ a:hover, .active{
   }
   img {
     float: left;
-    margin-right: 16px; 
+    margin-right: 16px;
     height: 50px;
     width: 50px;
   }
@@ -83,7 +82,7 @@ ul{
     }
   }
   li:last-child{
-    margin-right: 0; 
+    margin-right: 0;
   }
 }
 </style>

@@ -30,7 +30,8 @@ export default {
   webinfo: {
     name: '成都和邦会议展览服务有限公司',
     address: '成都市下南大街2号宏达国际广场8楼6-12号(总部)',
-    number: '京ICP备10037209'
+    number: '京ICP备10037209',
+    version: '2017-0.0.1'
   },
   // 网页底部方块信息
   blockinfo: [

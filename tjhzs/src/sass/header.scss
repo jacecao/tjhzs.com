@@ -74,14 +74,14 @@ $color: #00ffde;
 .time::before
 {
   content: '';
-  background-image: url(../../../static/images/header/clock.png);
+  background-image: url(../../assets/clock.png);
   background-size: cover;
 }
 .weixin::after
 {
   content:'';
   /* 这里的地址根据引用位置来确定，而不是根据该文件位置来确定 */
-  background-image: url(../../../static/images/header/weixin.png);
+  background-image: url(../../assets/weixin.png);
   background-size: cover;
   left: $size;
 }

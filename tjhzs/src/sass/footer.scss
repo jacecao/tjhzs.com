@@ -20,6 +20,12 @@ $hover: #fff;
 	width: 1060px;
 	height: $height;
 	// background-color: #000;
+  .version{
+    position: relative;
+    text-align: center;
+    color: #bfbfbf;
+    top: 40px;
+  }
 }
 a.footer-block{
 	display: block;
@@ -74,4 +80,4 @@ a.footer-block{
 			color: $hover;
 		}
 	}
-} 
+}

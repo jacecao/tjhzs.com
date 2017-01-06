@@ -4,6 +4,7 @@
       <!-- 注意这里如果需要动态传入数据 需要使用v-bind来绑定props,使其认为式js运算 -->
       <block v-for="item in blocks" :info="item"></block>
       <info :webinfo='webInfo'/>
+      <p class="version">&copy;和邦会展&nbsp;&nbsp;{{version}}</p>
     </div>
   </footer>
 </template>
@@ -18,7 +19,8 @@ export default {
   data () {
     return {
       items: tjhzsInfo.blockinfo,
-      webInfo: tjhzsInfo.webinfo
+      webInfo: tjhzsInfo.webinfo,
+      version: tjhzsInfo.webinfo.version
     }
   },
   computed: {

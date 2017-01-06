@@ -1,10 +1,11 @@
 <template>
-	<div class="tjhzs_loading">
-		<maskdiv :auto="false" :parentNode="this"/>
+	<div class="tjhzs_loading" :style="style">
+    <slot name="loading_bg"></slot>
+		<maskdiv v-if="havemask" :auto="false" :parentNode="this"/>
 		<div class="loading">
 			<div class="circle-1"></div>
 			<div class="circle-2"></div>
-			<span class="loading_info">{{loading_info}}</span>
+			<span v-if="haveinfo" class="loading_info">{{loading_info}}</span>
 		</div>
 	</div>
 </template>
@@ -13,9 +14,24 @@
   import Maskdiv from '../mask/Maskdiv'
   export default {
     props: {
+      // 设置加载提示信息类容
       loading_info: {
         type: String,
         default: '--正在加载--'
+      },
+      // 是否需要遮罩
+      havemask: {
+        type: Boolean,
+        default: true
+      },
+      // 是否需要显示提示信息
+      haveinfo: {
+        type: Boolean,
+        default: true
+      },
+      // 样式添加
+      style: {
+        type: Object
       }
     },
     components: {
@@ -40,7 +56,7 @@
 		// height: 100%;
 		position: relative;
 		// margin: -30px auto;
-		top: 45%;
+		top: 40%;
 		// display: none;
 		.circle-1 , .circle-2 {
 			position: absolute;
