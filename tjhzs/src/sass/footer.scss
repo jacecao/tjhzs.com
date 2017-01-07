@@ -1,6 +1,6 @@
 @import './_base.scss';
-$height: 100px;
-$width: 300px;
+$height: 98px;
+$width: 298px;
 $color: #757575;
 $bg: #fff;
 $hoverbg: #5a5a5a;
@@ -11,21 +11,22 @@ $hover: #fff;
 	float: left;
 	margin-left: 10px;
 	background-color: $bg;
+  border: 1px solid #f4f4f4;
+}
+.version{
+  position: relative;
+  text-align: center;
+  color: #bfbfbf;
+  top: 200px;
 }
 .footer-box{
 	position: absolute;
 	left: 50%;
-	margin: -50px 0 0 -530px;
+	margin: -60px 0 0 -530px;
 	top: 50%;
-	width: 1060px;
+	width: 1062px;
 	height: $height;
 	// background-color: #000;
-  .version{
-    position: relative;
-    text-align: center;
-    color: #bfbfbf;
-    top: 40px;
-  }
 }
 a.footer-block{
 	display: block;

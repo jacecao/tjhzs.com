@@ -76,10 +76,10 @@ body{
 }
 // 加载过度
 .main-fade-enter-active {
-  transition: all 0.5s ease;
+  transition: all 0.4s ease;
 }
 .main-fade-leave-active {
-  transition: all 0.5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all 0.4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 .main-fade-leave-active {
   opacity: 0;

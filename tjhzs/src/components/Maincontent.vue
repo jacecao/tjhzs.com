@@ -1,10 +1,10 @@
 <template>
   <div class="tjhzs-content tjhzs-main-content">
     <section class="main-content">
-      <displayimg :style="style" :images='images'></displayimg>
-      <news></news>
+      <displayimg :style="style" :images='items'></displayimg>
+      <news :newsdata="news"></news>
     </section>
-    <Hotel></Hotel> 
+    <Hotel></Hotel>
   </div>
 </template>
 
@@ -12,8 +12,7 @@
 import Displayimg from './content/Displayimg'
 import News from './content/News'
 import Hotel from './content/Hotel'
-// 加载新闻数据
-import NewsData from '../data/newsData.js'
+import Path from '../js/path.js'
 export default {
   name: 'main-content',
   data () {
@@ -21,23 +20,34 @@ export default {
       style: {
         'float': 'left'
       },
-      items: NewsData
+      items: [],
+      news: []
     }
   },
-  computed: {
-    images () {
-      const _url = '/beta/news/'
+  methods: {
+    get_images_data: function () {
+      const _url = Path.newsPAGE
+      let vm = this
       let _images = []
-      let _arr = this.items.slice(0, 6)
-      for (let n of _arr) {
-        _images.push({
-          url: _url + n.id,
-          imgurl: n.images[0].imgurl,
-          desc: n.images[0].desc
-        })
-      }
-      return _images
+      vm.$http.get(Path.dataURL + 'news.json').then(function (res) {
+        let data = res.body
+        let _arr = data.slice(0, 6)
+        for (let n of _arr) {
+          _images.push({
+            url: _url + n.id,
+            imgurl: Path.newsimgURL + n.images[0].imgurl,
+            desc: n.images[0].desc
+          })
+        }
+        vm.items = _images
+        vm.news = _arr
+      }, function () {
+        console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
+      })
     }
+  },
+  mounted: function () {
+    this.get_images_data()
   },
   components: {
     Displayimg, News, Hotel

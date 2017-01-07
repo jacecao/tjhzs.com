@@ -42,9 +42,13 @@ export default {
       }
     },
     // 轮播图CSS
-    style: Object,
+    style: {
+      type: Object
+    },
     // 轮播图图片
-    images: Array
+    images: {
+      type: Array
+    }
   },
   computed: {
     _style_: function () {
@@ -55,14 +59,19 @@ export default {
   },
   mounted: function () {
     let _step = parseInt(this.size.width)
-    // 轮播图控制
-    play({
-      step: _step, // 每次移动的总步长(也就是每张图片的宽度)
-      time: 5000, // 每张图片展示时长
-      fatherbox: '.display-img', // 父容器名字
-      imgbox: '.img_box',
-      prev: '#control_left',
-      next: '#control_right'
+    // 这里需要监听数据变化时，需要再次调动play函数
+    this.$watch('images', function (nd, od) {
+      if (nd !== od) {
+        // 轮播图控制
+        play({
+          step: _step, // 每次移动的总步长(也就是每张图片的宽度)
+          time: 5000, // 每张图片展示时长
+          fatherbox: '.display-img', // 父容器名字
+          imgbox: '.img_box',
+          prev: '#control_left',
+          next: '#control_right'
+        })
+      }
     })
   },
   components: {AppImg}
@@ -78,7 +87,7 @@ export default {
     // height: 300px;
     // width: 740px;
     // float: left;
-    background-color: #32b16c;
+    background-color: #f1fff7;
     box-shadow: $shadow;
   }
 </style>

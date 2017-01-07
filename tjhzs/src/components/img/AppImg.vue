@@ -1,5 +1,5 @@
 <template>
-  <transition name="main-fade" mode="out-in">
+  <transition name="main-fade">
     <img v-if="ready" :src="src" :alt="alt" :style="css">
     <loading v-else :style="css" :size="size"/>
   </transition>
@@ -30,7 +30,7 @@
       }
     },
     mounted: function () {
-      console.log(this.style)
+      // console.log(this.style)
       this.isloading(this.src)
     },
     methods: {

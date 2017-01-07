@@ -13,19 +13,50 @@
 </template>
 
 <script>
-import navdata from '../data/navbar.js'
+import Path from '../js/path.js'
 export default {
   name: 'nav-bar',
   data () {
     return {
       // 这里得数据需要从服务器获取
-      title: navdata.title,
+      title: ' ',
       style: {
-        'background-color': navdata.backgroundColor,
-        'background-image': navdata.backgroundImage,
-        'position': navdata.fixed ? 'fixed' : 'relative'
+        'background-color': ' ',
+        'background-image': ' ',
+        'position': 'relative'
       }
     }
+  },
+  methods: {
+    getData () {
+      let vm = this
+      if (window.localStorage.getItem('_navbarinfo') === null) {
+        vm.$http.get(Path.dataURL + 'navbar.json').then(function (res) {
+          let data = res.body
+          vm.title = data.title
+          vm.style = {
+            'background-color': data.backgroundColor,
+            'background-image': 'url(' + Path.navbarimgURL + data.backgroundImage + ')',
+            'position': data.fixed ? 'fixed' : 'relative'
+          }
+          window.localStorage.setItem('_navbarinfo', window.JSON.stringify(res.body))
+        }, function () {
+          console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
+        })
+      } else {
+        let objStr = window.localStorage.getItem('_navbarinfo')
+        let _data = window.JSON.parse(objStr)
+        vm.title = _data.title
+        vm.style = {
+          'background-color': _data.backgroundColor,
+          'background-image': 'url(' + Path.navbarimgURL + _data.backgroundImage + ')',
+          'position': _data.fixed ? 'fixed' : 'relative'
+        }
+      }
+    }
+  },
+  mounted: function () {
+    this.getData()
   }
 }
 </script>
@@ -44,7 +75,7 @@ a:hover, .active{
 .nav-bar{
   top: 0;
   height: $navheight;
-  z-index: 1000;
+  z-index: $z-super;
   @extend %width;
   border-bottom: 1px solid #e2e2e2;
 }

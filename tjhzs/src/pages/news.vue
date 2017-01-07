@@ -15,22 +15,37 @@
 
 <script>
 import DisplayImg from '../components/content/Displayimg'
-// 获取新闻数据
-import NewsData from '../data/newsData.js'
+import Path from '../js/path.js'
 export default {
   name: 'news_page',
   data () {
-    return {}
-  },
-  computed: {
-    news: function () {
-      for (let news of NewsData) {
-        // this.$route.params这里获取我们路由中规定的匹配值
-        if (news.id === this.$route.params.id) {
-          return news
-        }
-      }
+    return {
+      news: {}
     }
+  },
+  methods: {
+    getdata () {
+      let vm = this
+      vm.$http.get(Path.dataURL + 'news.json').then(function (res) {
+        let data = res.body
+        let _arr = data.slice(0, 6)
+        for (let news of _arr) {
+          // this.$route.params这里获取我们路由中规定的匹配值
+          if (news.id === this.$route.params.id) {
+            vm.news = news
+            vm.news.images.forEach(function (image) {
+              let _url = Path.newsimgURL + image.imgurl
+              image.imgurl = _url
+            })
+          }
+        }
+      }, function () {
+        console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
+      })
+    }
+  },
+  mounted: function () {
+    this.getdata()
   },
   components: { DisplayImg }
 }
