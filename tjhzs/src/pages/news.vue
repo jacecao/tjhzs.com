@@ -2,7 +2,7 @@
 	<div class="tjhzs-new tjhzs-main-content">
 		<header>
 			<h3>{{news.title}}</h3>
-			<span>{{news.time}}</span>
+			<span class="news_time">编写时间：{{news.time}}</span>
 		</header>
 		<section class="img-group">
 			<display-img :isLink="false" :images='news.images'/>

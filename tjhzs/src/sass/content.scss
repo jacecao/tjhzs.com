@@ -31,7 +31,7 @@ $padding: 10px;
 		img{
 			@extend %showsize;
 		}
-		span{
+		.img_desc{
 			display: block;
 			position: absolute;
 			background-color: $imgtextbg;
@@ -44,7 +44,7 @@ $padding: 10px;
 			color: $textcolor;
 		}
 		&:hover{
-			span{
+			.img_desc{
 				bottom: 0;
 			}
 		}
@@ -147,7 +147,7 @@ $padding: 10px;
 			opacity: 0;
 			transition: all 500ms;
 		}
-		
+
 	}
 }
 
@@ -202,29 +202,28 @@ $padding: 10px;
 		margin-left: 20px;
 		width: 210px;
 		height: 100px;
-		a{
+    %imgsize {
+      width: 206px;
+      height: 96px;
+    }
+		.hot_img_box {
 			@include a_css(#fff);
-			width: 206px;
-			height: 96px;
-			%imgsize{
-				width: 206px;
-				height: 96px;
-			}
+      @extend %imgsize;
 			display: block;
 			border: 2px solid #fff;
 			transition: all 400ms;
 			overflow: hidden;
-			img {
-				@extend %imgsize;
-			}
-			span {
+      img {
+        @extend %imgsize;
+      }
+			.img_info {
 				display: block;
 				position: absolute;
 				height: 30px;
 				width: 206px;
 				bottom: 0;
 				line-height: 30px;
-				background-color: $imgtextbg; 
+				background-color: $imgtextbg;
 				text-align: center;
 				font-size: 1.2 * $font;
 				transition: all 400ms;
@@ -233,7 +232,7 @@ $padding: 10px;
 			&:hover{
 				transform: scale(1.15);
 				box-shadow: 0 0 8px rgba(0,0,0,0.6);
-				span{
+				.img_info{
 					bottom: 35px;
 					opacity: 1;
 				}

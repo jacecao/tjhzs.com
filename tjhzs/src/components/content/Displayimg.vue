@@ -5,14 +5,14 @@
         <router-link :to="item.url">
           <!-- 由于在appimg组件中没有父级标签包裹且其中子元素已有绑定了style的情况,那么这里如果通过style传导样式就会出现无法识别的问题，所以这里绑定css属性来传递样式 -->
           <app-img :src="item.imgurl" :css='size'/>
-          <span>{{item.desc}}</span>
+          <span class="img_desc">{{item.desc}}</span>
         </router-link>
       </li>
     </ul>
     <ul v-else id="show_img" class="clearfix img_box" key="img">
       <li v-for="item in images" :style='size'>
         <app-img :src="item.imgurl" :css="size"/>
-        <span>{{item.desc}}</span>
+        <span class="img_desc">{{item.desc}}</span>
       </li>
     </ul>
     <span class="control" id="control_left">&lt;</span>
@@ -78,7 +78,7 @@ export default {
     // height: 300px;
     // width: 740px;
     // float: left;
-    // background-color: #476153;
+    background-color: #32b16c;
     box-shadow: $shadow;
   }
 </style>

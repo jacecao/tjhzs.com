@@ -1,7 +1,7 @@
 <template>
 <div class="test">
 	<!-- <header-show/> -->
-		<app-img src=""/>
+		<app-img src="" size="small"/>
 </div>
 </template>
 

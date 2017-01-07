@@ -1,7 +1,7 @@
 <template>
   <transition name="main-fade" mode="out-in">
     <img v-if="ready" :src="src" :alt="alt" :style="css">
-    <loading v-else :havemask="false" :style="css"/>
+    <loading v-else :style="css" :size="size"/>
   </transition>
 </template>
 
@@ -18,6 +18,10 @@
       },
       css: {
         type: Object
+      },
+      // 加载动画尺寸，默认为正常normal可选small
+      size: {
+        type: String
       }
     },
     data () {

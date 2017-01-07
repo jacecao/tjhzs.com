@@ -39,7 +39,6 @@ export default {
     getinfo () {
       let vm = this
       if (window.localStorage.getItem('_headerinfo') === null) {
-        console.log('hoh')
         vm.$http.get('/beta/static/data/headerinfo.json').then(function (res) {
           // 这里一定要注意如果data中headerinfo:{},那么这里的数据是没办法得到响应的
           // 类似mongodb中的schema一样需要预先定义headerinfo，然后再通过这里获取变更传到子组件

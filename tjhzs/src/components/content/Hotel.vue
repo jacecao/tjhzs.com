@@ -6,9 +6,9 @@
     </div>
     <ul class="hotel-list">
       <li v-for="item in items">
-        <router-link class="img-box" :to="'/beta/hotels/' + item.id">
-          <img :src="item.images[0].imgurl" alt="">
-          <span>{{item.name}}</span>
+        <router-link class="hot_img_box" :to="'/beta/hotels/' + item.id">
+          <app-img :src="item.images[0].imgurl" size="small"/>
+          <span class="img_info">{{item.name}}</span>
         </router-link>
       </li>
     </ul>
@@ -18,7 +18,7 @@
 <script>
 // 加载热门酒店数据
 import Hotels from '../../data/hotelData.js'
-
+import AppImg from '../img/AppImg'
 export default {
   name: 'hotels',
   data () {
@@ -26,12 +26,14 @@ export default {
       items: Hotels
     }
   },
-  components: {}
+  components: {AppImg}
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<!-- 注意当复合组件例如这里的app-img组件需要用到这里content.css时那么这里就需要style变为全局样式才能生效 -->
+<!-- 这里可以尝试加与不加scoped属性对样式到底有什么影响 -->
+<style lang="scss">
 @import '../../sass/content.scss';
 .hotel-content{
   @extend %mainwidth;

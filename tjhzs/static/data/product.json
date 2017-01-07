@@ -1,0 +1,92 @@
+[
+  {
+    "title": "展示设计",
+    "logo": "logo_1.png",
+    "note": [
+      "顶尖设计、创意无敌",
+      "彰显品牌气质"
+    ],
+    "show": {
+      "title": "展台制作案例展示",
+      "note": [
+        "顶尖设计、创意无敌",
+        "彰显品牌气质"
+      ],
+      "ad": "贴心设计 —— 匠心制作",
+      "images": [
+        {
+          "imgurl": "sheji/park_01.jpg",
+          "desc": "设计效果图和实际制作对比"
+        },
+        {
+          "imgurl": "sheji/park_02.jpg",
+          "desc": "设计效果图和实际制作对比"
+        },
+        {
+          "imgurl": "sheji/park_03.jpg",
+          "desc": "设计效果图和实际制作对比"
+        }
+      ]
+    }
+  },
+  {
+    "title": "广告制作",
+    "logo": "logo_3.png",
+    "note": [
+      "工匠精神、力求完美",
+      "给你卓越的品质"
+    ],
+    "show": {
+      "title": "广告制作案例展示",
+      "note": [
+        "工匠精神、力求完美",
+        "给你卓越的品质"
+      ],
+      "ad": "贴心设计 —— 匠心制作",
+      "images": [
+        {
+          "imgurl": "ad/park_01.jpg",
+          "desc": "超大型LED广告"
+        },
+        {
+          "imgurl": "ad/park_02.jpg",
+          "desc": "超大型门楼广告"
+        },
+        {
+          "imgurl": "ad/park_03.jpg",
+          "desc": "超大幅平面广告"
+        }
+      ]
+    }
+  },
+  {
+    "title": "活动推广",
+    "logo": "logo_2.png",
+    "note": [
+      "聚焦热点、精准推广",
+      "只有在线才有关注"
+    ],
+    "show": {
+      "title": "活动推广案例展示'",
+      "note": [
+        "聚焦热点、精准推广'",
+        "只有在线才有关注'"
+      ],
+      "ad": "产品好 —— 更要推广有道'",
+      "images": [
+        {
+          "imgurl": "huodong/park_01.jpg",
+          "desc": "直接面向销售代理，切入市场更加直接"
+        },
+        {
+          "imgurl": "huodong/park_02.jpg",
+          "desc": "直接面向销售代理，切入市场更加直接"
+        },
+        {
+          "imgurl": "huodong/park_03.jpg",
+          "desc": "直接面向销售代理，切入市场更加直接"
+        }
+      ]
+    }
+  }
+]
