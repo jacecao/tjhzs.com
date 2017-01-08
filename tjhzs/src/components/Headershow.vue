@@ -40,14 +40,14 @@ export default {
   methods: {
     getinfo () {
       let vm = this
-      if (window.localStorage.getItem('_headerinfo') === null) {
+      if (window.sessionStorage.getItem('_headerinfo') === null) {
         vm.$http.get(Path.dataURL + 'headerinfo.json').then(function (res) {
           // 这里一定要注意如果data中headerinfo:{},那么这里的数据是没办法得到响应的
           // 类似mongodb中的schema一样需要预先定义headerinfo，然后再通过这里获取变更传到子组件
           vm.headerinfo = res.body
           // 将数据录入浏览器缓存
           // 缓存object需要转换为字符串储存才行
-          window.localStorage.setItem('_headerinfo', window.JSON.stringify(res.body))
+          window.sessionStorage.setItem('_headerinfo', window.JSON.stringify(res.body))
           // 在头部图片加载完成后关闭掉loding画面
           let img = new window.Image()
           img.src = vm.path + vm.headerinfo.bgimg
@@ -57,7 +57,7 @@ export default {
         })
       } else {
         // 需要将字符串转换为object才行
-        let objStr = window.localStorage.getItem('_headerinfo')
+        let objStr = window.sessionStorage.getItem('_headerinfo')
         vm.headerinfo = window.JSON.parse(objStr)
         vm.ready = true
       }

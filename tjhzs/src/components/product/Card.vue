@@ -1,15 +1,17 @@
 <template>
 	<section class="product-item" :style="cardStyle">
-		<h3>{{item.title}}</h3>
+		<h3>{{itemobj.title}}</h3>
 		<div class="item-img-box" :style="{background: 'url('+background+')'}">
-			<img :src="item.logo" alt="">
+			<app-img :src="itemobj.logo" class="card_img"/>
 		</div>
-		<span>{{item.note[0]}}</span>
-		<span>{{item.note[1]}}</span>
+		<span>{{itemobj.note[0]}}</span>
+		<span>{{itemobj.note[1]}}</span>
 	</section>
 </template>
 
 <script>
+import AppImg from '../img/AppImg'
+import Path from '../../js/path.js'
 export default {
   name: 'card',
   props: {
@@ -17,14 +19,27 @@ export default {
     background: String,
     item: Object
   },
-  computed: {
-    Style () {
-      return Object.assign(this.cardStyle, {background: this.background})
+  data () {
+    return {
+      itemobj: {
+        title: '',
+        logo: Path.productimgURL + 'logo_1.png',
+        note: []
+      }
     }
-  }
+  },
+  mounted: function () {
+    let vm = this
+    this.$watch('item', function (now, old) {
+      if (now !== old) {
+        vm.itemobj = now
+      }
+    }, {deep: true})
+  },
+  components: {AppImg}
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 	@import '../../sass/product.scss';
 </style>

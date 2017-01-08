@@ -1,7 +1,7 @@
 <template>
   <transition name="main-fade">
     <img v-if="ready" :src="src" :alt="alt" :style="css">
-    <loading v-else :style="css" :size="size"/>
+    <loading v-else :style="css" :haveinfo="false" :size="size"/>
   </transition>
 </template>
 
@@ -32,12 +32,20 @@
     mounted: function () {
       // console.log(this.style)
       this.isloading(this.src)
+      let vm = this
+      vm.$watch('src', function (now, old) {
+        if (now !== old) {
+          vm.isloading(vm.src)
+        }
+      })
     },
     methods: {
       isloading (url) {
         let _img = new window.Image()
         _img.src = url
-        _img.onload = () => { this.ready = true }
+        _img.onload = () => {
+          this.ready = true
+        }
       }
     },
     components: {Loading}

@@ -6,7 +6,7 @@
     </div>
     <ul class="hotel-list">
       <li v-for="item in items">
-        <router-link class="hot_img_box" :to="'/beta/hotels/' + item.id">
+        <router-link class="hot_img_box" :to="path + item.id">
           <app-img :src="item.images[0].imgurl" size="small"/>
           <span class="img_info">{{item.name}}</span>
         </router-link>
@@ -16,15 +16,39 @@
 </template>
 
 <script>
-// 加载热门酒店数据
-import Hotels from '../../data/hotelData.js'
 import AppImg from '../img/AppImg'
+import Path from '../../js/path.js'
 export default {
   name: 'hotels',
   data () {
     return {
-      items: Hotels
+      items: [],
+      path: Path.hotelPAGE
     }
+  },
+  methods: {
+    getdata () {
+      let vm = this
+      vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
+        let data = res.body
+        // 这里会在后期变为sessionStorage
+        // 后面不再需要对地址作特殊处理
+        data.forEach(function (_data) {
+          let images = _data.images
+          images.forEach(function (image) {
+            let _url = Path.hotelimgURL + image.imgurl
+            image.imgurl = _url
+          })
+        })
+        vm.items = data
+      }, function (err) {
+        console.log(err)
+        console.error('\n' + '获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
+      })
+    }
+  },
+  mounted: function () {
+    this.getdata()
   },
   components: {AppImg}
 }

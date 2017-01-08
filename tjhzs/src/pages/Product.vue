@@ -1,20 +1,21 @@
 <template>
   <div class="tjhzs-main-content">
   	<div class="product-header clearfix">
-  		<Card :cardStyle="cardFirst" 
-        background="/beta/static/images/product/park_01.jpg"
-        :item="ProductData[0]"
+  		<Card :cardStyle="cardFirst"
+        :background="path + 'park_01.jpg'"
+        :item="products[0]"
         v-on:click.native="get_f"
       />
-  		<Card :cardStyle="cardStyle" 
-        background="/beta/static/images/product/park_02.jpg"
-        :item="ProductData[1]"
+  	  <Card :cardStyle="cardStyle"
+        :background="path + 'park_02.jpg'"
+        :item="products[1]"
         v-on:click.native="get_s"
       />
-      <!-- 通过给组件绑定原始事件，来实现对当前key值的更新 -->
-  		<Card :cardStyle="cardStyle" 
-        background="/beta/static/images/product/park_03.jpg"
-        :item="ProductData[2]"
+      <!--通过给组件绑定原始事件，来实现对当前key值的更新 -->
+      <!-- .navtive 在组件的根元素中监听原始事件 -->
+  	  <Card :cardStyle="cardStyle"
+        :background="path + 'park_03.jpg'"
+        :item="products[2]"
         v-on:click.native="get_t"
       />
   	</div>
@@ -22,17 +23,18 @@
     <!-- 可查看官方文档中《过渡效果》中的《多个组件过渡》 -->
     <transition name="fade-in" mode="out-in">
       <!-- key值的更新使得过渡动画生效，并将指定数据传入组件渲染 -->
-      <list :index="Index" :item="ProductData[Index].show"/>
+      <list :index="index" :item="products[index].show"/>
     </transition>
   	<span class="bottom-text">全心/全意/服务糖酒</span>
-  </div>  
+  </div>
 </template>
 
 <script>
 import Card from '../components/product/Card'
 import List from '../components/product/List'
-// 加载产品数据
-import ProductData from '../data/productData.js'
+import Path from '../js/path.js'
+// 渲染时使用模板数据渲染 这里引入模板数据
+import testdata from '../data/productData.js'
 let cardStyle = {
   float: 'left',
   marginLeft: '30px',
@@ -49,20 +51,42 @@ export default {
     return {
       cardStyle,
       cardFirst,
-      ProductData,
-      Index: 0
+      products: testdata,
+      index: 0,
+      path: Path.productimgURL
     }
   },
   methods: {
     get_f () {
-      this.Index = 0
+      this.index = 0
     },
     get_s () {
-      this.Index = 1
+      this.index = 1
     },
     get_t () {
-      this.Index = 2
+      this.index = 2
+    },
+    getdata () {
+      let vm = this
+      vm.$http.get(Path.dataURL + 'product.json').then(function (res) {
+        let data = res.body
+        for (let product of data) {
+          product.logo = Path.productimgURL + product.logo
+          let _images = product.show.images
+          for (let img of _images) {
+            img.imgurl = Path.productimgURL + img.imgurl
+          }
+          product.show.images = _images
+        }
+        vm.products = data
+      }, function (err) {
+        console.log(err)
+        console.error('\n' + '数据连接错误啦')
+      })
     }
+  },
+  mounted: function () {
+    this.getdata()
   },
   components: { Card, List }
 }

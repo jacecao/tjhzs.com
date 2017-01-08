@@ -4,7 +4,7 @@
 			<h3>{{hotel.name}}</h3>
 		</header>
 		<section class="img-group" :style='size'>
-			<display-img :isLink="false" :images='hotel.images' :size='size'/>
+			<display-img :isLink="false" :images='images' :size='size'/>
 		</section>
 		<section class="new-content">
 			<p>{{hotel.content}}</p>
@@ -15,25 +15,42 @@
 
 <script>
 import DisplayImg from '../components/content/Displayimg'
-// 加载热门酒店数据
-import Hotels from '../data/hotelData.js'
+import Path from '../js/path.js'
 export default {
   data () {
     return {
       size: {
         height: '500px',
         width: '1000px'
-      }
+      },
+      hotel: {},
+      images: []
     }
   },
-  computed: {
-    hotel () {
-      for (let n of Hotels) {
-        if (n.id === this.$route.params.id) {
-          return n
+  methods: {
+    getdata () {
+      let vm = this
+      vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
+        let data = res.body
+        for (let hotel of data) {
+          if (hotel.id === this.$route.params.id) {
+            let images = hotel.images
+            for (let image of images) {
+              image.imgurl = Path.hotelimgURL + image.imgurl
+            }
+            vm.hotel = hotel
+            vm.images = images
+            return
+          }
         }
-      }
+      }, function (err) {
+        console.log(err)
+        console.log('\n' + '获取数据出错，请检查数据和网络是否有问题')
+      })
     }
+  },
+  mounted: function () {
+    this.getdata()
   },
   components: { DisplayImg }
 }

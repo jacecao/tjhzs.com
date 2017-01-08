@@ -30,7 +30,7 @@ export default {
   methods: {
     getData () {
       let vm = this
-      if (window.localStorage.getItem('_navbarinfo') === null) {
+      if (window.sessionStorage.getItem('_navbarinfo') === null) {
         vm.$http.get(Path.dataURL + 'navbar.json').then(function (res) {
           let data = res.body
           vm.title = data.title
@@ -39,12 +39,12 @@ export default {
             'background-image': 'url(' + Path.navbarimgURL + data.backgroundImage + ')',
             'position': data.fixed ? 'fixed' : 'relative'
           }
-          window.localStorage.setItem('_navbarinfo', window.JSON.stringify(res.body))
+          window.sessionStorage.setItem('_navbarinfo', window.JSON.stringify(res.body))
         }, function () {
           console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
         })
       } else {
-        let objStr = window.localStorage.getItem('_navbarinfo')
+        let objStr = window.sessionStorage.getItem('_navbarinfo')
         let _data = window.JSON.parse(objStr)
         vm.title = _data.title
         vm.style = {

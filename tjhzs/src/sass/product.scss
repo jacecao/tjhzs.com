@@ -25,14 +25,14 @@ $color-text: #00bcd4;
 		padding-top: 20px;
 		text-align: center;
 		font-weight: bold;
-	} 
+	}
 	.item-img-box{
 		position: relative;
 		margin: $padding;
 		overflow: hidden;
 		height: $imgheight;
 		background-size: cover;
-		img{
+		img.card_img{
 			@extend %absolute;
 			height: 200px;
 			width: $width - (2 * $padding);
@@ -57,7 +57,7 @@ $color-text: #00bcd4;
 }
 
 // 产品ListCss
-.product-list {
+.product_list {
 	margin: 40px auto;
 	text-align: center;
 	color: $navcolor;
@@ -71,8 +71,10 @@ $color-text: #00bcd4;
 		display: block;
 		width: 100%;
 		font-size: 1.2 * $font;
-		margin: 10px auto;
 	}
+  .product_note {
+    margin: 10px auto;
+  }
 	.color-text {
 		padding: 20px 0;
 		font-size: 1.5 * $font;

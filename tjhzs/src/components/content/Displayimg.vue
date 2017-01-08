@@ -57,22 +57,30 @@ export default {
       return Object.assign(this.size, this.style)
     }
   },
+  methods: {
+    play () {
+      let _step = parseInt(this.size.width)
+      // 轮播图控制
+      play({
+        step: _step, // 每次移动的总步长(也就是每张图片的宽度)
+        time: 5000, // 每张图片展示时长
+        fatherbox: '.display-img', // 父容器名字
+        imgbox: '.img_box',
+        prev: '#control_left',
+        next: '#control_right'
+      })
+    }
+  },
   mounted: function () {
-    let _step = parseInt(this.size.width)
+    this.play()
     // 这里需要监听数据变化时，需要再次调动play函数
-    this.$watch('images', function (nd, od) {
-      if (nd !== od) {
-        // 轮播图控制
-        play({
-          step: _step, // 每次移动的总步长(也就是每张图片的宽度)
-          time: 5000, // 每张图片展示时长
-          fatherbox: '.display-img', // 父容器名字
-          imgbox: '.img_box',
-          prev: '#control_left',
-          next: '#control_right'
-        })
+    this.$watch('images', function (now, old) {
+      if (now !== old) {
+        // console.log('************************')
+        // console.log(now)
+        this.play()
       }
-    })
+    }, {deep: true})
   },
   components: {AppImg}
 }
@@ -87,7 +95,7 @@ export default {
     // height: 300px;
     // width: 740px;
     // float: left;
-    background-color: #f1fff7;
+    background-color: #009688;
     box-shadow: $shadow;
   }
 </style>

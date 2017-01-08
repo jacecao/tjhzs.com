@@ -48,13 +48,16 @@
       let _height = this.$el.parentNode.offsetHeight
       this.$el.style.width = _width + 'px'
       this.$el.style.height = _height + 'px'
-      if (this.size === 'small') {
-        let _loading = this.$el.querySelector('.loading')
-        // let _circle = _loading.querySelector('.circle-1')
-        let _info = _loading.querySelector('.loading_info')
+      let _loading = this.$el.querySelector('.loading')
+      let _circle = _loading.querySelector('.circle-1')
+      let _info = _loading.querySelector('.loading_info')
+      if (this.haveinfo) {
         // 计算出small_loading在较小的元素中的top值
         // 例如在本网页中首页酒店展示栏的加载动画就需要重新计算相对高度
         let _top = window.Math.ceil((_height - _info.offsetTop - _info.offsetHeight) / 2)
+        _loading.style.top = _top + 'px'
+      } else {
+        let _top = window.Math.ceil((_height - _circle.offsetHeight) / 2)
         _loading.style.top = _top + 'px'
       }
     }
