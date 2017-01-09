@@ -42,27 +42,50 @@
           </div>
       </div>
     </section>
-    <job-head :contact="Work.contact"/>
-    <Works :Jobs="Work.jobs"/>
-  </div>  
+    <job-head :contact="work.contact"/>
+    <Works :Jobs="work.jobs"/>
+  </div>
 </template>
 
 <script>
 import JobHead from '../components/job/Jobheader'
 import Works from '../components/job/works'
-// 加载公司简介数据
-import aboutINFO from '../data/about.js'
-// 加载招聘数据
-import Jobs from '../data/jobs.js'
-
+import Path from '../js/path.js'
 export default {
   name: 'tjhzs_about',
   data () {
     return {
-      info: aboutINFO.tjhzs,
+      info: [],
       // 这里的数据将传给工作子组件
-      Work: Jobs
+      work: {
+        jobs: [],
+        contact: {}
+      }
     }
+  },
+  methods: {
+    getinfo () {
+      let vm = this
+      vm.$http.get(Path.dataURL + 'about.json').then(function (res) {
+        vm.info = res.body.tjhzs
+      }, function (err) {
+        console.log(err)
+        console.log('\n' + '获取数据出错，网络链接不成功')
+      })
+    },
+    getjobs () {
+      let vm = this
+      vm.$http.get(Path.dataURL + 'jobs.json').then(function (res) {
+        vm.work = res.body
+      }, function (err) {
+        console.log(err)
+        console.log('\n' + '获取数据出错，网络链接不成功')
+      })
+    }
+  },
+  mounted: function () {
+    this.getinfo()
+    this.getjobs()
   },
   components: {JobHead, Works}
 }

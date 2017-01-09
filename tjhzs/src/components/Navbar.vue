@@ -99,6 +99,7 @@ a:hover, .active{
 
 ul{
   position: absolute;
+  display: flex;
   right: 200px;
   width: 300px;
   margin: 0;

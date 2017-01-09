@@ -5,7 +5,7 @@
       <span>简历投递邮箱：</span>
       <span class="hrEmail">{{contact.email}}</span>
     </div>
-  </div>  
+  </div>
 </template>
 
 <script>
