@@ -1,7 +1,7 @@
 <template>
 	<section class="product-item" :style="cardStyle">
 		<h3>{{itemobj.title}}</h3>
-		<div class="item-img-box" :style="{background: 'url('+background+')'}">
+		<div class="product_item_img_box" :style="{background: 'url('+background+')'}">
 			<app-img :src="itemobj.logo" class="card_img"/>
 		</div>
 		<span>{{itemobj.note[0]}}</span>

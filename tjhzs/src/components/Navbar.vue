@@ -41,7 +41,7 @@ export default {
           }
           window.sessionStorage.setItem('_navbarinfo', window.JSON.stringify(res.body))
         }, function () {
-          console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
+          console.error('获取导航条数据出现错误：请检查配置信息是否正确或者网络故障')
         })
       } else {
         let objStr = window.sessionStorage.getItem('_navbarinfo')

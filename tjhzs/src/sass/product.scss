@@ -26,13 +26,13 @@ $color-text: #00bcd4;
 		text-align: center;
 		font-weight: bold;
 	}
-	.item-img-box{
+	.product_item_img_box{
 		position: relative;
 		margin: $padding;
 		overflow: hidden;
 		height: $imgheight;
 		background-size: cover;
-		img.card_img{
+		img.card_img, img{
 			@extend %absolute;
 			height: 200px;
 			width: $width - (2 * $padding);

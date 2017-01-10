@@ -42,7 +42,7 @@ export default {
         vm.items = _images
         vm.news = _arr
       }, function () {
-        console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
+        console.error('获取新闻数据出现错误：请检查配置信息是否正确或者网络故障')
       })
     }
   },
