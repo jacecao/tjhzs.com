@@ -30,29 +30,32 @@ export default {
   methods: {
     getData () {
       let vm = this
-      if (window.sessionStorage.getItem('_navbarinfo') === null) {
-        vm.$http.get(Path.dataURL + 'navbar.json').then(function (res) {
-          let data = res.body
-          vm.title = data.title
-          vm.style = {
-            'background-color': data.backgroundColor,
-            'background-image': 'url(' + Path.navbarimgURL + data.backgroundImage + ')',
-            'position': data.fixed ? 'fixed' : 'relative'
-          }
-          window.sessionStorage.setItem('_navbarinfo', window.JSON.stringify(res.body))
-        }, function () {
-          console.error('获取导航条数据出现错误：请检查配置信息是否正确或者网络故障')
-        })
-      } else {
-        let objStr = window.sessionStorage.getItem('_navbarinfo')
-        let _data = window.JSON.parse(objStr)
-        vm.title = _data.title
+      // if (window.sessionStorage.getItem('_navbarinfo') === null) {
+      vm.$http.get(Path.dataURL + 'navbar.json').then(function (res) {
+        // tjhzs服务端需要JSON.parse()使用此步骤
+        // let data = window.JSON.parse(res.body)
+        let data = res.body
+        console.log('navbar' + '\n' + data)
+        vm.title = data.title
         vm.style = {
-          'background-color': _data.backgroundColor,
-          'background-image': 'url(' + Path.navbarimgURL + _data.backgroundImage + ')',
-          'position': _data.fixed ? 'fixed' : 'relative'
+          'background-color': data.backgroundColor,
+          'background-image': data.backgroundImage ? 'url(' + Path.navbarimgURL + data.backgroundImage + ')' : '',
+          'position': data.fixed ? 'fixed' : 'relative'
         }
-      }
+        // window.sessionStorage.setItem('_navbarinfo', window.JSON.stringify(res.body))
+      }, function () {
+        console.error('获取导航条数据出现错误：请检查配置信息是否正确或者网络故障')
+      })
+      // } else {
+      //   let objStr = window.sessionStorage.getItem('_navbarinfo')
+      //   let _data = window.JSON.parse(objStr)
+      //   vm.title = _data.title
+      //   vm.style = {
+      //     'background-color': _data.backgroundColor,
+      //     'background-image': 'url(' + Path.navbarimgURL + _data.backgroundImage + ')',
+      //     'position': _data.fixed ? 'fixed' : 'relative'
+      //   }
+      // }
     }
   },
   mounted: function () {

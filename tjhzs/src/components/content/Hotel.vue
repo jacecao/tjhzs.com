@@ -30,6 +30,8 @@ export default {
     getdata () {
       let vm = this
       vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
+        // tjhzs服务器返回的json字符串
+        // let data = window.JSON.parse(res.body)
         let data = res.body
         // 这里会在后期变为sessionStorage
         // 后面不再需要对地址作特殊处理

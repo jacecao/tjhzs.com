@@ -67,7 +67,10 @@ export default {
     getinfo () {
       let vm = this
       vm.$http.get(Path.dataURL + 'about.json').then(function (res) {
-        vm.info = res.body.tjhzs
+        // tjhzs服务端需要JSON.parse()使用此步骤
+        // let data = window.JSON.parse()
+        let data = res.body
+        vm.info = data.tjhzs
       }, function (err) {
         console.log(err)
         console.log('\n' + '获取数据出错，网络链接不成功')
@@ -76,7 +79,10 @@ export default {
     getjobs () {
       let vm = this
       vm.$http.get(Path.dataURL + 'jobs.json').then(function (res) {
-        vm.work = res.body
+        // tjhzs服务端需要JSON.parse()使用此步骤
+        // let data = window.JSON.parse()
+        let data = res.body
+        vm.work = data
       }, function (err) {
         console.log(err)
         console.log('\n' + '获取数据出错，网络链接不成功')

@@ -31,6 +31,8 @@ export default {
     getdata () {
       let vm = this
       vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
+        // tjhzs服务端需要JSON.parse()使用此步骤
+        // let data = window.JSON.parse(res.body)
         let data = res.body
         for (let hotel of data) {
           if (hotel.id === this.$route.params.id) {

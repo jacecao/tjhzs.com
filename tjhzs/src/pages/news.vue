@@ -27,6 +27,8 @@ export default {
     getdata () {
       let vm = this
       vm.$http.get(Path.dataURL + 'news.json').then(function (res) {
+        // tjhzs服务端需要JSON.parse()使用此步骤
+        // let data = window.JSON.parse(res.body)
         let data = res.body
         let _arr = data.slice(0, 6)
         for (let news of _arr) {

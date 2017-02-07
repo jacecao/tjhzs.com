@@ -30,7 +30,10 @@ export default {
       let vm = this
       let _images = []
       vm.$http.get(Path.dataURL + 'news.json').then(function (res) {
+        // tjhzs服务端需要JSON.parse()使用此步骤
+        // let data = window.JSON.parse(res.body)
         let data = res.body
+        console.log('news' + '\n' + data)
         let _arr = data.slice(0, 6)
         for (let n of _arr) {
           _images.push({

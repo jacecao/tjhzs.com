@@ -69,6 +69,8 @@ export default {
     getdata () {
       let vm = this
       vm.$http.get(Path.dataURL + 'product.json').then(function (res) {
+        // tjhzs服务端需要JSON.parse()使用此步骤
+        // let data = window.JSON.parse(res.body)
         let data = res.body
         for (let product of data) {
           product.logo = Path.productimgURL + product.logo
