@@ -35,6 +35,7 @@
 }
 body{
   @extend %width;
+  font-size: 16px;
 }
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon' !important;
