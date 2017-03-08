@@ -91,6 +91,7 @@ a:hover, .active{
     color: $navcolor;
     height: 50px;
     line-height: 50px;
+    cursor: default;
   }
   img {
     float: left;

@@ -37,6 +37,9 @@ body{
   @extend %width;
   font-size: 16px;
 }
+p,h1,h2,h3 {
+  cursor: default;
+}
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon' !important;
   speak: none;

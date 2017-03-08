@@ -186,6 +186,9 @@ $padding: 10px;
 		font-size: 1.2 * $font;
 		color: $textcolor;
 	}
+  span {
+    cursor: default;
+  }
 }
 .hotel-list
 {
