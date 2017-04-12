@@ -1,0 +1,691 @@
+<!DOCTYPE html5>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>后台系统主页</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./static/css/reset.css">
+    <link rel="stylesheet" href="./static/css/main.css">
+    <link rel="stylesheet" href="./static/css/message.css">
+  </head>
+
+  <body>
+
+    <header class="main-header">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a href="#" class="navbar-brand">LOGO</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">exit</a></p>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <div class="col-md-2 col-md-offset-1">
+          <!-- 左侧竖直菜单折叠 -->
+          <div class="btn-group-vertical" role="group" aria-label="...">
+            <!-- 头部信息编辑 -->
+            <a href="#" class="left-menu btn btn-primary">头部信息设置</a>
+            <!-- 导航条管理 -->
+            <a href="#" class="left-menu btn btn-primary">导航条设置</a>
+            <!-- 管理后台人员 -->
+            <button class="left-menu btn btn-primary" type="button" data-toggle="collapse" data-target="#mangers" aria-expanded="false" aria-controls="mangers">管理员控制<span class="glyphicon glyphicon-chevron-down icon-down"></span></button>
+            <div class="collapse" id="mangers">
+              <div class="btn-group-vertical vertical-menu" role="group" aria-label="...">
+                <a type="button" class="btn btn-default" href="#">添加管理员</a>
+                <a type="button" class="btn btn-default" href="#">管理员列表</a>
+              </div>
+            </div>
+            <!-- 新闻管理 -->
+            <button class="left-menu btn btn-primary" type="button" data-toggle="collapse" data-target="#news" aria-expanded="false" aria-controls="news">新闻管理<span class="glyphicon glyphicon-chevron-down icon-down"></span></button>
+            <div class="collapse" id="news">
+              <div class="btn-group-vertical vertical-menu" role="group" aria-label="...">
+                <a class="btn btn-default" href="#">添加新闻</a>
+                <a class="btn btn-default" href="#">管理新闻</a>
+              </div>
+            </div>
+            <!-- 酒店信息管理 -->
+            <button class="left-menu btn btn-primary" type="button" data-toggle="collapse" data-target="#hotel" aria-expanded="false" aria-controls="hotel">酒店信息管理<span class="glyphicon glyphicon-chevron-down icon-down"></span></button>
+            <div class="collapse" id="hotel">
+              <div class="btn-group-vertical vertical-menu" role="group" aria-label="...">
+                <a class="btn btn-default" href="#">添加酒店信息</a>
+                <a class="btn btn-default" href="#">管理酒店信息</a>
+              </div>
+            </div>
+            <!-- 产品信息管理 -->
+            <button class="left-menu btn btn-primary" type="button" data-toggle="collapse" data-target="#products" aria-expanded="false" aria-controls="products">产品信息管理<span class="glyphicon glyphicon-chevron-down icon-down"></span></button>
+            <div class="collapse" id="products">
+              <div class="btn-group-vertical vertical-menu" role="group" aria-label="...">
+                <a class="btn btn-default" href="#">展示设计</a>
+                <a class="btn btn-default" href="#">广告制作</a>
+                <a class="btn btn-default" href="#">活动推广</a>
+              </div>
+            </div>
+            <!-- 关于我们 -->
+            <a href="#" class="left-menu btn btn-primary">关于我们</a>
+            <!-- 职位发布 -->
+            <!-- 产品信息管理 -->
+            <button class="left-menu btn btn-primary" type="button" data-toggle="collapse" data-target="#jobs" aria-expanded="false" aria-controls="jobs">产品信息管理<span class="glyphicon glyphicon-chevron-down icon-down"></span></button>
+            <div class="collapse" id="jobs">
+              <div class="btn-group-vertical vertical-menu" role="group" aria-label="...">
+                <a class="btn btn-default" href="#">发布招聘</a>
+                <a class="btn btn-default" href="#">招聘管理</a>
+              </div>
+            </div>
+            <!-- 底部信息 -->
+            <a href="#" class="left-menu btn btn-primary">底部信息</a>
+          </div>
+        </div>
+        <div class="col-md-7 col-md-offset-1 control-win">
+
+          <!-- 加载动画 -->
+          <div class="loading-mask">
+            <div id="loading">
+              <div class="loading-body">
+                <div class="circle-1"></div>
+                <div class="circle-2"></div>
+              </div>
+              <div class="loading-info">正在加载中，请稍后</div>
+            </div>
+          </div>
+
+
+          <!-- 首页显示
+            <div class="result">
+              网站信息：<span>0</span>
+              <hr>
+              当前新闻总数：<span>0</span>
+              <hr>
+              当前酒店信息：<span>0</span>
+              <hr>
+              管理人员：<span>0</span>
+              <hr>
+              职位发布：<span>0</span>
+              <hr>
+            </div>
+           -->
+
+          <!-- 头部录入信息显示
+            <form class="show-form header-form">
+              <h3>头部信息设置</h3><hr>
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="City">
+              </div>
+              <div class="form-group">
+               <label for="season">Season</label>
+               <input type="text" class="form-control" id="season" name="season" placeholder="Season">
+              </div>
+              <div class="form-group">
+               <label for="readytime">Ready Time</label>
+               <input type="text" class="form-control" id="readytime" name="readytime" placeholder="Input Time">
+              </div>
+              <div class="form-group">
+                <label for="starttime">Start Time</label>
+                <input type="text" class="form-control" id="starttime" name="starttime" placeholder="Input Time">
+              </div>
+              <div class="form-group">
+                <label for="addr">Address</label>
+                <input type="text" class="form-control" id="addr" name="addr" placeholder="Address">
+              </div>
+              <div class="form-group">
+                <label for="zhuban">Zhuban</label>
+                <input type="text" class="form-control" id="zhuban" name="zhuban" placeholder="Zhuban">
+              </div>
+              <div class="form-group">
+                <label for="chenban">Chenban</label>
+                <input type="text" class="form-control" id="chenban" name="chenban" placeholder="Chenban">
+              </div>
+              <div class="form-group">
+                <label for="bgimg">Upload BGimg</label>
+                <div class="row">
+                  <div class="col-md-5">
+                    <button type="button" class="btn btn-default btn-check">Up File
+                      <input class="checkbox" type="file" id="bgimg" name="bgimg">
+                    </button>
+                    <span class="filename"></span>
+                  </div>
+                  <a href="#" class="btn btn-primary col-md-3 col-md-offset-1" data-toggle="modal" data-target="#choosefile">Choose BG</a>
+                </div>
+              </div>
+              <button type="button" class="btn btn-warning">Submit</button>
+
+              <div class="modal fade" id="choosefile" tabindex="-1" role="dialog" aria-labelledby="choosefile">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">请挑选图片</h4>
+                    </div>
+                    <div class="modal-body choose-body">
+                      <ul class="choose-box">
+                        <li>
+                          <input type="radio" id="inlineCheckbox1" name="checkfile" value="imgid">
+                          <img src="/php/tjhzs/image/header/header.jpg" alt="imgid">
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">OK</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          -->
+
+
+
+          <!-- 导航条设置显示
+           <form class="show-form nav-form">
+             <h3>导航条设置</h3><hr>
+             <div class="form-group">
+              <label>导航条颜色设置</label>
+              <div class="radio-box">
+                <input class="color-radio" type="radio" name="color" value="#fff"> <span class="color-info color-white"></span>
+              </div>
+              <div class="radio-box">
+                <input class="color-radio" type="radio" name="color" value="#000"> <span class="color-info color-black"></span>
+              </div>
+             </div>
+             <div class="form-group">
+              <label for="navbar-title">导航条副标题设置</label>
+              <input type="text" class="form-control" id="navbar-title" name="title" placeholder="和谐 / 包容 / 发展 / 共赢">
+             </div>
+             <div class="form-group">
+              <label>导航是否固定在顶部</label>
+              <div class="radio-box">
+                <input class="color-radio" type="radio" name="position" value="false"> <span>固定在网页顶部</span>
+              </div>
+              <div class="radio-box">
+                <input class="color-radio" type="radio" name="position" value="true"> <span>始终保持在窗口顶部</span>
+              </div>
+             </div>
+             <button type="button" class="btn btn-warning">Submit</button>
+           </form>
+          -->
+
+          <!-- 管理员列表
+          <div class="user-list data-list">
+            <h3>管理员列表</h3><hr>
+            <table class="table table-hover text-center data-list">
+              <thead>
+                <tr>
+                  <th class="text-center">编号</th>
+                  <th class="text-center">管理员账号</th>
+                  <th class="text-center">注册时间</th>
+                  <th class="text-center">管理</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>username</td>
+                  <td>2017-03-12</td>
+                  <td><button class="btn btn-warning del-username" type="button" data-user="userid">删除管理员</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          -->
+          <!-- 添加管理员
+          <form class="user-login">
+            <h3>添加新的管理员</h3><hr>
+            <div class="form-box">
+              <div class="form-group">
+                <label for="user">Username</label>
+                <input type="text" class="form-control" id="user" name="username" placeholder="Username">
+              </div>
+              <div class="form-group">
+                <label for="psw">Password</label>
+                <input type="password" class="form-control" id="psw" name="password" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="check-psw">再一次输入密码</label>
+                <input type="password" class="form-control" id="check-psw" name="checkpassword" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="captchar">Captchar <a class="change-captchar" href="javascript:void(0);">change next</a></label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="captchar" name="captchar" placeholder="Captchar">
+                  <span class="input-group-addon captchar-box">
+                    <img class="captchar-img" src="/php/tjhzs/server/captchar.php" alt="">
+                  </span>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sub">Submit</button>
+          </form>
+          -->
+
+          <!-- 添加新闻
+          <form class="news-form">
+            <h3>新闻录入</h3><hr>
+            <div class="form-group">
+              <label for="news-title">标题</label>
+              <input type="text" class="form-control" id="news-title" name="title" placeholder="title">
+            </div>
+            <div class="form-group">
+              <label for="bgimg">添加图片</label>
+              <div class="add-img">
+                <div class="row">
+                  <div class="col-md-5">
+                    <button type="button" class="btn btn-default btn-check">Up File
+                      <input class="checkbox" type="file" id="bgimg" name="bgimg">
+                    </button>
+                    <span class="filename"></span>
+                  </div>
+                  <a href="#" class="btn btn-primary col-md-3 col-md-offset-1" data-toggle="modal" data-target="#choosefile">Choose BG</a>
+                </div>
+                <input type="text" class="form-control" id="img-desc" name="desc" placeholder="img-desc">
+              </div>
+              <div class="add-btn">
+                <button class="add btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="news-content">内容</label>
+              <input type="text" class="form-control" id="news-content" name="content" placeholder="content">
+            </div>
+            <button type="button" class="btn btn-warning">Submit</button>
+
+            <div class="modal fade" id="choosefile" tabindex="-1" role="dialog" aria-labelledby="choosefile">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">请挑选图片</h4>
+                  </div>
+                  <div class="modal-body choose-body">
+                    <ul class="choose-box">
+                      <li>
+                        <input type="radio" id="inlineCheckbox1" name="checkfile" value="imgid">
+                        <img src="/php/tjhzs/image/header/header.jpg" alt="imgid">
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          -->
+          <!-- 新闻列表
+          <div class="news-list data-list">
+            <h3>新闻列表</h3><hr>
+            <table class="table table-hover text-center data-list">
+              <thead>
+                <tr>
+                  <th class="text-center">编号</th>
+                  <th class="text-center">标题</th>
+                  <th class="text-center">作者</th>
+                  <th class="text-center">添加时间</th>
+                  <th class="text-center">修改时间</th>
+                  <th class="text-center">管理</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>hello word hello word hello word hello word</td>
+                  <td>username</td>
+                  <td>2017-03-12</td>
+                  <td>2017-03-12</td>
+                  <td>
+                    <button class="btn btn-default edit" type="button" data-news="newsid">编辑</button>
+                    <button class="btn btn-warning del" type="button" data-news="newsid">删除</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          -->
+
+          <!-- 添加酒店信息
+          <form class="show-form hotels-form">
+            <h3>酒店信息录入</h3><hr>
+            <div class="form-group">
+              <label for="hotel-name">酒店名字</label>
+              <input type="text" class="form-control" id="hotel-name" name="name" placeholder="title">
+            </div>
+            <div class="form-group">
+              <label for="bgimg">添加图片</label>
+              <div class="add-img">
+                <div class="row">
+                  <div class="col-md-5">
+                    <button type="button" class="btn btn-default btn-check">Up File
+                      <input class="checkbox" type="file" id="bgimg" name="bgimg">
+                    </button>
+                    <span class="filename"></span>
+                  </div>
+                  <a href="#" class="btn btn-primary col-md-3 col-md-offset-1" data-toggle="modal" data-target="#choosefile">Choose BG</a>
+                </div>
+                <input type="text" class="form-control" id="img-desc" name="desc" placeholder="img-desc">
+              </div>
+              <div class="add-btn">
+                <button class="add btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="hotel-content">内容</label>
+              <input type="text" class="form-control" id="hotel-content" name="content" placeholder="content">
+            </div>
+            <button type="button" class="btn btn-warning">Submit</button>
+
+            <div class="modal fade" id="choosefile" tabindex="-1" role="dialog" aria-labelledby="choosefile">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">请挑选图片</h4>
+                  </div>
+                  <div class="modal-body choose-body">
+                    <ul class="choose-box">
+                      <li>
+                        <input type="radio" id="inlineCheckbox1" name="checkfile" value="imgid">
+                        <img src="/php/tjhzs/image/header/header.jpg" alt="imgid">
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          -->
+          <!-- 酒店信息列表
+          <div class="hotels-list data-list">
+            <h3>酒店信息列表</h3><hr>
+            <table class="table table-hover text-center">
+              <thead>
+                <tr>
+                  <th class="text-center">编号</th>
+                  <th class="text-center">名字</th>
+                  <th class="text-center">作者</th>
+                  <th class="text-center">添加时间</th>
+                  <th class="text-center">修改时间</th>
+                  <th class="text-center">管理</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>hello word</td>
+                  <td>username</td>
+                  <td>2017-03-12</td>
+                  <td>2017-03-12</td>
+                  <td>
+                    <button class="btn btn-default edit" type="button" data-news="newsid">编辑</button>
+                    <button class="btn btn-warning del" type="button" data-news="newsid">删除</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          -->
+
+
+          <form class="show-form products-form">
+            <h3>展示设计信息设置</h3><hr>
+            <fieldset>
+              <legend>产品导航信息</legend>
+              <div class="form-group">
+                <label for="bgimg">Logo图片</label>
+                <div class="row">
+                  <div class="col-md-5">
+                    <button type="button" class="btn btn-default btn-check">Up File
+                      <input class="checkbox" type="file" id="bgimg" name="bgimg">
+                    </button>
+                    <span class="filename"></span>
+                  </div>
+                  <a href="#" class="btn btn-primary col-md-3 col-md-offset-1" data-toggle="modal" data-target="#choosefile">Choose BG</a>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>顶部信息</label>
+                <input type="text" class="form-control note" name="header_note1" placeholder="note">
+                <input type="text" class="form-control note" name="header_note2" placeholder="note">
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>产品展示信息</legend>
+              <div class="form-group">
+                <label>展示信息</label>
+                <input type="text" class="form-control note" name="show_note1" placeholder="note">
+                <input type="text" class="form-control note" name="show_note2" placeholder="note">
+              </div>
+              <div class="form-group">
+                <label>底部标语</label>
+                <input type="text" class="form-control note" name="bottom_note" placeholder="note">
+              </div>
+              <div class="form-group">
+                <label for="bgimg">添加图片</label>
+                <div class="add-img">
+                  <div class="row">
+                    <div class="col-md-6 scan-box-id">
+                      <div class="show_image show_image_id">
+                        <img class="scan-img" src="http://ajaxtest.com/php/tjhzs/static/images/logo/tjhzs_41f586f1c4.jpg" alt="">
+                        <button type="button" class="btn btn-warning del-scan"><span class="glyphicon glyphicon-trash"></span></button>
+                      </div>
+                      <div class="img-info">
+                        <input type="hidden" name="img_id[]" value="">
+                        <input type="hidden" name="img_url[]" value="">
+                        <input type="hidden" name="img_name[]" value="">
+                        <input type="hidden" name="img_desc[]" value="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="add-btn">
+                  <button class="add btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                </div>
+              </div>
+            </fieldset>
+
+            <button type="button" class="btn btn-warning">Submit</button>
+
+            <div class="modal fade" id="choosefile" tabindex="-1" role="dialog" aria-labelledby="choosefile">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">请挑选图片</h4>
+                  </div>
+                  <div class="modal-body choose-body">
+                    <ul class="choose-box">
+                      <li>
+                        <input type="radio" id="inlineCheckbox1" name="checkfile" value="imgid">
+                        <img src="/php/tjhzs/image/header/header.jpg" alt="imgid">
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">OK</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+
+          <!-- 关于我们
+          <form class="show-form about-form">
+            <h3>关于我们</h3><hr>
+            <div class="form-group">
+              <label>我们的愿景</label>
+              <input type="text" class="form-control note" name="future_note1" placeholder="note">
+              <input type="text" class="form-control note" name="future_note2" placeholder="note">
+              <input type="text" class="form-control note" name="future_note3" placeholder="note">
+            </div>
+            <div class="form-group">
+              <label>关于我们</label>
+              <input type="text" class="form-control note" name="about_note1" placeholder="note">
+              <input type="text" class="form-control note" name="about_note2" placeholder="note">
+              <input type="text" class="form-control note" name="about_note3" placeholder="note">
+            </div>
+            <button type="button" class="btn btn-warning">Submit</button>
+          </form>
+          -->
+
+          <!-- 招聘发布
+          <div class="data-list">
+            <form class="job-form">
+              <h3>招聘发布</h3><hr>
+              <div class="form-group">
+                <label>岗位名称</label>
+                <input type="text" class="form-control" name="name" placeholder="job name">
+              </div>
+              <div class="form-group">
+                <label>工作简述</label>
+                <input type="text" class="form-control" name="job_note" placeholder="job note">
+              </div>
+              <div class="form-group">
+                <label>工作地点</label>
+                <input type="text" class="form-control" name="job_location" placeholder="job location">
+              </div>
+              <div class="form-group">
+                <label>工作要求</label>
+                <textarea class="form-control" name="job_req" placeholder="job requirment" rows="5"></textarea>
+              </div>
+              <div class="form-group">
+                <label>工作描述</label>
+                <input type="text" class="form-control note" name="job_describe1" placeholder="job describe">
+                <input type="text" class="form-control note" name="job_describe2" placeholder="job describe">
+                <input type="text" class="form-control note" name="job_describe2" placeholder="job describe">
+              </div>
+              <button type="button" class="btn btn-warning">Submit</button>
+            </form>
+          </div>
+          -->
+
+          <!-- 招聘列表
+          <div class="jobs-list data-list">
+            <h3>招聘信息发布列表</h3><hr>
+            <table class="table table-hover text-center">
+              <thead>
+                <tr>
+                  <th class="text-center">编号</th>
+                  <th class="text-center">岗位名称</th>
+                  <th class="text-center">发布员</th>
+                  <th class="text-center">添加时间</th>
+                  <th class="text-center">修改时间</th>
+                  <th class="text-center">管理</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>销售助理</td>
+                  <td>username</td>
+                  <td>2017-03-12</td>
+                  <td>2017-03-12</td>
+                  <td>
+                    <button class="btn btn-default edit" type="button" data-news="jobid">编辑</button>
+                    <button class="btn btn-warning del" type="button" data-news="jobid">删除</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          -->
+
+          <!-- 网页底部信息
+          <div class="data-list">
+            <form class="web-form">
+              <h3>网页底部信息设置</h3><hr>
+              <fieldset>
+                <legend>网页信息</legend>
+                <div class="form-group">
+                  <label>公司名字</label>
+                  <input type="text" class="form-control" name="name" placeholder="公司名字">
+                </div>
+                <div class="form-group">
+                  <label>公司地址</label>
+                  <input type="text" class="form-control" name="address" placeholder="公司地址">
+                </div>
+                <div class="form-group">
+                  <label>网站备案号</label>
+                  <input type="text" class="form-control" name="number" placeholder="网站备案号">
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>其他信息-1</legend>
+                <div class="form-group">
+                  <label>大标题</label>
+                  <input type="text" class="form-control" name="title" placeholder="title">
+                </div>
+                <div class="form-group">
+                  <label>小标题</label>
+                  <input type="text" class="form-control" name="small_title" placeholder="small_title">
+                </div>
+                <div class="form-group">
+                  <label>是否为链接</label>
+                  <input type="checkbox" name="is_link">
+                </div>
+                <div class="form-group">
+                  <label>链接地址</label>
+                  <input type="text" class="form-control" name="link_url" placeholder="url">
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <legend>其他信息-2</legend>
+                <div class="form-group">
+                  <label>大标题</label>
+                  <input type="text" class="form-control" name="title" placeholder="title">
+                </div>
+                <div class="form-group">
+                  <label>小标题</label>
+                  <input type="text" class="form-control" name="small_title" placeholder="small_title">
+                </div>
+                <div class="form-group">
+                  <label>是否为链接</label>
+                  <input type="checkbox" name="is_link">
+                </div>
+                <div class="form-group">
+                  <label>链接地址</label>
+                  <input type="text" class="form-control" name="link_url" placeholder="url">
+                </div>
+              </fieldset>
+              <button type="button" class="btn btn-warning">Submit</button>
+            </form>
+          </div>
+          -->
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script>
+      $('#bgimg').on('change', function () {
+        var index = $(this).val().lastIndexOf('\\') > 0 ?
+                    $(this).val().lastIndexOf('\\') :
+                    $(this).val().lastIndexOf('/');
+        var name =  $(this).val().substring(index + 1);
+        $('.filename').text(name);
+      });
+    </script>
+  </body>
+
+</html>

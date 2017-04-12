@@ -1,0 +1,31 @@
+# 采用多表关联
+# 图片表单只存储 图片名字 图片地址 以及图片编号
+# 新闻和酒店各一个 标题 内容 编号
+# 中间表达记录 图片编号 新闻或酒店编号  对应的图片描述
+
+# 简短设置同样需要通过json来设置
+
+最后获取到的数据都将通过中间表单来获取
+
+# 账号数据库
+id samllint
+username varchar(20) unique key
+power enum('admin', 'root') default 'admin'
+date
+
+# 图片数据
+id 编号
+name 文件名
+path 真实地址
+url 引用地址
+desc 可以空
+status 状态 默认正常 当管理员删除时会在这里标记处理 但不做真实删除 1 表示未删除 0 表示删除
+used 0 或 1  当前该图片资源是否被使用，1表示在使用 0 表示没有被使用
+date 上传时间
+dir  图片所属文件夹
+
+# 关联表
+id 编号
+articleid 文章编号
+imageid 图片编号
+
