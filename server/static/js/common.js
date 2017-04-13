@@ -396,7 +396,6 @@ Check_link.prototype = {
       // 那么如果该模块中没有该ID注册那么加入该模块id
       // 接下来生成新的模块信息
       !is_exist && this.id.push(id);
-      // console.log(id);
       this.addlink(id);
     } else {
       this.clear(id);
@@ -440,7 +439,7 @@ Check_link.prototype = {
       // 由于这些模块时后台直接产生，并没在该模块中注册
       // 所以直接通过选择器选择移除，
       // (注意，信息模块都为统一约定模式, 即addlink中那样的结构)
-      $('.link-box-'+id).length > 0 && $('.link-box-'+id).remove();
+      $('.link-body-'+id).length > 0 && $('.link-body-'+id).remove();
     }
 
   },

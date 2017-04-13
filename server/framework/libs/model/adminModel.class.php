@@ -2,7 +2,7 @@
 // 从数据库取用户数据
   class adminModel {
 
-    public $_table = 'users'; // 定义表名
+    private $_table = 'users'; // 指定数据表名
 
     private function Mark ($str) {
       return crypt($str, '$1$tjhzs$');

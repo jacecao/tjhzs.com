@@ -110,14 +110,14 @@
       }
       $keyANDvalues = implode(',', $keyANDvalueArr);
       $sql = "UPDATE ".$table_name." SET ".$keyANDvalues.' WHERE '.$where;
-      $this->query($sql);
+      return $this->query($sql);
     }
 
     // 删除数据
     function del ($table_name, $where) {
       // 删除语句
       $sql = 'DELETE FROM '.$table_name.' WHERE '.$where;
-      $this->query($sql);
+      return $this->query($sql);
     }
 
 

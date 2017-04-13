@@ -34,8 +34,13 @@ var URL = {
 
   // 获取新闻录制界面
   newsAdd: PATH + '/server/main.php?controller=admin&method=view&view=news',
+  // 新闻列表界面
+  newsList: PATH + '/server/main.php?controller=admin&method=list_win&list=news',
+
   // 获取酒店录制界面
   hotelAdd: PATH + '/server/main.php?controller=admin&method=view&view=hotel',
+  // 酒店列表界面
+  hotelList: PATH + '/server/main.php?controller=admin&method=list_win&list=hotel',
 
   // 设置关于我们
   aboutSet: PATH + '/server/main.php?controller=admin&method=view&view=about',
@@ -43,7 +48,17 @@ var URL = {
   sub_about: PATH + '/server/main.php?controller=data&method=about_sub',
 
   // 招聘发布
-  jobAdd: PATH + '/server/main.php?controller=admin&method=view&view=zp',
+  jobAdd: PATH + '/server/main.php?controller=admin&method=view&view=job',
+  // 招聘列表
+  jobList: PATH + '/server/main.php?controller=admin&method=list_win&list=job',
+  // 招聘数据上传
+  sub_job: PATH + '/server/main.php?controller=data&method=job_sub',
+  // 修改后的招聘数据上传
+  sub_edit_job: PATH + '/server/main.php?controller=data&method=job_update',
+  // 删除数据
+  del_job: PATH + '/server/main.php?controller=data&method=job_del',
+  // 招聘数据修改
+  edit_job: PATH + '/server/main.php?controller=admin&method=view&view=job&id=',
 
   // 底部信息设置
   footerSet: PATH + '/server/main.php?controller=admin&method=view&view=footer',

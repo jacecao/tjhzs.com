@@ -2,7 +2,7 @@
   // 所有图片存储读取处理
   class imageModel {
 
-    public $_table = 'images'; // 定义表名
+    private $_table = 'images'; // 定义表名
 
     // 添加图片数据
     public function insert_img ($upinfo) {

@@ -89,13 +89,13 @@ $('.is-link').on('click', function () {
 
 // 提交数据
 $('.sub-footer').on('click', function () {
-  // $(this).attr('disabled', true);
+  $(this).attr('disabled', true);
   // 执行数据提交处理
-  // up_form_data(URL.sub_footer, URL.footerSet, '.web-form');
-  $.post(URL.sub_footer, $('.web-form').serialize(), function (res) {
-    // document.write(res);
-    console.log(res);
-  });
+  up_form_data(URL.sub_footer, URL.footerSet, '.web-form');
+  // $.post(URL.sub_footer, $('.web-form').serialize(), function (res) {
+  //   // document.write(res);
+  //   console.log(res);
+  // });
 });
 
 /********************************
@@ -150,3 +150,43 @@ $('.sub-data').on('click', function () {
   up_form_data(url, re_url, '.products-form');
 });
 
+/********************************
+**   招聘页面界面编写          **
+********************************/
+// 提交数据
+$('.sub-job').on('click', function () {
+  var id = $(this).data('id');
+  $(this).attr('disabled', true);
+  if (id) {
+    // 执行修改数据处理
+    up_form_data(URL.sub_edit_job, URL.jobList, '.job-form');
+    // $.post(URL.sub_edit_job, $('.job-form').serialize(), function (res) {
+    //   // document.write(res);
+    //   console.log(res);
+    // });
+  } else {
+    // 执行数据提交处理
+    up_form_data(URL.sub_job, URL.jobList, '.job-form');
+  }
+});
+
+// 编辑数据
+$('.job-edit').on('click', function () {
+  var _id = $(this).data('id');
+  var _url = URL.edit_job + _id;
+  // $.get(_url, function (res) {console.log(res);});
+  // 启动重定向
+  redirector(_url);
+});
+
+// 删除数据
+$('.job-del').on('click', function () {
+  var id = $(this).data('id');
+  $(this).attr('disabled', true);
+  // 执行修改数据处理
+  del_data(URL.del_job, URL.jobList, id);
+  // $.post(URL.del_job, {'id': id}, function (res) {
+  //   // document.write(res);
+  //   console.log(res);
+  // });
+});

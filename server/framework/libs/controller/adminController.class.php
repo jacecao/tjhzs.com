@@ -163,11 +163,33 @@
         VIEW::assign($dataArr);
       }
     }
+    // 获取指定信息数据
+    // $name json文件名
+    // $id  需要查找数据的id值
+    private function get_json_by_id ($name, $id) {
+      if (!empty($id)) {
+        // 启动数据工程模型
+        $data = M('product');
+        $dataArr = $data->read_json($name);
+        foreach ($dataArr as $key => $values) {
+          foreach ($values as $value) {
+            $_data_arr[] = $value;
+          }
+        }
+        foreach ($_data_arr as $_value) {
+          if ($_value['id'] === $id) {
+            VIEW::assign($_value);
+          }
+        }
+      }
+    }
+
     public function view () {
       if (!empty($this->user)) {
         // 获取view名称
         $viewname = $_GET['view'];
         $other = isset($_GET['other']) ? $_GET['other'] : '';
+        $id = isset($_GET['id']) ? $_GET['id'] : '';
         // 为不同的窗口获取不同的数据资源
         switch ($viewname) {
           case 'header':
@@ -178,6 +200,9 @@
             break;
           case 'footer':
             $this->get_json_data('footer');
+            break;
+          case 'job':
+            $this->get_json_by_id('jobs', $id);
             break;
         }
         if (!empty($other)) {
@@ -197,6 +222,30 @@
           }
         }
         VIEW::display($viewname.'_form.html');
+      } else {
+        $this->login();
+      }
+    }
+
+    // 获取所有数据列表界面
+    public function list_win () {
+      if (!empty($this->user)) {
+        // 获取list名称
+        $listname = $_GET['list'];
+        // 为不同的窗口获取不同的数据资源
+        switch ($listname) {
+          case 'job':
+            $this->get_json_data('jobs');
+            break;
+          case 'about':
+            // $this->get_json_data('about');
+            break;
+          case 'footer':
+            // $this->get_json_data('footer');
+            break;
+        }
+
+        VIEW::display($listname.'_list.html');
       } else {
         $this->login();
       }

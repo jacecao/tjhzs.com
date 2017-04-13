@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-10 09:47:51
+/* Smarty version 3.1.30, created on 2017-04-13 10:30:55
   from "F:\AjaxDemo\ajaxtest\php\tjhzs\smart_dir\tpl\product_form.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58eb38a7da2291_04993769',
+  'unifunc' => 'content_58ef373f431541_72641899',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd20b2b07600ed381513798de1e0fe551141a04f3' => 
     array (
       0 => 'F:\\AjaxDemo\\ajaxtest\\php\\tjhzs\\smart_dir\\tpl\\product_form.html',
-      1 => 1491810412,
+      1 => 1492054088,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58eb38a7da2291_04993769 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58ef373f431541_72641899 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="ctrl">
   <button type="button" class="btn btn-info form-edit">编辑</button>
@@ -188,10 +188,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 </div>
 
 <?php echo '<script'; ?>
- src="./static/js/control.js"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
  src="./static/js/mainform.js"><?php echo '</script'; ?>
 >
+<?php echo '<script'; ?>
+ src="./static/js/control.js"><?php echo '</script'; ?>
+>
+
 <?php }
 }

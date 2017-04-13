@@ -217,6 +217,8 @@
     /********************************
     **     footer数据结构模型     **
     ********************************/
+    // 注意这里id是根据元素组件实现拟定好的
+    // 可参考common.js里各模块的规范
     private function blockdata ($id) {
       if (isset($_POST['is_link_'.$id])) {
         $block = array(
@@ -257,6 +259,14 @@
       return $this->footer_model();
     }
 
+    /********************************
+    **       招聘数据结构模型     **
+    ********************************/
+    public function write_job () {
+      $job = M('job');
+      $data = $job->find_all();
+      return FILE::writeJson('jobs', $data);
+    }
 
 
   }

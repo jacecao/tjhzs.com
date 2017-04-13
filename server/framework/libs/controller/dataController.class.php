@@ -102,7 +102,6 @@ class dataController {
   public function about_sub () {
     $pro = M('product');
     $res = $pro->write_about();
-    echo $res;
     if ($res) {
       echo 1;
     } else {
@@ -114,9 +113,45 @@ class dataController {
   public function footer_sub () {
     $pro = M('product');
     $res = $pro->write_footer();
-    echo $res;
     if ($res) {
       echo 1;
+    } else {
+      echo 0;
+    }
+  }
+
+  // 招聘数据提交
+  public function job_sub () {
+    $job = M('job');
+    // print_r($job->test());
+    $res = $job->insert_job();
+    // echo 'delog'.$res;
+    if ($res) {
+      $pro = M('product');
+      echo $pro->write_job();
+    } else {
+      echo 0;
+    }
+  }
+  // 招聘数据修改
+  public function job_update () {
+    $job = M('job');
+    $res = $job->update_job();
+    if ($res) {
+      $pro = M('product');
+      echo $pro->write_job();
+    } else {
+      echo 0;
+    }
+  }
+  // 删除招聘数据
+  public function job_del () {
+    $job = M('job');
+    $res = $job->del_job();
+    echo $res;
+    if ($res) {
+      $pro = M('product');
+      echo $pro->write_job();
     } else {
       echo 0;
     }

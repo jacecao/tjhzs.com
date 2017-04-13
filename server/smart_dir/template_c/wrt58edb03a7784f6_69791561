@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-12 06:49:56
+/* Smarty version 3.1.30, created on 2017-04-12 06:42:34
   from "F:\AjaxDemo\ajaxtest\php\tjhzs\smart_dir\tpl\footer_form.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58edb1f4c68725_38559262',
+  'unifunc' => 'content_58edb03a770ba1_60649094',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bb68330bf6adeb5310eaf1baea3eade658d410b1' => 
     array (
       0 => 'F:\\AjaxDemo\\ajaxtest\\php\\tjhzs\\smart_dir\\tpl\\footer_form.html',
-      1 => 1491972595,
+      1 => 1491972152,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58edb1f4c68725_38559262 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58edb03a770ba1_60649094 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="ctrl">
   <button type="button" class="btn btn-info form-edit">编辑</button>
@@ -50,32 +50,23 @@ function content_58edb1f4c68725_38559262 (Smarty_Internal_Template $_smarty_tpl)
       <legend><strong>其他信息-1</strong></legend>
       <div class="form-group">
         <label>大标题</label>
-        <?php if (isset($_smarty_tpl->tpl_vars['blockinfo']->value[0])) {?>
-        <input type="text" class="form-control" name="title_1" placeholder="title" value="<?php echo $_smarty_tpl->tpl_vars['blockinfo']->value[0]['title'];?>
-">
-        <?php } else { ?>
-        <input type="text" class="form-control" name="title_1" placeholder="title">
-        <?php }?>
+        <!-- <input type="text" class="form-control" name="title_1" placeholder="title" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['blockinfo']->value[0]['title'])===null||$tmp==='' ? '' : $tmp);?>
+"> -->
       </div>
       <div class="form-group">
         <label>小标题</label>
-        <?php if (isset($_smarty_tpl->tpl_vars['blockinfo']->value[0])) {?>
-        <input type="text" class="form-control" name="small_title_1" placeholder="small_title" value="<?php echo $_smarty_tpl->tpl_vars['blockinfo']->value[0]['smalltitle'];?>
-">
-        <?php } else { ?>
-        <input type="text" class="form-control" name="small_title_1" placeholder="small_title">
-        <?php }?>
+        <!-- <input type="text" class="form-control" name="small_title_1" placeholder="small_title" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['blockinfo']->value[0]['smalltitle'])===null||$tmp==='' ? '' : $tmp);?>
+"> -->
       </div>
       <div class="form-group">
-        <label>是否为链接</label>
-        <?php if (isset($_smarty_tpl->tpl_vars['blockinfo']->value[0]) && $_smarty_tpl->tpl_vars['blockinfo']->value[0]['link']) {?>
+        <!-- <?php if ($_smarty_tpl->tpl_vars['blockinfo']->value[0]['link']) {?>
         <input type="checkbox" class="is-link" name="is_link_1" data-id="1" value="true" checked>
         <?php } else { ?>
         <input type="checkbox" class="is-link" name="is_link_1" data-id="1" value="true">
-        <?php }?>
+        <?php }?> -->
       </div>
       <div class="form-group link-box-1"><!-- 动态传入 -->
-        <?php if (isset($_smarty_tpl->tpl_vars['blockinfo']->value[0]) && $_smarty_tpl->tpl_vars['blockinfo']->value[0]['link']) {?>
+        <!-- <?php if ($_smarty_tpl->tpl_vars['blockinfo']->value[0]['link']) {?>
         <div class="link-body-1">
           <div class="form-group">
             <label>链接地址</label>
@@ -83,7 +74,7 @@ function content_58edb1f4c68725_38559262 (Smarty_Internal_Template $_smarty_tpl)
 ">
           </div>
         </div>
-        <?php }?>
+        <?php }?> -->
       </div>
     </fieldset>
 
@@ -91,40 +82,32 @@ function content_58edb1f4c68725_38559262 (Smarty_Internal_Template $_smarty_tpl)
       <legend><strong>其他信息-2</strong></legend>
       <div class="form-group">
         <label>大标题</label>
-        <?php if (isset($_smarty_tpl->tpl_vars['blockinfo']->value[1])) {?>
-        <input type="text" class="form-control" name="title_2" placeholder="title" value="<?php echo $_smarty_tpl->tpl_vars['blockinfo']->value[1]['title'];?>
-">
-        <?php } else { ?>
-        <input type="text" class="form-control" name="title_2" placeholder="title">
-        <?php }?>
+        <!-- <input type="text" class="form-control" name="title_2" placeholder="title" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['blockinfo']->value[1]['title'])===null||$tmp==='' ? '' : $tmp);?>
+"> -->
       </div>
       <div class="form-group">
         <label>小标题</label>
-        <?php if (isset($_smarty_tpl->tpl_vars['blockinfo']->value[1])) {?>
-        <input type="text" class="form-control" name="small_title_2" placeholder="small_title" value="<?php echo $_smarty_tpl->tpl_vars['blockinfo']->value[1]['smalltitle'];?>
-">
-        <?php } else { ?>
-        <input type="text" class="form-control" name="small_title_2" placeholder="small_title">
-        <?php }?>
+       <!--  <input type="text" class="form-control" name="small_title_2" placeholder="small_title" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['blockinfo']->value[1]['smalltitle'])===null||$tmp==='' ? '' : $tmp);?>
+"> -->
       </div>
       <div class="form-group">
         <label>是否为链接</label>
-        <?php if (isset($_smarty_tpl->tpl_vars['blockinfo']->value[1]) && $_smarty_tpl->tpl_vars['blockinfo']->value[1]['link']) {?>
+        <!-- <?php if ($_smarty_tpl->tpl_vars['blockinfo']->value[1]['link']) {?>
         <input type="checkbox" class="is-link" name="is_link_2" data-id="2" value="true" checked>
         <?php } else { ?>
         <input type="checkbox" class="is-link" name="is_link_2" data-id="2" value="true">
-        <?php }?>
+        <?php }?> -->
       </div>
       <div class="form-group link-box-2"><!-- 动态传入 -->
-      <?php if (isset($_smarty_tpl->tpl_vars['blockinfo']->value[1]) && $_smarty_tpl->tpl_vars['blockinfo']->value[1]['link']) {?>
-      <div class="link-body-2">
+      <!-- <?php if ($_smarty_tpl->tpl_vars['blockinfo']->value[1]['link']) {?> -->
+      <!-- <div class="link-body-2">
         <div class="form-group">
           <label>链接地址</label>
           <input type="text" class="form-control" name="link_url_2" placeholder="url" value="<?php echo $_smarty_tpl->tpl_vars['blockinfo']->value[1]['url'];?>
 ">
         </div>
-      </div>
-      <?php }?>
+      </div> -->
+      <!-- <?php }?> -->
       </div>
     </fieldset>
     <button type="button" class="btn btn-warning sub-footer">保存信息</button>
