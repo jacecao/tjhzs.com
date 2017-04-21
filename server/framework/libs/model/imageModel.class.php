@@ -30,6 +30,13 @@
       return DB::findAll($sql);
     }
 
+    // 根据id获取图片
+    public function find_by_id ($id) {
+      $sql = 'SELECT * FROM '.$this->_table.' WHERE `id`="'.$id.'"';
+      $data = DB::findOne($sql);
+      return empty($data) ? '' : $data;
+    }
+
     // 修改图片数据
     public function update_img ($arr) {
       $id = $arr['id'];
@@ -39,5 +46,6 @@
         );
       return DB::update($this->_table, $_arr, 'id='.$id);
     }
+
   }
 ?>

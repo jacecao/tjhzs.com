@@ -26,6 +26,13 @@ var URL = {
   // 管理界面首页
   win: PATH + '/server/main.php?controller=admin&method=win',
 
+  // 获取头部信息设置
+  headerSet: PATH + '/server/main.php?controller=admin&method=view&view=header&other=header',
+  // 顶部广告图片上传
+  upHeader: PATH + '/server/main.php?controller=data&method=headerup',
+  // 顶部数据提交
+  sub_header: PATH + '/server/main.php?controller=data&method=header_sub',
+
   // 导航条设置
   navSet: PATH + '/server/main.php?controller=admin&method=view&view=nav',
   // 导航条数据设置
@@ -36,6 +43,16 @@ var URL = {
   newsAdd: PATH + '/server/main.php?controller=admin&method=view&view=news',
   // 新闻列表界面
   newsList: PATH + '/server/main.php?controller=admin&method=list_win&list=news',
+  // 新闻图片上传
+  upNews: PATH + '/server/main.php?controller=data&method=newsup',
+  // 新闻数据上传
+  sub_news: PATH + '/server/main.php?controller=data&method=news_sub',
+  // 删除数据
+  del_news: PATH + '/server/main.php?controller=data&method=news_del',
+  // 招聘数据修改
+  edit_news: PATH + '/server/main.php?controller=admin&method=view&view=news&id=',
+  // 修改后的新闻数据上传
+  sub_edit_news: PATH + '/server/main.php?controller=data&method=news_update',
 
   // 获取酒店录制界面
   hotelAdd: PATH + '/server/main.php?controller=admin&method=view&view=hotel',
@@ -64,18 +81,6 @@ var URL = {
   footerSet: PATH + '/server/main.php?controller=admin&method=view&view=footer',
   // 底部数据上传
   sub_footer: PATH + '/server/main.php?controller=data&method=footer_sub',
-
-  // 获取头部信息设置
-  headerSet: PATH + '/server/main.php?controller=admin&method=view&view=header&other=header',
-  // 顶部广告图片上传
-  upHeader: PATH + '/server/main.php?controller=data&method=headerup',
-  // 顶部数据提交
-  sub_header: PATH + '/server/main.php?controller=data&method=header_sub',
-
-  // 新闻图片上传
-  upNews: PATH + '/server/main.php?controller=data&method=newsup',
-  // 酒店图片上传
-  upHotel: PATH + '/server/main.php?controller=data&method=hotelup',
 
   // 获取产品录制界面
   productShow: PATH + '/server/main.php?controller=admin&method=view&view=product&other=show',

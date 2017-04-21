@@ -13,7 +13,7 @@ var message = {
 getFilename('.fileinput');
 
 // 初始禁用指定表单
-disabled('.form-reset');
+disabled('.form-static');
 function edit (form) {
   $('.form-edit').on('click', function () {
     $(this).attr('disabled', true);
@@ -27,7 +27,7 @@ function edit (form) {
   });
 }
 // 启动表单编辑修改控制
-edit('.form-reset');
+edit('.form-static');
 
 
 // 重定向

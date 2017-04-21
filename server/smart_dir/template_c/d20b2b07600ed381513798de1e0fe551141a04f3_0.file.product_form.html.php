@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-13 10:30:55
+/* Smarty version 3.1.30, created on 2017-04-19 14:50:44
   from "F:\AjaxDemo\ajaxtest\php\tjhzs\smart_dir\tpl\product_form.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58ef373f431541_72641899',
+  'unifunc' => 'content_58f75d24546021_30671709',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd20b2b07600ed381513798de1e0fe551141a04f3' => 
     array (
       0 => 'F:\\AjaxDemo\\ajaxtest\\php\\tjhzs\\smart_dir\\tpl\\product_form.html',
-      1 => 1492054088,
+      1 => 1492606197,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58ef373f431541_72641899 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58f75d24546021_30671709 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="ctrl">
   <button type="button" class="btn btn-info form-edit">编辑</button>
   <button type="button" class="btn btn-info form-cancel" disabled>取消编辑</button>
 </div>
-<form class="products-form form-reset">
+<form class="products-form form-reset form-static">
   <h3><?php echo (($tmp = @$_smarty_tpl->tpl_vars['title']->value)===null||$tmp==='' ? '产品信息初始' : $tmp);?>
 设置</h3><hr>
   <fieldset>

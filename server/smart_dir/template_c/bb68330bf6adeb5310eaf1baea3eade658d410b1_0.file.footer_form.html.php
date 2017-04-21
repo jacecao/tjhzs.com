@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-12 06:49:56
+/* Smarty version 3.1.30, created on 2017-04-19 12:16:48
   from "F:\AjaxDemo\ajaxtest\php\tjhzs\smart_dir\tpl\footer_form.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58edb1f4c68725_38559262',
+  'unifunc' => 'content_58f7391006d780_66870055',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bb68330bf6adeb5310eaf1baea3eade658d410b1' => 
     array (
       0 => 'F:\\AjaxDemo\\ajaxtest\\php\\tjhzs\\smart_dir\\tpl\\footer_form.html',
-      1 => 1491972595,
+      1 => 1492596939,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58edb1f4c68725_38559262 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58f7391006d780_66870055 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="ctrl">
   <button type="button" class="btn btn-info form-edit">编辑</button>
   <button type="button" class="btn btn-info form-cancel" disabled>取消编辑</button>
 </div>
-  <form class="web-form form-reset">
+  <form class="web-form form-reset form-static">
     <h3>网页底部信息设置</h3><hr>
     <fieldset>
       <legend><strong>网页信息</strong></legend>

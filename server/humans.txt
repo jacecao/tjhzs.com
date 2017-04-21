@@ -29,3 +29,23 @@ id 编号
 articleid 文章编号
 imageid 图片编号
 
+# 招聘表
+id 编号 TINYINT(2) UNSIGNED NOT NULL PRIMARY KEY
+name 职位 TINYTEXT NOT NULL
+note  职位简要 TINYTEXT NOT NULL
+loc  工作地址 TINYTEXT
+user  管理员 TINYTEXT
+req  要求 TEXT
+des 描述 TEXT
+date 时间 TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+
+# 新闻表
+id 编号 VARCHAR(32) NOT NULL PRIMARY KEY
+title 标题 TINYTEXT NOT NULL
+poster  封面id SMALLINT(5) NOT NULL
+images 新闻画面 TINYTEXT NOT NULL
+content 新闻内容 TEXT NOT NULL
+username 发布人员 TINYTEXT
+date 时间
+
+

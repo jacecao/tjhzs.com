@@ -95,10 +95,8 @@ function getFilename (ele) {
 
 // 添加图片控件
 /*
-** ele 添加图片按钮元素[弃用]
 ** url  上传图片的地址
-** 注意ele元素的calss类名必须规范为".addimg-product", addmin-图片存储的文件夹名
-** 参数dir指获取图片的文件夹
+** dir  指获取图片的文件夹
 ** 目前我们分为 news hotel product logo header
 */
 function Imgwin (dir, url) {
@@ -184,6 +182,7 @@ function Imginfo (target, obj, post) {
   this.obj = obj;
   this.imgid = null;
   this.imgurl = null;
+  this.imgname = null;
   // post是否为封面或logo图片,布尔值
   // 默认为不是
   this.post = post ? post : false;
@@ -191,23 +190,21 @@ function Imginfo (target, obj, post) {
     var id = Math.floor(Math.random()*10 + 100);
     var _box = $('<div class="info'+id+'"></div>');
     var imgid,imgurl,imgname;
-    var imgdesc = null;
     if (this.post) {
-      imgid = $('<input type="hidden" name="post_id_new[]" value="'+this.obj['id']+'">');
-      imgurl = $('<input type="hidden" name="post_url_new[]" value="'+this.obj['url']+'">');
-      imgname = $('<input type="hidden" name="post_name_new[]" value="'+this.obj['name']+'">');
-      imgdesc = $('<input type="hidden" name="post_desc_new[]" value="logo or post">');
+      imgid = $('<input type="hidden" name="post_id_new" value="'+this.obj['id']+'">');
+      imgurl = $('<input type="hidden" name="post_url_new" value="'+this.obj['url']+'">');
+      imgname = $('<input type="hidden" name="post_name_new" value="'+this.obj['name']+'">');
     } else {
       imgid = $('<input type="hidden" name="img_id_new[]" value="'+this.obj['id']+'">');
       imgurl = $('<input type="hidden" name="img_url_new[]" value="'+this.obj['url']+'">');
       imgname = $('<input type="hidden" name="img_name_new[]" value="'+this.obj['name']+'">');
     }
     _box.append(imgid).append(imgurl).append(imgname);
-    if (imgdesc) {
-      _box.append(imgdesc);
-    }
+    // 判断是否需要在这里自动加入图片描述
+    // 只有在图片为logo或post情况下才会添加imgdesc
     this.imgid = imgid;
     this.imgurl = imgurl;
+    this.imgname = imgname;
     var tar = this.target;
     $(tar).append(_box);
     return _box;
@@ -232,15 +229,27 @@ function Imgmodel (upbtn, choosebtn, url) {
 }
 Imgmodel.prototype = {
   gettarget: function (that, obj) {
-    if (that.id === 'logo' || that.id === "post") {
+    var reset = function () {
       // 清除原始记录
+      // 并重制图片信息
       if ($('.'+that.id+'-info-old').length) {
         $('.'+that.id+'-info-old').remove();
       }
       that.infobox = new Imginfo('.'+that.id+'-box', obj, true);
-      $('.scan-img-'+that.id).attr('src', obj.url);
-    } else {
-      that.infobox = new Imginfo('.'+'add-box', obj);
+    };
+    switch (that.id) {
+      case 'logo':
+      case 'post':
+        reset();
+        imgdesc = $('<input type="hidden" name="post_desc" value="logo or post">');
+        that.infobox.ele.append(imgdesc);
+        break;
+      case 'news-post':
+      case 'hotel-post':
+        reset();
+        break;
+      default:
+        that.infobox = new Imginfo('.'+'add-box', obj);
     }
   },
   upimg: function () {
@@ -270,11 +279,13 @@ Imgmodel.prototype = {
             $('.filename_'+that.id).text("正在上传中.....");
           },
           success : function(responseStr) {
+            // console.log(responseStr);
             var obj = JSON.parse(responseStr);
             that.gettarget(that, obj['upinfo']);
-            // console.log(responseStr);
             var mes = decodeURI(obj['upinfo']['mes']);
             $('.filename_'+that.id).text(mes);
+            // 更新浏览图片
+            $('.scan-img-'+that.id) && $('.scan-img-'+that.id).attr('src', obj['upinfo']['url']);
           }
         });
       } else {
@@ -334,15 +345,22 @@ Imgmodel.prototype = {
           var obj = {
             id: choose.data('id'),
             url: choose.val(),
-            name: choose.data('name')
+            name: choose.data('name'),
+            desc: choose.data('desc')
           };
+          // 更新当前图片文件名
           $('.filename_'+that.id).text(choose.data('name'));
+          // 更新当前图片描述
           $('.desc-'+that.id).val(choose.data('desc'));
+          // 更新当前浏览图片
+          $('.scan-img-'+that.id) && $('.scan-img-'+that.id).attr('src', choose.val());
+          // 更新当前信息
           if (that.infobox) {
             // 如果已经有信息生成，那么修改信息模块
             // console.log('remove');
             that.infobox.imgid.val( choose.data('id') );
             that.infobox.imgurl.val( choose.val() );
+            that.infobox.imgname.val( choose.data('name') );
             // that.infobox.ele.remove();
             // that.infobox = null;
           } else {
@@ -351,7 +369,7 @@ Imgmodel.prototype = {
           }
 
         } else {
-          console.log('sss');
+          // console.log('sss');
           var info = '注意您没有选择图片,请点击关闭按钮关闭';
           activeMessge (info, 'remove', '#e91e63');
         }

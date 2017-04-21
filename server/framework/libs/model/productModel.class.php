@@ -8,9 +8,9 @@
     private function build_data ($name, $time='') {
       $arr = null;
       $date = empty($time) ? '' : '_'.$time;
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if ($_SERVER['REQUEST_METHOD'] == 'POST' && $name == 'img' && isset($_POST['img_id'.$date])) {
         foreach ($_POST as $key => $value) {
-          if ($key == $name.'_desc'.$date || $key == $name.'_id'.$date || $key == $name.'_url'.$date ||$key == $name.'_name'.$date) {
+          if ($key == 'img_desc'.$date || $key == 'img_id'.$date || $key == 'img_url'.$date ||$key == 'img_name'.$date) {
             if (is_array($arr)) {
               for ($i = 0; $i < count($arr); $i++) {
                 if (is_array($value)) {
@@ -26,6 +26,15 @@
             }
           }
         }
+      }
+      if ($_SERVER['REQUEST_METHOD'] == 'POST' && $name == 'post' && isset($_POST['post_id'.$date])) {
+        $arr = array( array(
+          'post_desc'.$date => $_POST['post_desc'],
+          'post_id'.$date => $_POST['post_id'.$date],
+          'post_url'.$date => $_POST['post_url'.$date],
+          'post_name'.$date => $_POST['post_name'.$date],
+          )
+        );
       }
       return $arr;
     }
@@ -49,8 +58,6 @@
 
     // 图片数据信息重组
     private function reset () {
-      // 写入展示数据
-      // 字符串过滤Daddslashes();
       // 重组图片数据信息
       $newimg = $this->build_data('img', 'new');
       $img = $this->build_data('img');
@@ -67,7 +74,6 @@
     }
 
     // 升级图片库数据
-    // $type 需要设计的类型 img post
     private function update ($arr) {
       $imgarr = array();
       foreach ($arr as $key => $value) {
@@ -87,17 +93,22 @@
       $img = $imgArr['img'] ? $imgArr['img'] : array();
       // 将新的图片信息写入数据库
       if ($imgArr['newimg']) {
-        $this->update($imgArr['newimg'], 'img');
+        $this->update($imgArr['newimg']);
         $img = array_merge($imgArr['newimg'], $img);
       }
       if ($imgArr['newpost']) {
-        $this->update($imgArr['newpost'], 'post');
+        $this->update($imgArr['newpost']);
       }
       // 最后返回所有的海报和图片
       return array(
         'postimg' => $postimg[0],
         'images'=> $img
       );
+    }
+
+    // 外部获取图片数组更新模块
+    public function image_update_model () {
+      return $this->dataCONTROL();
     }
 
     // 读取json数据
@@ -266,6 +277,15 @@
       $job = M('job');
       $data = $job->find_all();
       return FILE::writeJson('jobs', $data);
+    }
+
+    /********************************
+    **       新闻数据结构模型     **
+    ********************************/
+    public function write_news () {
+      $job = M('news');
+      $data = $job->get_image_news();
+      return FILE::writeJson('news', $data);
     }
 
 

@@ -195,13 +195,20 @@
           case 'header':
             $this->get_json_data('headerinfo');
             break;
+          case 'news': // 指定id-新闻修改页面
+            if (!empty($id)) {
+              $newsModel = M('news');
+              $data = $newsModel->get_by_id($id);
+              VIEW::assign($data);
+            }
+            break;
           case 'about':
             $this->get_json_data('about');
             break;
           case 'footer':
             $this->get_json_data('footer');
             break;
-          case 'job':
+          case 'job': // 指定id-工作修改页面
             $this->get_json_by_id('jobs', $id);
             break;
         }
@@ -237,8 +244,10 @@
           case 'job':
             $this->get_json_data('jobs');
             break;
-          case 'about':
-            // $this->get_json_data('about');
+          case 'news':
+            $newsModel = M('news');
+            $data = $newsModel->get_all_news();
+            VIEW::assign(array('news'=>$data));
             break;
           case 'footer':
             // $this->get_json_data('footer');

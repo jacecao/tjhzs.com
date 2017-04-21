@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-13 08:38:41
+/* Smarty version 3.1.30, created on 2017-04-19 11:55:58
   from "F:\AjaxDemo\ajaxtest\php\tjhzs\smart_dir\tpl\job_list.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58ef1cf1ef2708_03746174',
+  'unifunc' => 'content_58f7342e8a9975_53478586',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2bde86544653de629123d454063e236a5bec6000' => 
     array (
       0 => 'F:\\AjaxDemo\\ajaxtest\\php\\tjhzs\\smart_dir\\tpl\\job_list.html',
-      1 => 1492065505,
+      1 => 1492072234,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58ef1cf1ef2708_03746174 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58f7342e8a9975_53478586 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="jobs-list data-list">
   <h3>招聘信息发布列表</h3><hr>
@@ -29,7 +29,7 @@ function content_58ef1cf1ef2708_03746174 (Smarty_Internal_Template $_smarty_tpl)
       <tr>
         <th class="text-center">编号</th>
         <th class="text-center">岗位名称</th>
-        <th class="text-center">管理员</th>
+        <th class="text-center">职位发布者</th>
         <th class="text-center">添加时间</th>
         <th class="text-center">管理</th>
       </tr>

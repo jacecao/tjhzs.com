@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-13 09:47:43
+/* Smarty version 3.1.30, created on 2017-04-19 12:18:34
   from "F:\AjaxDemo\ajaxtest\php\tjhzs\smart_dir\tpl\job_form.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58ef2d1fdb6ba4_01041368',
+  'unifunc' => 'content_58f7397aa43d59_46408082',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1a3afad19f02ced9fd04a4488196d3067f864291' => 
     array (
       0 => 'F:\\AjaxDemo\\ajaxtest\\php\\tjhzs\\smart_dir\\tpl\\job_form.html',
-      1 => 1492069482,
+      1 => 1492597089,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58ef2d1fdb6ba4_01041368 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58f7397aa43d59_46408082 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-  <div class="ctrl">
-    <button type="button" class="btn btn-info form-edit">编辑</button>
-    <button type="button" class="btn btn-info form-cancel" disabled>取消编辑</button>
-  </div>
+
   <form class="job-form form-reset">
     <h3>招聘发布</h3><hr>
     <div class="form-group">

@@ -32,7 +32,7 @@
     // 上传文件
     public function upload ($fileinfo, $dir) {
       // 变量$up初始位false
-      echo $dir;
+      // echo 'upload_test_fileModel'.$dir;
       // 只有当文件上传成功后才位true
       $up = false;
       // 重定向路径

@@ -36,7 +36,7 @@ $('.del-user').on('click', function () {
 **   头部信息录入编写          **
 ********************************/
 // 初始头部封面图片模块
-var imgModel_header = new Imgmodel('.up-post', '.choose-post', URL.upHeader);
+var imgModel_header = new Imgmodel('.up-header-post', '.choose-header-post', URL.upHeader);
 imgModel_header.upimg();
 imgModel_header.chooseimg();
 
@@ -46,7 +46,8 @@ $('.sub-header').on('click', function () {
   // 执行数据提交处理
   up_form_data(URL.sub_header, URL.headerSet, '.header-form');
   // $.post(URL.sub_header, $('.header-form').serialize(), function (res) {
-  //   console.log(res);
+  //   document.write(res);
+  //   // console.log(res);
   // });
 });
 
@@ -59,6 +60,57 @@ $('.sub-nav').on('click', function () {
   // 执行数据提交处理
   up_form_data(URL.sub_nav, URL.navSet, '.nav-form');
   // $.post(URL.sub_nav, $('.nav-form').serialize(), function (res) {
+  //   console.log(res);
+  // });
+});
+/********************************
+**       新闻录制编写          **
+********************************/
+// 初始添加图片按钮
+$('.addimg-news').on('click', function() {
+  new Imgwin('news', URL.upNews);
+});
+// 初始新闻封面上传和选择图片模块
+var imgModel_news_post = new Imgmodel('.up-news-post', '.choose-news-post', URL.upNews);
+imgModel_news_post.upimg();
+imgModel_news_post.chooseimg();
+// 初始新闻上传和选择图片模块
+var imgModel_news = new Imgmodel('.up-news', '.choose-news', URL.upNews);
+imgModel_news.upimg();
+imgModel_news.chooseimg();
+// 提交数据
+$('.sub-news').on('click', function () {
+  var id = $(this).data('id');
+  $(this).attr('disabled', true);
+  if (id) {
+    // 执行修改数据处理
+    up_form_data(URL.sub_edit_news, URL.jobList, '.news-form');
+    // $.post(URL.sub_edit_news, $('.news-form').serialize(), function (res) {
+    //   // document.write(res);
+    //   console.log(res);
+    // });
+  } else {
+    // 执行数据提交处理
+    up_form_data(URL.sub_news, URL.newsList, '.news-form');
+  }
+});
+// 编辑数据
+$('.news-edit').on('click', function () {
+  var _id = $(this).data('id');
+  var _url = URL.edit_news + _id;
+  // $.get(_url, function (res) {console.log(res);});
+  // 启动重定向
+  redirector(_url);
+});
+
+// 删除数据
+$('.news-del').on('click', function () {
+  var id = $(this).data('id');
+  $(this).attr('disabled', true);
+  // 执行修改数据处理
+  del_data(URL.del_news, URL.newsList, id);
+  // $.post(URL.del_job, {'id': id}, function (res) {
+  //   // document.write(res);
   //   console.log(res);
   // });
 });

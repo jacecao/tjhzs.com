@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-11 07:46:13
+/* Smarty version 3.1.30, created on 2017-04-19 12:16:45
   from "F:\AjaxDemo\ajaxtest\php\tjhzs\smart_dir\tpl\about_form.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58ec6da57ab1e7_56430796',
+  'unifunc' => 'content_58f7390d82ab23_33259184',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '70b61356a793941156b904e0d5a3a372d51dadc6' => 
     array (
       0 => 'F:\\AjaxDemo\\ajaxtest\\php\\tjhzs\\smart_dir\\tpl\\about_form.html',
-      1 => 1491889493,
+      1 => 1492596941,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58ec6da57ab1e7_56430796 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58f7390d82ab23_33259184 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="ctrl">
   <button type="button" class="btn btn-info form-edit">编辑</button>
   <button type="button" class="btn btn-info form-cancel" disabled>取消编辑</button>
 </div>
 
-<form class="about-form form-reset">
+<form class="about-form form-reset form-static">
   <h3>关于我们</h3><hr>
   <div class="form-group">
     <label>我们的愿景</label>

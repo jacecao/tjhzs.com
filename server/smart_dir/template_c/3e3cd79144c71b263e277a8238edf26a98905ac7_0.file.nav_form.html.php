@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-11 05:16:40
+/* Smarty version 3.1.30, created on 2017-04-19 12:18:47
   from "F:\AjaxDemo\ajaxtest\php\tjhzs\smart_dir\tpl\nav_form.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58ec4a986ca7f2_92403289',
+  'unifunc' => 'content_58f739878d8741_67446696',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3e3cd79144c71b263e277a8238edf26a98905ac7' => 
     array (
       0 => 'F:\\AjaxDemo\\ajaxtest\\php\\tjhzs\\smart_dir\\tpl\\nav_form.html',
-      1 => 1491880593,
+      1 => 1492597002,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58ec4a986ca7f2_92403289 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58f739878d8741_67446696 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="ctrl">
   <button type="button" class="btn btn-info form-edit">编辑</button>
   <button type="button" class="btn btn-info form-cancel" disabled>取消编辑</button>
 </div>
 
-<form class="nav-form form-reset">
+<form class="nav-form form-reset form-static">
   <h3>导航条设置</h3><hr>
   <div class="form-group">
    <label>导航条颜色设置</label>

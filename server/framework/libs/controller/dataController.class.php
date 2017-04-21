@@ -15,6 +15,7 @@ class dataController {
     $upObj = M('upload');
     $res = $upObj->up($method);
     // 除开用户接口外，其他接口都将采用状态返回机制
+
     if ($res['status']) {
       $imgObj = M('image');
       $id = $imgObj->insert_img($res['upinfo']);
@@ -54,6 +55,46 @@ class dataController {
   public function newsup () {
     $this->up('news');
   }
+  // 新闻数据上传
+  public function news_sub () {
+    $newsobj = M('news');
+    // 启动数据库录入
+    // 返回录入的id值
+    $res = $newsobj->insert_news();
+    if ($res) {
+      // 启动json数据储存
+      $pro = M('product');
+      echo $pro->write_news();
+    } else {
+      echo 0;
+    }
+  }
+  // 新闻数据修改
+  public function news_update () {
+    $newsModel = M('news');
+    $res = $newsModel->update_news();
+    if ($res) {
+      // 启动json数据储存
+      $pro = M('product');
+      echo $pro->write_news();
+    } else {
+      echo 0;
+    }
+  }
+  // 删除新闻数据
+  public function news_del () {
+    $newsModel = M('news');
+    $res = $newsModel->del_news();
+    if ($res) {
+      // 启动json数据储存
+      $pro = M('product');
+      echo $pro->write_news();
+    } else {
+      echo 0;
+    }
+  }
+
+
   // 酒店图片上传
   public function hotelup () {
     $this->up('hotel');

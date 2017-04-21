@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-11 07:40:37
+/* Smarty version 3.1.30, created on 2017-04-19 16:52:08
   from "F:\AjaxDemo\ajaxtest\php\tjhzs\smart_dir\tpl\header_form.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58ec6c55eb4447_42484391',
+  'unifunc' => 'content_58f779985a64e7_15041654',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c98c26c2b66ef7810b86ba05fb3fd579227ac9ea' => 
     array (
       0 => 'F:\\AjaxDemo\\ajaxtest\\php\\tjhzs\\smart_dir\\tpl\\header_form.html',
-      1 => 1491889227,
+      1 => 1492613488,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58ec6c55eb4447_42484391 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58f779985a64e7_15041654 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="ctrl">
   <button type="button" class="btn btn-info form-edit">编辑</button>
   <button type="button" class="btn btn-info form-cancel" disabled>取消编辑</button>
 </div>
-<form class="show-form header-form form-reset">
+<form class="show-form header-form form-reset form-static">
   <h3>头部信息设置</h3><hr>
   <div class="form-group">
     <label for="city">举办城市</label>
@@ -91,8 +91,8 @@ function content_58ec6c55eb4447_42484391 (Smarty_Internal_Template $_smarty_tpl)
         </div>
         <?php }?>
       </div>
-      <button type="button" class="btn btn-info col-md-1 up-post" data-id="post" disabled>上传</button>
-      <button type="button" class="btn btn-primary col-md-2 col-md-offset-1 choose choose-post" data-toggle="modal" data-id="post" data-dir="header" data-target="#choosefile" >选择图片</button>
+      <button type="button" class="btn btn-info col-md-1 up-header-post" data-id="post" disabled>上传</button>
+      <button type="button" class="btn btn-primary col-md-2 col-md-offset-1 choose choose-header-post" data-toggle="modal" data-id="post" data-dir="header" data-target="#choosefile" >选择图片</button>
     </div>
   </div>
   <button type="button" class="btn btn-warning sub-header">保存</button>
