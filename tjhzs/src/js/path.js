@@ -1,11 +1,13 @@
+const dir = '/beta/'
+
 export default {
-  dataURL: '/beta/static/data/',
-  headerimgURL: '/beta/static/images/header/',
-  navbarimgURL: '/beta/static/images/navbar/',
-  newsPAGE: '/beta/news/',
-  newsimgURL: '/beta/static/images/news/',
-  hotelimgURL: '/beta/static/images/hotel/',
-  hotelPAGE: '/beta/hotels/',
-  productimgURL: '/beta/static/images/product/',
-  productPAGE: '/beta/product/'
+  dataURL: dir + 'static/data/',
+  headerimgURL: dir + 'static/images/header/',
+  navbarimgURL: dir + 'static/images/navbar/',
+  newsPAGE: dir + 'news/',
+  newsimgURL: dir + 'static/images/news/',
+  hotelimgURL: dir + 'static/images/hotel/',
+  hotelPAGE: dir + 'hotels/',
+  productimgURL: dir + 'static/images/product/',
+  productPAGE: dir + 'product/'
 }

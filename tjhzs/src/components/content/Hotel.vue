@@ -18,6 +18,7 @@
 <script>
 import AppImg from '../img/AppImg'
 import Path from '../../js/path.js'
+import Json from '../../js/json_data.js'
 export default {
   name: 'hotels',
   data () {
@@ -31,21 +32,17 @@ export default {
       let vm = this
       vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
         // tjhzs服务器返回的json字符串
-        // let data = window.JSON.parse(res.body)
-        let data = res.body
-        // 这里会在后期变为sessionStorage
-        // 后面不再需要对地址作特殊处理
+        let data = Json(res.body)
         data.forEach(function (_data) {
           let images = _data.images
           images.forEach(function (image) {
-            let _url = Path.hotelimgURL + image.imgurl
+            let _url = image.url
             image.imgurl = _url
           })
         })
         vm.items = data
       }, function (err) {
-        console.log(err)
-        console.error('\n' + '获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
+        console.error(err + '\n' + '获取酒店信息出现错误：请检查配置信息是否正确或者网络故障')
       })
     }
   },

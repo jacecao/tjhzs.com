@@ -1,8 +1,8 @@
 <template>
   <div class="header-bar">
     <div class="header-info-box">
-      <ul class="clearfix">
-        <li class="time" 
+      <ul>
+        <li class="time"
           v-on:mouseover="hover"
           v-on:mouseout='out'
         >
@@ -10,8 +10,8 @@
         </li>
         <li class="weixin"></li>
         <li class="header-info">
-          <p>布展时间：<span>{{headertime.startime}}</span></p>
-          <p>开展时间：<span>{{headertime.showtime}}</span></p>
+          <p>布展时间：<span>{{headertime.readytime}}</span></p>
+          <p>开展时间：<span>{{headertime.starttime}}</span></p>
           <p>展会地址：<span>{{headertime.addr}}</span></p>
         </li>
       </ul>
@@ -36,7 +36,7 @@ export default {
   computed: {
     // 计算倒计时或日期
     time: function () {
-      let time = this.headertime.showtime
+      let time = this.headertime.starttime
       return Funtimer(time)
     }
   },

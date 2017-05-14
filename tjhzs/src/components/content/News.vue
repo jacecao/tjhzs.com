@@ -4,7 +4,7 @@
     <ul>
       <li v-for="item in newsdata">
         <router-link v-bind:to="path+item.id" v-bind:title="item.title">
-          <h4>{{item.title}}</h4><span>{{item.time}}</span>
+          <h4>{{item.title}}</h4><span>{{item.date}}</span>
         </router-link>
       </li>
     </ul>

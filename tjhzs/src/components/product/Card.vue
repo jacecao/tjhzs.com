@@ -30,7 +30,10 @@ export default {
   },
   mounted: function () {
     let vm = this
+    // console.log(vm.item)
+    vm.itemobj = vm.item
     this.$watch('item', function (now, old) {
+      // console.log(now)
       if (now !== old) {
         vm.itemobj = now
       }

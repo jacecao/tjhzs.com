@@ -3,7 +3,7 @@
     <h1>{{headerinfo.city}} - {{headerinfo.season}}<span>{{headerinfo.city}} - {{headerinfo.season}}</span></h1>
     <div class="metting-info">
       <p>主办方：{{headerinfo.zhuban}}</p>
-      <p>承办方：{{headerinfo.chengban}}</p>
+      <p>承办方：{{headerinfo.chenban}}</p>
     </div>
     <headerbar :headertime='headerinfo'></headerbar>
   </div>
@@ -36,7 +36,7 @@ $height: 300px;
     height: $height;
     width: 1280px;
     top:  ($headerheight - $height) / 2;
-    // left: 160px;
+    // left: 50%;
     color: $header-title-color;
     z-index: 2;
     $color: #00ab88;
@@ -67,7 +67,7 @@ $height: 300px;
         font-size: 1.5 * $font;
         color: #e2e2e2;
       }
-      
+
     }
     $imgwidth: 186px;
     $imgheight: 98px;

@@ -6,16 +6,16 @@
         <span class="note">({{job.note}})</span>
       </div>
       <div class="location">
-        <span>位置：</span><span>{{job.location}}</span>
+        <span>位置：</span><span>{{job.loc}}</span>
       </div>
       <div class="requirement">
-        <span>要求：</span><span>{{job.requirement}}</span>
+        <span>要求：</span><span>{{job.req}}</span>
       </div>
       <div class="job_des">岗位描述
-        <p v-for="(text, index) in job.describe">{{index+1}}、{{text}};</p>
+        <p v-for="(text, index) in job.des">{{index+1}}、{{text}};</p>
       </div>
     </div>
-  </div>  
+  </div>
 </template>
 
 <script>

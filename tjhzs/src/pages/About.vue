@@ -42,8 +42,8 @@
           </div>
       </div>
     </section>
-    <job-head :contact="work.contact"/>
-    <Works :Jobs="work.jobs"/>
+    <job-head :contact="contact"/>
+    <Works :Jobs="jobs"/>
   </div>
 </template>
 
@@ -51,15 +51,16 @@
 import JobHead from '../components/job/Jobheader'
 import Works from '../components/job/works'
 import Path from '../js/path.js'
+import Json from '../js/json_data.js'
 export default {
   name: 'tjhzs_about',
   data () {
     return {
       info: [],
       // 这里的数据将传给工作子组件
-      work: {
-        jobs: [],
-        contact: {}
+      jobs: [],
+      contact: {
+        email: 'hrxbvip@163.com'
       }
     }
   },
@@ -69,11 +70,10 @@ export default {
       vm.$http.get(Path.dataURL + 'about.json').then(function (res) {
         // tjhzs服务端需要JSON.parse()使用此步骤
         // let data = window.JSON.parse()
-        let data = res.body
+        let data = Json(res.body)
         vm.info = data.tjhzs
       }, function (err) {
-        console.log(err)
-        console.log('\n' + '获取数据出错，网络链接不成功')
+        console.log(err + '\n' + '获取数据出错，网络链接不成功')
       })
     },
     getjobs () {
@@ -82,10 +82,9 @@ export default {
         // tjhzs服务端需要JSON.parse()使用此步骤
         // let data = window.JSON.parse()
         let data = res.body
-        vm.work = data
+        vm.jobs = data.jobs
       }, function (err) {
-        console.log(err)
-        console.log('\n' + '获取数据出错，网络链接不成功')
+        console.log(err + '\n' + '获取数据出错，网络链接不成功')
       })
     }
   },

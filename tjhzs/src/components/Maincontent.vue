@@ -13,6 +13,7 @@ import Displayimg from './content/Displayimg'
 import News from './content/News'
 import Hotel from './content/Hotel'
 import Path from '../js/path.js'
+import Json from '../js/json_data.js'
 export default {
   name: 'main-content',
   data () {
@@ -32,18 +33,17 @@ export default {
       vm.$http.get(Path.dataURL + 'news.json').then(function (res) {
         // tjhzs服务端需要JSON.parse()使用此步骤
         // let data = window.JSON.parse(res.body)
-        let data = res.body
-        console.log('news' + '\n' + data)
-        let _arr = data.slice(0, 6)
-        for (let n of _arr) {
+        let data = Json(res.body)
+        // console.log('news' + '\n' + data)
+        for (let n of data) {
           _images.push({
             url: _url + n.id,
-            imgurl: Path.newsimgURL + n.images[0].imgurl,
-            desc: n.images[0].desc
+            imgurl: n.poster.url,
+            desc: n.poster.desc
           })
         }
         vm.items = _images
-        vm.news = _arr
+        vm.news = data
       }, function () {
         console.error('获取新闻数据出现错误：请检查配置信息是否正确或者网络故障')
       })

@@ -16,6 +16,7 @@
 <script>
 import DisplayImg from '../components/content/Displayimg'
 import Path from '../js/path.js'
+import Json from '../js/json_data.js'
 export default {
   data () {
     return {
@@ -32,16 +33,19 @@ export default {
       let vm = this
       vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
         // tjhzs服务端需要JSON.parse()使用此步骤
-        // let data = window.JSON.parse(res.body)
-        let data = res.body
+        let data = Json(res.body)
+        let _images = []
         for (let hotel of data) {
           if (hotel.id === this.$route.params.id) {
             let images = hotel.images
             for (let image of images) {
-              image.imgurl = Path.hotelimgURL + image.imgurl
+              _images.push({
+                imgurl: image.url,
+                desc: image.desc
+              })
             }
             vm.hotel = hotel
-            vm.images = images
+            vm.images = _images
             return
           }
         }

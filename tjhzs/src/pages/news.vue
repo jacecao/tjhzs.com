@@ -2,10 +2,10 @@
 	<div class="tjhzs-new tjhzs-main-content">
 		<header>
 			<h3>{{news.title}}</h3>
-			<span class="news_time">编写时间：{{news.time}}</span>
+			<span class="news_time">编写时间：{{news.date}}</span>
 		</header>
 		<section class="img-group">
-			<display-img :isLink="false" :images='news.images'/>
+			<display-img :isLink="false" :images='images'/>
 		</section>
 		<section class="new-content">
 			<p>{{news.content}}</p>
@@ -16,11 +16,13 @@
 <script>
 import DisplayImg from '../components/content/Displayimg'
 import Path from '../js/path.js'
+import Json from '../js/json_data.js'
 export default {
   name: 'news_page',
   data () {
     return {
-      news: {}
+      news: {},
+      images: []
     }
   },
   methods: {
@@ -28,19 +30,22 @@ export default {
       let vm = this
       vm.$http.get(Path.dataURL + 'news.json').then(function (res) {
         // tjhzs服务端需要JSON.parse()使用此步骤
-        // let data = window.JSON.parse(res.body)
-        let data = res.body
-        let _arr = data.slice(0, 6)
-        for (let news of _arr) {
+        let data = Json(res.body)
+        let _images = []
+        for (let news of data) {
           // this.$route.params这里获取我们路由中规定的匹配值
           if (news.id === this.$route.params.id) {
             vm.news = news
             vm.news.images.forEach(function (image) {
-              let _url = Path.newsimgURL + image.imgurl
-              image.imgurl = _url
+              // console.log(image.url)
+              _images.push({
+                imgurl: image.url,
+                desc: image.desc
+              })
             })
           }
         }
+        vm.images = _images
       }, function () {
         console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
       })

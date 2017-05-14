@@ -22,6 +22,7 @@
 </script>
 
 <style lang="scss">
+@import url(../css/reset.css);
 @import '../sass/_base.scss';
 @font-face {
   font-family: 'icomoon';
@@ -37,9 +38,8 @@ body{
   @extend %width;
   font-size: 16px;
 }
-p,h1,h2,h3 {
-  cursor: default;
-}
+p,h1,h2,h3 { cursor: default;}
+a>p, a>h1, a>h2, a>h3 { cursor: inherit;}
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon' !important;
   speak: none;

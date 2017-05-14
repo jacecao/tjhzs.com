@@ -13,20 +13,16 @@
 import Block from './footer/Block'
 import WebInfo from './footer/Address'
 import Path from '../js/path.js'
+// 加载预设数据，当后台数据获取成功后再更新
+import ResetData from '../data/footer.js'
+import Json from '../js/json_data.js'
 export default {
   name: 'footer',
   data () {
     return {
-      items: [
-        {
-          title: '加入我们',
-          smalltitle: '期待对销售感兴趣的您',
-          url: '/beta/about',
-          link: true
-        }
-      ],
-      webInfo: {},
-      version: '2017-0.0.1'
+      items: ResetData.blockinfo,
+      webInfo: ResetData.webinfo,
+      version: ResetData.blockinfo.version
     }
   },
   mounted: function () {
@@ -38,10 +34,9 @@ export default {
       let _items = []
       let vm = this
       vm.$http.get(Path.dataURL + 'footer.json').then(function (res) {
-        console.log('ok')
+        // console.log('ok')
         // tjhzs服务端需要JSON.parse()使用此步骤
-        // let data = window.JSON.parse(res.body)
-        let data = res.body
+        let data = Json(res.body)
         // console.log('footer' + '\n' + data)
         // 获取数据成功后
         for (let item of data.blockinfo) {

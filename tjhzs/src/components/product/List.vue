@@ -13,7 +13,7 @@ import PlayImg from '../content/Displayimg.vue'
 export default {
   name: 'list',
   props: {
-    index: Number,
+    index: String,
     item: Object
   },
   data () {

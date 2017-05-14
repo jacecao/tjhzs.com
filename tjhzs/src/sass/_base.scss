@@ -33,7 +33,7 @@ $z-mid: 800;
 }
 /* 单行省略设置 */
 @mixin break($width) {
-	width: $width;
+	max-width: $width;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
