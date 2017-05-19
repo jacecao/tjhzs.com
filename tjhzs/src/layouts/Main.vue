@@ -53,7 +53,7 @@ a>p, a>h1, a>h2, a>h3 { cursor: inherit;}
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f7f8f8;
+  background-color: #fefefe;
   // flex布局
   // display: flex;
   // flex-flow: row wrap;

@@ -70,6 +70,7 @@ a:hover, .active{
   z-index: $z-super;
   @extend %width;
   border-bottom: 1px solid #e2e2e2;
+  box-shadow: 0 1px 2px rgba(210, 210, 210, 0.3);
 }
 .logo{
   position: absolute;
