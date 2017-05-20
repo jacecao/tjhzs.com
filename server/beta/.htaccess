@@ -1,0 +1,3 @@
+RewriteRule ^beta/tjhzs_admin$ /beta/server/index.html [L]
+RewriteRule ^beta/index\.html$ - [L]
+RewriteRule ^beta/.*$ /beta/index.html [L]
