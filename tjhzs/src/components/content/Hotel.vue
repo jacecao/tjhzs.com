@@ -7,7 +7,7 @@
     <ul class="hotel-list">
       <li v-for="item in items">
         <router-link class="hot_img_box" :to="path + item.id">
-          <app-img :src="item.images[0].imgurl" size="small"/>
+          <app-img :src="item.poster.url" size="small"/>
           <span class="img_info">{{item.name}}</span>
         </router-link>
       </li>
