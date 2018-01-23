@@ -40,6 +40,7 @@
             <span class="icon-heart icons"></span>
             <span>超越年假的探亲假</span>
           </div>
+        </div>
       </div>
     </section>
     <job-head :contact="contact"/>

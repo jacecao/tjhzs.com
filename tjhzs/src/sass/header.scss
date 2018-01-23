@@ -60,7 +60,7 @@ $color: #00ffde;
   top: 0;
   transition: all 500ms;
 }
-.weixin::before
+.weixin::after
 {
   line-height: 30px;
   letter-spacing: 3px;
@@ -69,7 +69,10 @@ $color: #00ffde;
   left: 0;
 }
 .weixin::before{
-  content: '公众\A账号';
+  content:'';
+  /* 这里的地址根据引用位置来确定，而不是根据该文件位置来确定 */
+  background-image: url(../../assets/weixin.png);
+  background-size: cover;
 }
 .time::before
 {
@@ -79,10 +82,7 @@ $color: #00ffde;
 }
 .weixin::after
 {
-  content:'';
-  /* 这里的地址根据引用位置来确定，而不是根据该文件位置来确定 */
-  background-image: url(../../assets/weixin.png);
-  background-size: cover;
+  content: '公众\A账号';
   left: $size;
 }
 .small-time{
