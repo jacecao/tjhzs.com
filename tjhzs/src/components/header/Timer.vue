@@ -1,5 +1,5 @@
 <template>
-  <div id="header_timer" 
+  <div id="header_timer"
        v-bind:class='{header_timer: isActive}'
   >
     <div v-if="!time.isOld">
@@ -31,13 +31,19 @@ export default {
   width: 450px;
   top: -250px;
   left: 810px;
-  opacity: 0;
+  /*opacity: 0;*/
   background: rgba(0,0,0,0.5);
   transition: all 500ms;
+  /*一直显示*/
+  top: -120px;
+  opacity: 1;
+  box-shadow: 0 0 10px #eee;
+  /*
   &.header_timer{
     top: -120px;
     opacity: 1;
     box-shadow: 0 0 10px #eee;
   }
+  */
 }
 </style>
