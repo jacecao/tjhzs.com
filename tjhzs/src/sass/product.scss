@@ -1,63 +1,83 @@
 @import './_base.scss';
 $height: 400px;
-$imgwidth: 700px;
+$width: 300px;
+$bgcolor: #fafafa;
 $padding: 20px;
-$imgpadding: 20px;
-$color: #000;
-.product_box {
-	background-color: #e6e6e6;
-	section {
-		.item_box{
-			@extend %mainwidth;
-		}
-		.img_box {
-			position: relative;
-			height: $height - (2 * $padding);
-			width: $imgwidth - (2 * $padding);
-			padding: $padding;
-			float: left;
-			img {
-				position: absolute;
-				left: 0;
-				padding: $imgpadding;
-				height: $height - (2 * $padding) - (2 * $imgpadding);
-				width: $imgwidth - (2 * $padding) - (2 * $imgpadding);;
-				background-color: #e7e7e7;
-			}
-		}
-		.product_info {
-			position: relative;
-			height: $height;
-			float: left;
-			color: $color;
-			div{
-				position: absolute;
-				width: 300px;
-				height: 154px;
-				top: 50%;
-				margin-top: -77px;
-				padding-left: 170px;
-			}
-			h3 {
-				font-size: 1.5 * $font;
-			}
-		}
-		
+$imgheight: 200px;
+$color-text: #00bcd4;
+// 产品 顶部 卡片展示元素CSS
+.product-item {
+	width: $width;
+	background-color: $bgcolor;
+	color: $navcolor;
+	box-shadow: 0 0 5px #ccc;
+	text-align: center;
+	&:hover{
+    box-shadow: 0 0 20px #ccc;
 	}
-	section:nth-child(even) {
-		background-color: rgba(0,0,0,0.15);
-		.img_box{
-			float: right;
+	%absolute{
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	h3{
+		@extend %h1;
+		padding-top: 20px;
+		text-align: center;
+		font-weight: bold;
+	}
+	.product_item_img_box{
+		position: relative;
+		margin: $padding;
+		overflow: hidden;
+		height: $imgheight;
+		background-size: cover;
+		img.card_img, img{
+			@extend %absolute;
+			height: 200px;
+			width: $width - (2 * $padding);
+			z-index: 100;
 		}
-		.product_info
-		{
-			float: left;
+		&::after{
+			@extend %absolute;
+			content: '';
+			width: $width - (2 * $padding);
+			height: $imgheight;
+			filter: blur(3px);
+			-webkit-filter: blur(3px);
+			background: inherit;
 		}
 	}
-	section:nth-child(odd) {
-		background-color: rgba(0,0,0,0.1);
-		img {
-			background-color: #efefef;
-		}
+	span{
+		display: block;
+		padding: 0 $padding $padding $padding;
+		margin: 0;
+		font-size: 1.2 * $font;
+	}
+}
+
+// 产品ListCss
+.product_list {
+	margin: 40px auto;
+	text-align: center;
+	color: $navcolor;
+	h3 {
+		padding: 40px 0 10px 0;
+		margin: 0;
+		font-size: 2 * $font;
+		color: $color-text;
+	}
+	span {
+		display: block;
+		width: 100%;
+		font-size: 1.2 * $font;
+	}
+  .product_note {
+    margin: 10px auto;
+  }
+	.color-text {
+		padding: 20px 0;
+		font-size: 1.5 * $font;
+		color: $color-text;
 	}
 }

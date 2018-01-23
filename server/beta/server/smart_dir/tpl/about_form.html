@@ -1,0 +1,25 @@
+<div class="ctrl">
+  <button type="button" class="btn btn-info form-edit">编辑</button>
+  <button type="button" class="btn btn-info form-cancel" disabled>取消编辑</button>
+</div>
+
+<form class="about-form form-reset form-static">
+  <h3>关于我们</h3><hr>
+  <div class="form-group">
+    <label>我们的愿景</label>
+    <input type="text" class="form-control note" name="future_note[]" placeholder="note" value="{$tjhzs[0].content[0]|default:''}">
+    <input type="text" class="form-control note" name="future_note[]" placeholder="note" value="{$tjhzs[0].content[1]|default:''}">
+    <input type="text" class="form-control note" name="future_note[]" placeholder="note" value="{$tjhzs[0].content[2]|default:''}">
+  </div>
+  <div class="form-group">
+    <label>关于我们</label>
+    <input type="text" class="form-control note" name="about_note[]" placeholder="note" value="{$tjhzs[1].content[0]|default:''}">
+    <input type="text" class="form-control note" name="about_note[]" placeholder="note" value="{$tjhzs[1].content[1]|default:''}">
+    <input type="text" class="form-control note" name="about_note[]" placeholder="note" value="{$tjhzs[1].content[2]|default:''}">
+  </div>
+  <button type="button" class="btn btn-warning sub-about">保存</button>
+</form>
+
+<script type="text/javascript" src="server/static/js/mainform.js"></script>
+<script type="text/javascript" src="server/static/js/control.js"></script>
+

@@ -5,14 +5,13 @@ $imgtextbg: rgba(0,0,0,0.4);
 $textheight: 30px;
 $textcolor: #fff;
 $padding: 10px;
-/* show image css */ 
+/* show image css */
 %showsize {
 	height: $height;
 	width: $width;
 }
 .display-img{
 	@extend %showsize;
-	background-color: #eee;
 	overflow: hidden;
 	ul{
 		@extend %ul;
@@ -27,25 +26,25 @@ $padding: 10px;
 		overflow: hidden;
 		a{
 			display: block;
-			img{
-				@extend %showsize;
-			}
-			span{
-				display: block;
-				position: absolute;
-				background-color: $imgtextbg;
-				bottom: -$textheight;
-				width: 100%;
-				height: $textheight;
-				line-height: $textheight;
-				padding: 0 10px 0 10px;
-				transition: all 500ms;
-				color: $textcolor;
-			}
-			&:hover{
-				span{
-					bottom: 0;
-				}
+		}
+		img{
+			@extend %showsize;
+		}
+		.img_desc{
+			display: block;
+			position: absolute;
+			background-color: $imgtextbg;
+			bottom: -$textheight;
+			width: 100%;
+			height: $textheight;
+			line-height: $textheight;
+			padding: 0 10px 0 10px;
+			transition: all 500ms;
+			color: $textcolor;
+		}
+		&:hover{
+			.img_desc{
+				bottom: 0;
 			}
 		}
 	}
@@ -107,6 +106,7 @@ $padding: 10px;
 	}
 	ul{
 		@extend %ul;
+		padding: 0 10px;
 		$li-height: 40px;
 		$textColor: #7d7d7d;
 		li{
@@ -125,7 +125,7 @@ $padding: 10px;
 			}
 			h4 {
 				display: inline;
-				@include break(310px);
+        @include break(260px);
 				margin: 0;
 				padding: 0;
 				font-size: 0.9 * $font;
@@ -146,7 +146,7 @@ $padding: 10px;
 			opacity: 0;
 			transition: all 500ms;
 		}
-		
+
 	}
 }
 
@@ -186,13 +186,16 @@ $padding: 10px;
 		font-size: 1.2 * $font;
 		color: $textcolor;
 	}
+  span {
+    cursor: default;
+  }
 }
 .hotel-list
 {
 	@extend %ul;
 	position: absolute;
 	left: 250px;
-	top: 30px;
+	top: 27px;
 	width: 920px;
 	height: 90px;
 	li {
@@ -201,29 +204,28 @@ $padding: 10px;
 		margin-left: 20px;
 		width: 210px;
 		height: 100px;
-		a{
+    %imgsize {
+      width: 206px;
+      height: 96px;
+    }
+		.hot_img_box {
 			@include a_css(#fff);
-			width: 206px;
-			height: 96px;
-			%imgsize{
-				width: 206px;
-				height: 96px;
-			}
+      @extend %imgsize;
 			display: block;
 			border: 2px solid #fff;
 			transition: all 400ms;
 			overflow: hidden;
-			img {
-				@extend %imgsize;
-			}
-			span {
+      img {
+        @extend %imgsize;
+      }
+			.img_info {
 				display: block;
 				position: absolute;
 				height: 30px;
 				width: 206px;
 				bottom: 0;
 				line-height: 30px;
-				background-color: $imgtextbg; 
+				background-color: $imgtextbg;
 				text-align: center;
 				font-size: 1.2 * $font;
 				transition: all 400ms;
@@ -232,7 +234,7 @@ $padding: 10px;
 			&:hover{
 				transform: scale(1.15);
 				box-shadow: 0 0 8px rgba(0,0,0,0.6);
-				span{
+				.img_info{
 					bottom: 35px;
 					opacity: 1;
 				}

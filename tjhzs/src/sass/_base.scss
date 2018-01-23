@@ -1,13 +1,31 @@
 $navheight: 50px;
 $navcolor: #868686;
+/* 阴影设置 */
+$shadow: 0 0 5px #476153;
 /* 文字hover时的色彩 */
 $hovercolor: #fe005b;
+$pcolor: #555;
+$hcolor: #424141;
 $headerheight: 500px;
 $header-title-color: #fff;
 $font: 1em;
-/* 网页主要色彩 */ 
+/* 网页主要色彩 */
 $bgcolor: #32b16c;
 $footerheight: 250px;
+/* 层级定义 */
+$z-super: 2000;
+$z-top: 1000;
+$z-mid: 800;
+/* 遮罩样式设计 */
+%mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.1);
+	// z-index: $z-mid;
+}
 
 @mixin a_css($color: inherit) {
 	text-decoration: none;
@@ -15,7 +33,7 @@ $footerheight: 250px;
 }
 /* 单行省略设置 */
 @mixin break($width) {
-	width: $width;
+	max-width: $width;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -32,13 +50,17 @@ $footerheight: 250px;
 
 %width {
 	width: 100%;
-  min-width: 1200px;
+  min-width: 1300px;
   margin: 0 auto;
 }
 
 %mainwidth {
   width: 1200px;
-  min-width: 1200px;
+  margin: 0 auto;
+}
+
+%middlewidth {
+  width: 1000px;
   margin: 0 auto;
 }
 

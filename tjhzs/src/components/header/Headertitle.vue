@@ -1,34 +1,23 @@
 <template>
   <div class="header-title">
-    <h1>{{city}} - {{season}}<span>{{city}} - {{season}}</span></h1>
-    <div>
-      <p>主办方：<span>{{zhuban}}</p>
-      <p>承办方：<span>{{chengban}}</span></p>
+    <h1>{{headerinfo.city}} - {{headerinfo.season}}<span>{{headerinfo.city}} - {{headerinfo.season}}</span></h1>
+    <div class="metting-info">
+      <p>主办方：{{headerinfo.zhuban}}</p>
+      <p>承办方：{{headerinfo.chenban}}</p>
     </div>
-   <!--  <span class="img-box">
-      <img :src="pavilionimg" alt="展馆图片">
-    </span> -->
-    <headerbar :time='time'></headerbar>
+    <headerbar :headertime='headerinfo'></headerbar>
   </div>
 </template>
 
 <script>
 import Headerbar from './Headerbar'
-import info from '../../data/index-header-message.js'
-
 export default {
   name: 'header-title',
   props: {
-    time: Object
+    headerinfo: Object
   },
-  data () {
-    return {
-      city: info.city,
-      season: info.season,
-      zhuban: info.zhuban,
-      chengban: info.chengban,
-      pavilionimg: info.pavilionimg
-    }
+  mounted: function () {
+    // console.log(this.headerinfo)
   },
   components: {
     Headerbar
@@ -39,13 +28,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 @import '../../sass/_base.scss';
-$height: 247px;
+$height: 300px;
   .header-title
   {
-    position: absolute;
+    position: relative;
+    @extend %mainwidth;
     height: $height;
+    width: 1280px;
     top:  ($headerheight - $height) / 2;
-    left: 160px;
+    // left: 50%;
     color: $header-title-color;
     z-index: 2;
     $color: #00ab88;
@@ -59,7 +50,7 @@ $height: 247px;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: bold;
-      font-size: 4 * $font;
+      font-size: 6 * $font;
       span{
         position: absolute;
         left: 0;
@@ -68,10 +59,15 @@ $height: 247px;
         z-index: -1;
       }
     }
-    p{
-      @extend %h1;
-      margin-top: 10px;
-      // font-size: smaller;
+    .metting-info{
+      p{
+        @extend %h1;
+        margin-top: 10px;
+        padding-left: 20px;
+        font-size: 1.5 * $font;
+        color: #e2e2e2;
+      }
+
     }
     $imgwidth: 186px;
     $imgheight: 98px;

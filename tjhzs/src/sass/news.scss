@@ -1,0 +1,35 @@
+@import './_base.scss';
+.tjhzs-new{
+	header, section{
+		padding: 0 20px;
+	}
+	header{
+		text-align: center;
+		h3 {
+			font-size: 3 * $font;
+			font-weight: bold;
+			margin: 20px auto;
+			color: $hcolor;
+		}
+		span{
+			display: block;
+			width: 100%;
+      color: #bfbfbf;
+		}
+	}
+	.img-group{
+		height: 300px;
+		width: 740px;
+		margin: 30px auto;
+		padding: 0;
+		// border-bottom: 1px solid #32b16c;
+	}
+	.new-content{
+		p{
+			text-indent: 2em;
+			line-height: 2 * $font;
+			color: $pcolor;
+			font-size: 1.1 * $font
+		}
+	}
+}

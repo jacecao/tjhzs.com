@@ -1,43 +1,61 @@
 <template>
-  <div :style="background" class="nav-bar">
+  <nav class="nav-bar" :style="style">
     <div class="logo">
-      <a href="/"><img v-bind:src="logo" alt="HBHZ"></a>
+      <a href="/"><img src="../assets/logo.png" alt="HBHZ"></a>
       <span>{{title}}</span>
     </div>
-    <ul v-on:click='test'>
-      <li><v-link href="/">首页</v-link></li>
-      <li><v-link href="/product">产品案例展示</v-link></li>
-      <li><v-link href="/about">关于我们</v-link></li>
+    <ul>
+      <li><router-link to="/beta/" active-class="active" exact>首页</router-link></li>
+      <li><router-link to="/beta/product" active-class="active">产品案例展示</router-link></li>
+      <li><router-link to="/beta/about" active-class="active">关于我们</router-link></li>
     </ul>
-  </div>
+  </nav>
 </template>
 
 <script>
-import VLink from './link/VLink'
+import Path from '../js/path.js'
+import Json from '../js/json_data.js'
 export default {
   name: 'nav-bar',
   data () {
     return {
       // 这里得数据需要从服务器获取
-      title: '和谐 / 包容 / 发展 / 共赢',
-      logo: '../../static/images/header_logo.png',
-      background: '',
-      isActive: true
+      title: ' ',
+      style: {
+        'background-color': ' ',
+        'background-image': ' ',
+        'position': 'relative'
+      }
     }
   },
   methods: {
-    test () {
-      this.isActive = !this.isActive
+    getData () {
+      let vm = this
+      vm.$http.get(Path.dataURL + 'navbar.json').then(function (res) {
+        // tjhzs服务端需要JSON.parse()使用此步骤
+        let data = Json(res.body)
+        // console.log('navbar' + '\n' + data)
+        vm.title = data.title
+        vm.style = {
+          'background-color': data.backgroundColor,
+          'background-image': data.backgroundImage ? 'url(' + Path.navbarimgURL + data.backgroundImage + ')' : '',
+          'position': data.fixed ? 'fixed' : 'relative'
+        }
+        // window.sessionStorage.setItem('_navbarinfo', window.JSON.stringify(res.body))
+      }, function () {
+        console.error('获取导航条数据出现错误：请检查配置信息是否正确或者网络故障')
+      })
     }
   },
-  components: { VLink }
+  mounted: function () {
+    this.getData()
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import '../sass/_base.scss';
-$navbg: #000;
 a{
   transition: color 700ms;
   @include a_css($navcolor);
@@ -47,35 +65,37 @@ a:hover, .active{
 }
 
 .nav-bar{
-  position: relative;
   top: 0;
-  background: $navbg; 
   height: $navheight;
+  z-index: $z-super;
   @extend %width;
+  border-bottom: 1px solid #e2e2e2;
+  box-shadow: 0 1px 2px rgba(210, 210, 210, 0.3);
 }
 .logo{
   position: absolute;
-  top: 0;
-  left: 72px;
+  width: auto;
+  left: 240px;
   span {
     display: inline-block;
     color: $navcolor;
     height: 50px;
     line-height: 50px;
+    cursor: default;
   }
   img {
     float: left;
-    margin-right: 16px; 
+    margin-right: 16px;
     height: 50px;
     width: 50px;
   }
 }
 
 ul{
-  position: relative;
+  position: absolute;
+  display: flex;
+  right: 200px;
   width: 300px;
-  left: 850px;
-  top: 0;
   margin: 0;
   li{
     display: inline-block;
@@ -88,7 +108,7 @@ ul{
     }
   }
   li:last-child{
-    margin-right: 0; 
+    margin-right: 0;
   }
 }
 </style>

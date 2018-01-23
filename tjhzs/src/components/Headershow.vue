@@ -1,31 +1,59 @@
 <template>
-  <div v-bind:style="bgimg" class="header">
-    <div v-on:mousemove='hoverMover' class="mask"></div>
-    <!-- 绑定data数据到组件的props -->
-    <headertitle :time='timerobj' />
-  </div>
+  <transition name="main-fade" mode="out-in">
+    <header v-bind:style="{backgroundImage: 'url(' + headerinfo.bgimg.img_url +')'}" class="header-show" key="show">
+      <div class="mask"></div>
+      <loading v-if="ready" :havemask="false" :style="loadingStyle"/>
+      <!-- 绑定data数据到组件的props -->
+      <headertitle :headerinfo='headerinfo' />
+    </header>
+    <!-- 在相同标签中使用过去时需要添加key属性来予以区别 -->
+<!--     <div v-else class="header-show" key="loading">
+      <loading/>
+    </div> -->
+  </transition>
 </template>
 
 <script>
 import Headertitle from './header/Headertitle'
-import info from '../data/index-header-message.js'
-import timer from '../js/timer.js'
-
+import Loading from './loading/Loading'
+import Path from '../js/path.js'
+import ResetData from '../data/headerinfo.js'
+import Json from '../js/json_data.js'
 export default {
   name: 'header-show',
   data () {
     return {
-      bgimg: info.backgroundImage,
-      timerobj: timer(info.startime)
+      headerinfo: ResetData,
+      loadingStyle: {
+        position: 'absolute',
+        width: '100%'
+      },
+      ready: true
     }
   },
+  mounted: function () {
+    this.getinfo()
+  },
   methods: {
-    hoverMover () {
-
+    getinfo () {
+      let vm = this
+      vm.$http.get(Path.dataURL + 'headerinfo.json').then(function (res) {
+        // 这里一定要注意如果data中headerinfo:{},那么这里的数据是没办法得到响应的
+        // 类似mongodb中的schema一样需要预先定义headerinfo，然后再通过这里获取变更传到子组件
+        // tjhzs服务端需要JSON.parse()使用此步骤
+        let data = Json(res.body)
+        vm.headerinfo = data
+        // 在头部图片加载完成后关闭掉loding画面
+        let img = new window.Image()
+        img.src = vm.headerinfo.bgimg.img_url
+        img.onload = () => { vm.ready = false }
+      }, function () {
+        console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
+      })
     }
   },
   components: {
-    Headertitle
+    Headertitle, Loading
   }
 }
 </script>
@@ -33,7 +61,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import '../sass/_base.scss';
-.header{
+.header-show{
   position: relative;
   @extend %width;
   height: $headerheight;
@@ -45,7 +73,7 @@ export default {
   box-shadow: 0 2px 4px #b8b8b8;
   &:hover{
     .mask{
-      opacity: 0.4;
+      opacity: 0.6;
     }
   }
 }

@@ -1,7 +1,7 @@
 @import './_base.scss';
 $size: 90px;
 $border: 1px solid #288954;
-$color: #e6e6e6;
+$color: #00ffde;
 %size{
   width: $size;
   height: $size;
@@ -11,7 +11,6 @@ $color: #e6e6e6;
   color: $color;
   ul{
     @extend %ul;
-    width: 500px;
     li{
       position: relative;
       background-color: $bgcolor;
@@ -21,10 +20,12 @@ $color: #e6e6e6;
   .weixin, .time, .header-info{
     cursor: pointer;
     overflow: hidden;
-    transition: all 400ms;
+    transition: all 300ms;
     &:hover{
       box-shadow: 0 0 5px rgba(0,0,0,0.4);
       transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
       z-index: 100;
       color: #fff;
     }
@@ -73,14 +74,14 @@ $color: #e6e6e6;
 .time::before
 {
   content: '';
-  background-image: url(../../../static/images/header/clock.png);
+  background-image: url(../../assets/clock.png);
   background-size: cover;
 }
 .weixin::after
 {
   content:'';
   /* 这里的地址根据引用位置来确定，而不是根据该文件位置来确定 */
-  background-image: url(../../../static/images/header/weixin.png);
+  background-image: url(../../assets/weixin.png);
   background-size: cover;
   left: $size;
 }
@@ -88,7 +89,7 @@ $color: #e6e6e6;
   font-size: 3 * $font;
   text-align: center;
   line-height: $size;
-  margin-left: -5px;
+  margin-left: 3px;
   left: $size;
 }
 .weixin:hover, .time:hover{
@@ -107,12 +108,14 @@ $color: #e6e6e6;
 
 /* 大的倒计时显示 */
 #header_timer{
+  $color: #fff;
   text-align: center;
   color: $color;
   h3{
     @extend %h1;
     // margin-top: -100px;
     font-size: 3 * $font;
+    padding-top: 10px;
   }
   p{
     @extend %h1;

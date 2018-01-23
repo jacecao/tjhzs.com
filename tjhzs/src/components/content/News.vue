@@ -1,58 +1,28 @@
 <template>
   <div class="news">
-    <h3>我们新动态</h3>
+    <h3>我们最新动态</h3>
     <ul>
-      <li v-for="item in items">
-        <a v-bind:href="item.url" v-bind:title="item.title">
-          <h4>{{item.title}}</h4><span>{{item.time}}</span>
-        </a>
+      <li v-for="item in newsdata">
+        <router-link v-bind:to="path+item.id" v-bind:title="item.title">
+          <h4>{{item.title}}</h4><span>{{item.date}}</span>
+        </router-link>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import Path from '../../js/path.js'
 export default {
   name: 'news',
+  props: {
+    newsdata: {
+      type: Array
+    }
+  },
   data () {
     return {
-      items: [
-        {
-          url: '/',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        },
-        {
-          url: '/',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        },
-        {
-          url: '/',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        },
-        {
-          url: '/',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        },
-        {
-          url: '/',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        },
-        {
-          url: '/',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        },
-        {
-          url: '/',
-          title: '这是一测试信息显示条，正在测试中',
-          time: '2016-12-05'
-        }
-      ]
+      path: Path.newsPAGE
     }
   },
   components: {}
@@ -68,7 +38,7 @@ $width: 400px;
     float: right;
     height: $height;
     width: $width;
-    // background-color: #32b16c;
+    background-color: #fff;
     overflow: hidden;
   }
 </style>

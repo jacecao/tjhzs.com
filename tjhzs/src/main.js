@@ -1,24 +1,25 @@
 import Vue from 'vue'
-import routes from './routes'
+// 引入路由插件和路由配置文件
+import VueRouter from 'vue-router'
+import routes from './routes.js'
+// 引入ajax模块文件
+import VueResource from 'vue-resource'
+// 引入主模板
+import Main from './layouts/Main'
+// 将中间件引入到实例中
+Vue.use(VueRouter)
+Vue.use(VueResource)
 
-const app = new Vue({
-  el: '#app',
-  data: {
-    currentRoute: window.location.pathname
-  },
-  computed: {
-    ViewComponent () {
-      const matchingView = routes[this.currentRoute]
-      return matchingView
-        ? require('./pages/' + matchingView + '.vue')
-        : require('./pages/404.vue')
-    }
-  },
-  render (h) {
-    return h(this.ViewComponent)
-  }
+const router = new VueRouter({
+  base: __dirname,
+  mode: 'history',
+  routes: routes
 })
 
-window.addEventListener('popstate', () => {
-  app.currentRoute = window.location.pathname
-})
+new Vue({
+  router: router,
+  // 加入主视图模块
+  // 其他模块根据路径按需加载
+  render: (h) => h(Main)
+}).$mount('#app')
+

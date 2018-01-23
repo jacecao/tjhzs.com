@@ -14,6 +14,7 @@
 //   });
 // };
 // initStart 轮播动画起始位置
+
 export default function (config) {
   // 每次移动的总步长(也就是每张图片的宽度)
   const step = config.step
@@ -150,7 +151,7 @@ export default function (config) {
 
   // 自动播放功能
   var play = function () {
-    TIMER = setInterval(nextMover, 3000)
+    TIMER = setInterval(nextMover, config.time)
   }
   play()
   // 停止自动播放
