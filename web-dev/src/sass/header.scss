@@ -43,18 +43,22 @@ $color: #00ffde;
     @extend %h1;
     // margin-top: -100px;
     font-size: 3 * $font;
-    padding-top: 10px;
+    padding-top: 20px;
   }
   p{
+    // display: inline-table-cell;
     @extend %h1;
-    // margin-right: -400px;
+    margin-top: 10px;
     color: $color;
     font-size: 3 * $font;
+    vertical-align: middle;
     span {
       display: inline-block;
       margin: 0 20px;
       font-size: 1.5 * $font;
       color: $hovercolor;
+      vertical-align: middle;
+      margin-top: -10px;
       animation: scale 4s infinite;
     }
     @keyframes scale {

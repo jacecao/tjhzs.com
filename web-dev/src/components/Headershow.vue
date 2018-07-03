@@ -7,9 +7,9 @@
         <headertitle :headerinfo='headerinfo' />
       </div>
       <div class="header-info">
-        <p>布展时间：xxx</p>
-        <p>开展时间：xxx</p>
-        <p>展会地址：xxxx</p>
+        <span>布展时间：{{headerinfo.readytime}}</span><i>/</i>
+        <span>开展时间：{{headerinfo.starttime}}</span><i>/</i>
+        <span>展会地址：{{headerinfo.addr}}</span>
       </div>
     </header>
     <!-- 在相同标签中使用过去时需要添加key属性来予以区别 -->
@@ -63,12 +63,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import '../sass/_base.scss';
+.header-info, .header-show{
+  box-sizing: border-box;
+  @extend %width;
+}
 .header-show {
   position: relative;
   box-sizing: border-box;
   border: solid 10px #fff;
   margin-top: 120px;
-  @extend %width;
   height: $headerheight;
   background-size: cover;
   background-repeat: no-repeat;
@@ -80,6 +83,15 @@ export default {
     height: 100%;
     border-radius: 5px;
     /* filter: blur(2px); */
+  }
+}
+.header-info {
+  margin-top: 30px;
+  color: #888;
+  text-align: center;
+  // text-shadow: 0 0 0.1rem #222;
+  i {
+    margin:0 20px;
   }
 }
 </style>
