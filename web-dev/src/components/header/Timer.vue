@@ -1,14 +1,14 @@
 <template>
-  <div id="header_timer" 
+  <div id="header_timer"
        v-bind:class='{header_timer: isActive}'
   >
     <div v-if="!time.isOld">
       <h3>距离本届糖酒会开幕</h3>
-      <p><span>还有</span>{{time.day}}<span>天</span></p>
+      <p>还有<span>{{time.day}}</span>天</p>
     </div>
     <div v-else>
       <h3>新一轮的招商已启动</h3>
-      <p><span>今天已经</span>{{time.day}}<span>号啦</span></p>
+      <p>今天已经<span>{{time.day}}</span>号啦</p>
     </div>
   </div>
 </template>
@@ -27,15 +27,12 @@ export default {
 <style scoped lang="scss">
 @import '../../sass/header.scss';
 #header_timer{
-  position: absolute;
   width: 450px;
-  top: -250px;
-  left: 810px;
-  opacity: 0;
+  margin: 0 auto;
   background: rgba(0,0,0,0.5);
+  opacity: 0;
   transition: all 500ms;
   &.header_timer{
-    top: -120px;
     opacity: 1;
     box-shadow: 0 0 10px #eee;
   }

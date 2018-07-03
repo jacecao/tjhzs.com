@@ -1,13 +1,12 @@
 <template>
   <nav class="nav-bar" :style="style">
     <div class="logo">
-      <a href="/"><img src="../assets/logo.png" alt="HBHZ"></a>
-      <span>{{title}}</span>
+      <span><a href="/" class="logo-link"><img src="../assets/logo.png" alt="HBHZ"></a>{{title}}</span>
     </div>
     <ul>
-      <li><router-link to="/beta/" active-class="active" exact>首页</router-link></li>
-      <li><router-link to="/beta/product" active-class="active">产品案例展示</router-link></li>
-      <li><router-link to="/beta/about" active-class="active">关于我们</router-link></li>
+      <li><router-link to="/" active-class="active" exact>首页</router-link></li>
+      <li><router-link to="/product" active-class="active">产品案例展示</router-link></li>
+      <li><router-link to="/about" active-class="active">关于我们</router-link></li>
     </ul>
   </nav>
 </template>
@@ -28,27 +27,22 @@ export default {
       }
     }
   },
-  methods: {
-    getData () {
-      let vm = this
-      vm.$http.get(Path.dataURL + 'navbar.json').then(function (res) {
-        // tjhzs服务端需要JSON.parse()使用此步骤
-        let data = Json(res.body)
-        // console.log('navbar' + '\n' + data)
-        vm.title = data.title
-        vm.style = {
-          'background-color': data.backgroundColor,
-          'background-image': data.backgroundImage ? 'url(' + Path.navbarimgURL + data.backgroundImage + ')' : '',
-          'position': data.fixed ? 'fixed' : 'relative'
-        }
-        // window.sessionStorage.setItem('_navbarinfo', window.JSON.stringify(res.body))
-      }, function () {
-        console.error('获取导航条数据出现错误：请检查配置信息是否正确或者网络故障')
-      })
-    }
-  },
-  mounted: function () {
-    this.getData()
+  created () {
+    let vm = this
+    vm.$http.get(Path.dataURL + 'navbar.json').then(function (res) {
+      // tjhzs服务端需要JSON.parse()使用此步骤
+      let data = Json(res.body)
+      // console.log('navbar' + '\n' + data)
+      vm.title = data.title
+      vm.style = {
+        'background-color': data.backgroundColor,
+        'background-image': data.backgroundImage ? 'url(' + Path.navbarimgURL + data.backgroundImage + ')' : '',
+        'position': data.fixed ? 'fixed' : 'relative'
+      }
+      // window.sessionStorage.setItem('_navbarinfo', window.JSON.stringify(res.body))
+    }, function () {
+      console.error('获取导航条数据出现错误：请检查配置信息是否正确或者网络故障')
+    })
   }
 }
 </script>
@@ -66,44 +60,44 @@ a:hover, .active{
 
 .nav-bar{
   top: 0;
+  left: 0;
+  right: 0;
   height: $navheight;
   z-index: $z-super;
-  @extend %width;
-  border-bottom: 1px solid #e2e2e2;
-  box-shadow: 0 1px 2px rgba(210, 210, 210, 0.3);
+  width: 100%;
+  min-width: 1000px;
+  box-shadow: 0 1px 1px rgba(100, 100, 100, 0.2);
+  overflow: hidden;
 }
 .logo{
-  position: absolute;
-  width: auto;
-  left: 240px;
+  margin-left: 200px;
+  float: left;
   span {
     display: inline-block;
     color: $navcolor;
-    height: 50px;
-    line-height: 50px;
+    height: 80px;
+    line-height: 80px;
     cursor: default;
   }
   img {
     float: left;
-    margin-right: 16px;
+    margin: 10px 16px 0 0;
     height: 50px;
     width: 50px;
   }
 }
 
 ul{
-  position: absolute;
-  display: flex;
-  right: 200px;
+  float: right;
+  margin: 0 200px 0 0;
   width: 300px;
-  margin: 0;
   li{
     display: inline-block;
     margin-right: 46px;
     a{
       display: block;
-      height: 50px;
-      line-height: 50px;
+      height: 80px;
+      line-height: 80px;
       font-size: $font;
     }
   }

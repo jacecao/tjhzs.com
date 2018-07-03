@@ -1,4 +1,4 @@
-$navheight: 50px;
+$navheight: 80px;
 $navcolor: #868686;
 /* 阴影设置 */
 $shadow: 0 0 5px #476153;
@@ -6,7 +6,7 @@ $shadow: 0 0 5px #476153;
 $hovercolor: #fe005b;
 $pcolor: #555;
 $hcolor: #424141;
-$headerheight: 500px;
+$headerheight: 480px;
 $header-title-color: #fff;
 $font: 1em;
 /* 网页主要色彩 */
@@ -49,18 +49,18 @@ $z-mid: 800;
 }
 
 %width {
-	width: 100%;
-  min-width: 1300px;
+	width: 90%;
+  min-width: 1000px;
   margin: 0 auto;
 }
 
 %mainwidth {
-  width: 1200px;
+  width: 1000px;
   margin: 0 auto;
 }
 
 %middlewidth {
-  width: 1000px;
+  width: 800px;
   margin: 0 auto;
 }
 

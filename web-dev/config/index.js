@@ -7,7 +7,7 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     // 生产环境资源加载路径
-    assetsSubDirectory: 'beta/static',
+    assetsSubDirectory: '/static',
     assetsPublicPath: '/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
@@ -21,7 +21,7 @@ module.exports = {
     env: require('./dev.env'),
     port: 8000,
     // 开发环境资源路径
-    assetsSubDirectory: 'beta/static',
+    assetsSubDirectory: '/static',
     assetsPublicPath: '/',
     proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"

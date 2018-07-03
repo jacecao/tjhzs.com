@@ -9,37 +9,12 @@ $color: #00ffde;
 .header-bar
 {
   color: $color;
-  ul{
-    @extend %ul;
-    li{
-      position: relative;
-      background-color: $bgcolor;
-      float: left;
-    }
-  }
-  .weixin, .time, .header-info{
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 300ms;
-    &:hover{
-      box-shadow: 0 0 5px rgba(0,0,0,0.4);
-      transform: scale(1.1);
-      -webkit-transform: scale(1.1);
-      -moz-transform: scale(1.1);
-      z-index: 100;
-      color: #fff;
-    }
-  }
-  .weixin, .time
-  {
-    @extend %size;
-  }
-  .weixin{
-    border-left: $border;
-    border-right: $border;
-  }
   .header-info{
     height: 70px;
+    width: 35%;
+    min-width: 300px;
+    background: #179450;
+    margin: 20px auto;
     font-size: smaller;
     padding: 10px;
     p {
@@ -49,34 +24,7 @@ $color: #00ffde;
     }
   }
 }
-.weixin::after, .small-time,
-.weixin::before, .time::before
-{
-  display: block;
-  position: absolute;
-  text-align: center;
-  height: $size;
-  width: $size;
-  top: 0;
-  transition: all 500ms;
-}
-.weixin::before
-{
-  line-height: 30px;
-  letter-spacing: 3px;
-  font-size: 1.5 * $font;
-  margin-top: 15px;
-  left: 0;
-}
-.weixin::before{
-  content: '公众\A账号';
-}
-.time::before
-{
-  content: '';
-  background-image: url(../../assets/clock.png);
-  background-size: cover;
-}
+
 .weixin::after
 {
   content:'';
@@ -85,30 +33,10 @@ $color: #00ffde;
   background-size: cover;
   left: $size;
 }
-.small-time{
-  font-size: 3 * $font;
-  text-align: center;
-  line-height: $size;
-  margin-left: 3px;
-  left: $size;
-}
-.weixin:hover, .time:hover{
-  &:before{
-    left: -$size;
-  }
-  &:after{
-    left: 0;
-  }
-}
-.time:hover{
-  .small-time{
-    left: 0;
-  }
-}
 
 /* 大的倒计时显示 */
 #header_timer{
-  $color: #fff;
+  $color: #eee;
   text-align: center;
   color: $color;
   h3{
@@ -120,12 +48,27 @@ $color: #00ffde;
   p{
     @extend %h1;
     // margin-right: -400px;
-    font-size: 5 * $font;
-    color: $hovercolor;
+    color: $color;
+    font-size: 3 * $font;
     span {
-      color: $color;
+      display: inline-block;
       margin: 0 20px;
-      font-size: 0.5 * $font;
+      font-size: 1.5 * $font;
+      color: $hovercolor;
+      animation: scale 4s infinite;
     }
+    @keyframes scale {
+      0 {
+        transform: scale(1)
+      }
+      50% {
+        transform: scale(1.2)
+      }
+      100% {
+        transform: scale(1)
+    }
+}
   }
 }
+
+

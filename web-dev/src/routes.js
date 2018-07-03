@@ -5,14 +5,12 @@ import news from './pages/news'
 import Hotels from './pages/Hotels'
 import About from './pages/About'
 import Undefined from './pages/404'
-import test from './pages/test'
 
 export default [
-  {path: '/beta/', component: Home},
-  {path: '/beta/product', component: Product},
-  {path: '/beta/news/:id', component: news},
-  {path: '/beta/hotels/:id', component: Hotels},
-  {path: '/beta/about', component: About},
-  {path: '/beta/test', component: test},
-  {path: '/beta/*', component: Undefined}
+  {path: '/', component: Home},
+  {path: '/product', component: Product},
+  {path: '/news/:id', component: news},
+  {path: '/hotels/:id', component: Hotels},
+  {path: '/about', component: About},
+  {path: '/*', component: Undefined}
 ]

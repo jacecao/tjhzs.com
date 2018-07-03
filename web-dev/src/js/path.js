@@ -1,4 +1,4 @@
-const dir = '/beta/'
+const dir = '/'
 
 export default {
   dataURL: dir + 'static/data/',

@@ -5,22 +5,43 @@
       <p>主办方：{{headerinfo.zhuban}}</p>
       <p>承办方：{{headerinfo.chenban}}</p>
     </div>
-    <headerbar :headertime='headerinfo'></headerbar>
+    <timer :time="time" :isActive="isActive"/>
   </div>
 </template>
 
 <script>
-import Headerbar from './Headerbar'
+import Timer from './Timer'
+import funtimer from '../../js/timer.js'
 export default {
   name: 'header-title',
   props: {
     headerinfo: Object
   },
+  data () {
+    return {
+      isActive: true
+    }
+  },
   mounted: function () {
     // console.log(this.headerinfo)
   },
+  computed: {
+    // 计算倒计时或日期
+    time: function () {
+      let time = this.headerinfo.starttime
+      return funtimer(time)
+    }
+  },
+  methods: {
+    hover: function () {
+      this.isActive = true
+    },
+    out: function () {
+      this.isActive = false
+    }
+  },
   components: {
-    Headerbar
+    Timer
   }
 }
 </script>
@@ -31,28 +52,33 @@ export default {
 $height: 300px;
   .header-title
   {
-    position: relative;
-    @extend %mainwidth;
+    position: absolute;
+    width: 100%;
     height: $height;
-    width: 1280px;
-    top:  ($headerheight - $height) / 2;
-    // left: 50%;
+    top: 30px;
+    left: 0;
     color: $header-title-color;
     z-index: 2;
     $color: #00ab88;
+
     h1{
-      @extend %h1;
       position: relative;
+      margin-top: 20px;
+      @extend %h1;
+      text-align: center;
       letter-spacing: 0.15 * $font;
       color: $color;
       /* 实现艺术字体 */
-      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(31,255,231,1)), to(rgba(0,171,136,1)));
+      background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: bold;
-      font-size: 6 * $font;
+      font-size: 4 * $font;
+
       span{
         position: absolute;
+        width: 100%;
+        text-align: center;
         left: 0;
         color: transparent;
         text-shadow: 0 0 10px #000;
@@ -60,38 +86,18 @@ $height: 300px;
       }
     }
     .metting-info{
+      padding: 40px 20px;
       p{
         @extend %h1;
         margin-top: 10px;
-        padding-left: 20px;
-        font-size: 1.5 * $font;
-        color: #e2e2e2;
+        text-align: center;
+        font-size: 1.2 * $font;
+        color: #fff;
+        text-shadow:0.2rem 0.2rem 0.2rem black;
+        font-weight: bold;
       }
 
     }
-    $imgwidth: 186px;
-    $imgheight: 98px;
-    .img-box{
-      display: block;
-      margin-top: 16px;
-      height: $imgheight;
-      width: $imgwidth;
-      background-color: #6af2c4;
-      border: 2px solid #00bcd4;
-      transition: box-shadow 400ms linear;
-      overflow: hidden;
-      cursor: pointer;
-      img{
-        height: $imgheight;
-        width: $imgwidth;
-        transition: transform 400ms linear;
-      }
-      @at-root .img-box:hover {
-        box-shadow: 0 0 13px rgba(106,142,130,.6);
-        img{
-          transform: scale(1.2);
-        }
-      }
-    }
+
   }
 </style>

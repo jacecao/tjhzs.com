@@ -9,7 +9,7 @@
 import MainContent from '../components/Maincontent.vue'
 import HeaderShow from '../components/Headershow.vue'
 export default {
-  name: 'tjhzs_product',
+  name: 'tjhzs_home',
   components: {HeaderShow, MainContent}
 }
 </script>
