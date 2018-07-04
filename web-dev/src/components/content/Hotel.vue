@@ -61,10 +61,8 @@ export default {
 .hotel-content{
   @extend %mainwidth;
   position: relative;
-  background: #eee;
-  height: 150px;
   margin: 40px auto;
-  background-color: $bgcolor;
-  box-shadow:  $shadow;
+  padding-top: 20px;
+  //box-shadow:  $shadow;
 }
 </style>

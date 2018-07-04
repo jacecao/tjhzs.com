@@ -1,10 +1,9 @@
 <template>
   <div class="tjhzs-content tjhzs-main-content">
     <section class="main-content">
-      <displayimg :style="style" :images='items'></displayimg>
+      <displayimg :style="style" :images='items' :size='size'></displayimg>
       <news :newsdata="news"></news>
     </section>
-    <Hotel></Hotel>
   </div>
 </template>
 
@@ -20,6 +19,9 @@ export default {
     return {
       style: {
         'float': 'left'
+      },
+      size: {
+        'width': '560px'
       },
       items: [],
       news: []

@@ -76,7 +76,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 0;
-  box-shadow: 0 0 4px #b8b8b8;
+  box-shadow: 0 0 4px rgba(184, 184, 184, 0.23);
   border-radius: 5px;
   .header-img {
     width: 100%;

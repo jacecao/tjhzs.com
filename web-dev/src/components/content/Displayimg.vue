@@ -91,6 +91,8 @@ export default {
 @import '../../sass/content.scss';
   .display-img{
     position: relative;
+    box-sizing: border-box;
+    border: 5px solid #fff;
     margin: 0 auto;
     // height: 300px;
     // width: 740px;
