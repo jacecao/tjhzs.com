@@ -37,7 +37,7 @@ export default {
   }
   .email{
     text-align: right;
-    padding-right: 20px;
+    padding-right: 210px;
     font-size: 18px;
     -webkit-box-flex: 1;
     flex: 1;

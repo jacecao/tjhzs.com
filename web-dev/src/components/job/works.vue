@@ -1,20 +1,27 @@
 <template>
   <div class="tjhzs_job_content">
-    <div v-for="job in Jobs" class="job_item">
-      <div class="title">
-        <span class="name">{{job.name}}</span>
-        <span class="note">({{job.note}})</span>
+    <template v-if="Jobs.length > 0">
+      <div v-for="job in Jobs" class="job_item">
+        <div class="title">
+          <span class="name">{{job.name}}</span>
+          <span class="note">({{job.note}})</span>
+        </div>
+        <div class="location">
+          <span>位置：</span><span>{{job.loc}}</span>
+        </div>
+        <div class="requirement">
+          <span>要求：</span><span>{{job.req}}</span>
+        </div>
+        <div class="job_des">岗位描述
+          <p v-for="(text, index) in job.des">{{index+1}}、{{text}};</p>
+        </div>
       </div>
-      <div class="location">
-        <span>位置：</span><span>{{job.loc}}</span>
-      </div>
-      <div class="requirement">
-        <span>要求：</span><span>{{job.req}}</span>
-      </div>
-      <div class="job_des">岗位描述
-        <p v-for="(text, index) in job.des">{{index+1}}、{{text}};</p>
-      </div>
-    </div>
+    </template>
+
+    <template v-else>
+      <span class="no_job">目前我们还没有招聘计划哦。</span>
+    </template>
+
   </div>
 </template>
 
@@ -69,6 +76,10 @@ export default {
         text-align: left;
       }
     }
+  }
+  .no_job {
+    padding-left: 20px;
+    color: #fe005b;
   }
 }
 

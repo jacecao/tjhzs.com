@@ -3,7 +3,7 @@
 		<h3>{{item.title}}</h3>
 		<span class="product_note">{{item.note[0]}}</span>
 		<span class="product_note">{{item.note[1]}}</span>
-		<play-img :isLink="false" :images="item.images"/>
+		<play-img :isLink="false" :images="item.images" :size="size"/>
 		<span class="color-text">{{item.ad}}</span>
 	</section>
 </template>
@@ -18,7 +18,8 @@ export default {
   },
   data () {
     return {
-      bgcolor: {backgroundColor: '#fff'}
+      bgcolor: {backgroundColor: '#fff'},
+      size: {height: '460px', width: '960px'}
     }
   },
   mounted: function () {
@@ -43,6 +44,7 @@ export default {
 <style scoped lang="scss">
 	@import '../../sass/product.scss';
 	.product_list{
-		@extend %middlewidth;
+		width: 1000px;
+
 	}
 </style>

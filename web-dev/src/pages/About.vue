@@ -1,5 +1,10 @@
 <template>
   <div class="tjhzs_about tjhzs-main-content">
+    <div class="weixin">
+      <img src="/static/img/weixin.02fbb77.png" alt="weixin">
+      <p>我们的公众号</p>
+    </div>
+
   	<section v-for='item in info' class="about_list">
       <div class="head">
         <div class="title">{{item.title}}</div>
@@ -49,8 +54,8 @@
 </template>
 
 <script>
-import JobHead from '../components/job/Jobheader'
-import Works from '../components/job/works'
+import JobHead from 'components/job/Jobheader'
+import Works from 'components/job/works'
 import Path from '../js/path.js'
 import Json from '../js/json_data.js'
 export default {
@@ -102,6 +107,16 @@ export default {
 .tjhzs_about{
 	@extend %middlewidth;
   padding-top: 60px;
+}
+.weixin {
+  @extend %middlewidth;
+  text-align: center;
+  img {
+    width: 100px;
+    height: 100px;
+    margin-top: 60px;
+    border: 2px solid #3eb812;
+  }
 }
 
 
