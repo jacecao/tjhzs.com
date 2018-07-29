@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Path from '../../js/path.js'
+import Path from '@js/path.js'
 export default {
   name: 'news',
   props: {

@@ -2,7 +2,13 @@
   <transition name="main-fade" mode="out-in">
     <header>
       <div class="header-show" key="show">
-        <img :src="headerinfo.bgimg.img_url" alt="header-img" class="header-img">
+        <img
+          v-if="ready"
+          :src="bg_img_src"
+          :style="opacity"
+          alt="header-img" class="header-img"
+        >
+        <loading v-else/>
         <!-- 绑定data数据到组件的props -->
         <headertitle :headerinfo='headerinfo' />
       </div>
@@ -21,21 +27,18 @@
 
 <script>
 import Headertitle from './Headertitle'
-// import Loading from './loading/Loading'
-import Path from '../../js/path.js'
+import Loading from 'components/loading/Loading_v1'
+import Path from '@js/path.js'
 import ResetData from '../../data/headerinfo.js'
-import Json from '../../js/json_data.js'
+import Json from '@js/json_data.js'
 
 export default {
   name: 'header-show',
   data () {
     return {
       headerinfo: ResetData,
-      // loadingStyle: {
-      //   position: 'absolute',
-      //   width: '100%'
-      // },
-      ready: true
+      bgimg: '',
+      ready: false
     }
   },
   created () {
@@ -49,13 +52,23 @@ export default {
       // 在头部图片加载完成后关闭掉loding画面
       let img = new window.Image()
       img.src = vm.headerinfo.bgimg.img_url
-      img.onload = () => { vm.ready = false }
+      vm.bg_img_src = vm.headerinfo.bgimg.img_url
+      img.onload = () => { vm.ready = true }
     }, function () {
       console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
     })
   },
+  computed: {
+    opacity () {
+      if (this.ready) {
+        return {opacity: 1}
+      } else {
+        return {opacity: 0}
+      }
+    }
+  },
   components: {
-    Headertitle
+    Headertitle, Loading
   }
 }
 </script>
@@ -81,6 +94,8 @@ export default {
     width: 100%;
     height: 100%;
     border-radius: 5px;
+    transition: all 1s;
+    opacity: 0;
     /* filter: blur(2px); */
   }
 }

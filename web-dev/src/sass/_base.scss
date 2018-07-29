@@ -77,3 +77,21 @@ $z-mid: 800;
 	padding: 0;
 	list-style: none;
 }
+
+
+%bg_flow {
+  width: 100%;
+  height: 100%;
+  background: #a1b042 linear-gradient(to right, transparent, rgba(72, 221, 197, 0.8431372549019608) 0%, rgba(255, 199, 0, 0.8) 47.06%, rgba(39, 226, 233, 0.85) 100%, transparent);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: bgflow 5s linear infinite alternate;
+}
+@keyframes bgflow {
+  0% {
+    background-position:100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}

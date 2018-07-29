@@ -12,10 +12,10 @@
 <script>
 import Block from './Block'
 import WebInfo from './Address'
-import Path from '../../js/path.js'
+import Path from '@js/path.js'
 // 加载预设数据，当后台数据获取成功后再更新
 import ResetData from '../../data/footer.js'
-import Json from '../../js/json_data.js'
+import Json from '@js/json_data.js'
 export default {
   name: 'footer',
   data () {

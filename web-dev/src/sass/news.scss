@@ -18,13 +18,12 @@
 		}
 	}
 	.img-group{
-		height: 300px;
-		width: 740px;
+		width: inherit;
 		margin: 30px auto;
 		padding: 0;
-		// border-bottom: 1px solid #32b16c;
 	}
 	.new-content{
+    @extend %middlewidth;
 		p{
 			text-indent: 2em;
 			line-height: 2 * $font;

@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import AppImg from '../img/AppImg'
-import Path from '../../js/path.js'
-import Json from '../../js/json_data.js'
+import AppImg from 'components/img/AppImg'
+import Path from '@js/path.js'
+import Json from '@js/json_data.js'
 export default {
   name: 'hotels',
   data () {

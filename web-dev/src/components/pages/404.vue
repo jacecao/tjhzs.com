@@ -1,7 +1,7 @@
 <template>
 <div>
 	<header-show/>
-	<div class="undefined tjhzs-main-content">
+	<div class="notfound tjhzs-main-content">
 		<span>404PAGE</span>
 		<div class="message">
 			<p>对不起你已经偏离我们已经规划好的路线，回头是岸呀！</p>
@@ -14,17 +14,13 @@
   import HeaderShow from 'components/header/Headershow.vue'
   export default {
     name: 'undefined_page',
-    props: {navPosition: String},
-    created () {
-      console.log(this.navPosition)
-    },
     components: {HeaderShow}
   }
 </script>
 
 <style scoped lang="scss">
 @import '../../sass/_base.scss';
-	.undefined{
+	.notfound{
 		@extend %middlewidth;
 		height: 800px;
 		height: 40vh;
@@ -38,7 +34,6 @@
 		.message{
 			position: relative;
 			height: 100px;
-			width: 1000px;
 			margin: 0 auto;
 			top: 50px;
 			box-shadow: 0 0 4px 4px #c6c6c6;

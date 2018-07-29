@@ -4,7 +4,7 @@
     <!-- 注意这里有一个问题加入过渡后轮播动画有问题 -->
     <!-- 解决这个问题需要加入过渡模式 -->
     <transition name="slide-fade" mode="out-in">
-      <router-view :navPosition="navPosition"></router-view>
+      <router-view :style="setMargin"></router-view>
     </transition>
     <app-footer/>
   </div>
@@ -17,14 +17,19 @@
   export default {
     data () {
       return {
-        navPosition: 'fixed'
+        setMargin: {marginTop: '120px'}
       }
     },
     methods: {
       getPosition (position) {
-        this.$nextTick(() => {
-          this.navPosition = position
-        })
+        switch (position) {
+          case 'fixed':
+            this.setMargin = {marginTop: '120px'}
+            break
+          case 'relative':
+            this.setMargin = {marginTop: '30px'}
+            break
+        }
       }
     },
     components: {

@@ -11,8 +11,8 @@
 import Displayimg from './Displayimg'
 import News from './News'
 import Hotel from './Hotel'
-import Path from '../../js/path.js'
-import Json from '../../js/json_data.js'
+import Path from '@js/path.js'
+import Json from '@js/json_data.js'
 export default {
   name: 'main-content',
   data () {

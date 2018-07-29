@@ -15,14 +15,20 @@
         <span class="img_desc">{{item.desc}}</span>
       </li>
     </ul>
-    <span class="control" id="control_left">&lt;</span>
-    <span class="control" id="control_right">&gt;</span>
+    <span
+      v-show="_show_ctl"
+      class="control" id="control_left"
+    >&lt;</span>
+    <span
+      v-show="_show_ctl"
+      class="control" id="control_right"
+    >&gt;</span>
   </div>
 </template>
 
 <script>
 import play from '@js/PlayImg.js'
-import AppImg from '../img/AppImg'
+import AppImg from 'components/img/AppImg'
 export default {
   name: 'main-content',
   props: {
@@ -51,10 +57,17 @@ export default {
     }
   },
   computed: {
-    _style_: function () {
+    _style_ () {
       // 将尺寸和元素定位反应给父元素
       // 这里使用了ES6中赋值对象功能
       return Object.assign(this.size, this.style)
+    },
+    _show_ctl () {
+      if (this.images.length === 1) {
+        return false
+      } else {
+        return true
+      }
     }
   },
   methods: {

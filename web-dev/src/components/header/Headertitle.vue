@@ -11,7 +11,7 @@
 
 <script>
 import Timer from './Timer'
-import funtimer from '../../js/timer.js'
+import funtimer from '@js/timer.js'
 export default {
   name: 'header-title',
   props: {

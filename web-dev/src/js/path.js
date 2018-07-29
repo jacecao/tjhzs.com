@@ -1,13 +1,20 @@
-const dir = '/'
+// 路径参数
+
+const dataPath = '/'
+// const dataPath = '/beta/'
+
+const pagePath = '/'
+
+const localImgPath = '/'
 
 export default {
-  dataURL: dir + 'static/data/',
-  headerimgURL: dir + 'static/images/header/',
-  navbarimgURL: dir + 'static/images/navbar/',
-  newsPAGE: dir + 'news/',
-  newsimgURL: dir + 'static/images/news/',
-  hotelimgURL: dir + 'static/images/hotel/',
-  hotelPAGE: dir + 'hotels/',
-  productimgURL: dir + 'static/images/product/',
-  productPAGE: dir + 'product/'
+  dataURL: dataPath + 'static/data/',
+  headerimgURL: localImgPath + 'static/images/header/',
+  navbarimgURL: localImgPath + 'static/images/navbar/',
+  newsPAGE: pagePath + 'news/',
+  newsimgURL: localImgPath + 'static/images/news/',
+  hotelimgURL: localImgPath + 'static/images/hotel/',
+  hotelPAGE: pagePath + 'hotels/',
+  productimgURL: localImgPath + 'static/images/product/',
+  productPAGE: pagePath + 'product/'
 }

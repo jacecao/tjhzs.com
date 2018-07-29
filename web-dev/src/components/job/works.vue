@@ -19,7 +19,7 @@
     </template>
 
     <template v-else>
-      <span class="no_job">目前我们还没有招聘计划哦。</span>
+      <span class="no_job">目前我们还没有发布招聘公告, 当然您可以将您的简历发送到上面的邮箱里，若我们有意会第一时间联系您！</span>
     </template>
 
   </div>

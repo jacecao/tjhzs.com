@@ -1,5 +1,5 @@
 <template>
-	<div class="homepage">
+	<div class="home-page">
 		<header-show/>
 		<news-section/>
     <hb-hotel/>
@@ -19,3 +19,6 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+</style>

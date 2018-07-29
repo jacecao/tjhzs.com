@@ -70,33 +70,29 @@ export default {
       }
     }
   },
-  methods: {
-    getinfo () {
-      let vm = this
-      vm.$http.get(Path.dataURL + 'about.json').then(function (res) {
-        // tjhzs服务端需要JSON.parse()使用此步骤
-        // let data = window.JSON.parse()
-        let data = Json(res.body)
-        vm.info = data.tjhzs
-      }, function (err) {
-        console.log(err + '\n' + '获取数据出错，网络链接不成功')
-      })
-    },
-    getjobs () {
-      let vm = this
-      vm.$http.get(Path.dataURL + 'jobs.json').then(function (res) {
-        // tjhzs服务端需要JSON.parse()使用此步骤
-        // let data = window.JSON.parse()
-        let data = res.body
-        vm.jobs = data.jobs
-      }, function (err) {
-        console.log(err + '\n' + '获取数据出错，网络链接不成功')
-      })
-    }
-  },
-  mounted: function () {
-    this.getinfo()
-    this.getjobs()
+  created () {
+    let vm = this
+
+    vm.$http.get(Path.dataURL + 'about.json').then((res) => {
+      let data = Json(res.body)
+      vm.info = data.tjhzs
+    }, () => {
+      console.log('获取数据出错，网络链接不成功')
+    })
+
+    vm.$http.get(Path.dataURL + 'jobs.json').then((res) => {
+      let data = res.body
+      vm.jobs = data.jobs
+    }, () => {
+      console.log('获取数据出错，网络链接不成功')
+    })
+
+    vm.$http.get(Path.dataURL + 'email.json').then((res) => {
+      let data = res.body
+      vm.contact = data
+    }, () => {
+      console.log('获取数据出错，网络链接不成功')
+    })
   },
   components: {JobHead, Works}
 }
@@ -106,7 +102,7 @@ export default {
 @import '../../sass/about.scss';
 .tjhzs_about{
 	@extend %middlewidth;
-  padding-top: 60px;
+  padding-top: 30px;
 }
 .weixin {
   @extend %middlewidth;
@@ -114,7 +110,6 @@ export default {
   img {
     width: 100px;
     height: 100px;
-    margin-top: 60px;
     border: 2px solid #3eb812;
   }
 }

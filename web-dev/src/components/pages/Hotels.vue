@@ -21,42 +21,40 @@ export default {
   data () {
     return {
       size: {
-        height: '500px',
-        width: '1000px'
+        height: '540px',
+        width: '840px'
       },
       hotel: {},
       images: []
     }
   },
-  methods: {
-    getdata () {
-      let vm = this
-      vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
-        // tjhzs服务端需要JSON.parse()使用此步骤
-        let data = Json(res.body)
-        let _images = []
-        for (let hotel of data) {
-          if (hotel.id === this.$route.params.id) {
-            let images = hotel.images
-            for (let image of images) {
-              _images.push({
-                imgurl: image.url,
-                desc: image.desc
-              })
-            }
-            vm.hotel = hotel
-            vm.images = _images
-            return
+  created () {
+    let vm = this
+    vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
+      // tjhzs服务端需要JSON.parse()使用此步骤
+      let data = Json(res.body)
+      let _images = []
+      for (let hotel of data) {
+        if (hotel.id === this.$route.params.id) {
+          let images = hotel.images
+          for (let image of images) {
+            _images.push({
+              imgurl: image.url,
+              desc: image.desc
+            })
           }
+          vm.hotel = hotel
+          vm.images = _images
+          return
         }
-      }, function (err) {
-        console.log(err)
-        console.log('\n' + '获取数据出错，请检查数据和网络是否有问题')
-      })
-    }
+      }
+    }, function (err) {
+      console.log(err)
+      console.log('\n' + '获取数据出错，请检查数据和网络是否有问题')
+    })
   },
   mounted: function () {
-    this.getdata()
+    window.scrollTo(0, 0)
   },
   components: { DisplayImg }
 }
@@ -67,6 +65,5 @@ export default {
 .tjhzs-new{
 	@extend %middlewidth;
 	margin: 50px auto;
-  padding-top: 20px;
 }
 </style>

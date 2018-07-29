@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import Loading from '../loading/Loading'
+  import Loading from 'components/loading/Loading'
   export default {
     name: 'app_img',
     props: {
