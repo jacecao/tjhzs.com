@@ -30,12 +30,12 @@
 </template>
 
 <script>
-import Card from '../components/product/Card'
-import List from '../components/product/List'
-import Path from '../js/path.js'
-import Json from '../js/json_data.js'
+import Card from 'components/product/Card'
+import List from 'components/product/List'
+import Path from '@js/path.js'
+import Json from '@js/json_data.js'
 // 渲染时使用模板数据渲染 这里引入模板数据
-import testdata from '../data/productData.js'
+import testdata from '../../data/productData.js'
 let cardStyle = {
   float: 'left',
   marginLeft: '30px',
@@ -110,7 +110,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../sass/_base.scss';
+@import '../../sass/_base.scss';
 // 过渡动画
 .fade-in-enter-active {
   transition: all .8s ease;

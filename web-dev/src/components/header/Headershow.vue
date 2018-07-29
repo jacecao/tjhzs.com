@@ -20,21 +20,21 @@
 </template>
 
 <script>
-import Headertitle from './header/Headertitle'
-import Loading from './loading/Loading'
-import Path from '../js/path.js'
-import ResetData from '../data/headerinfo.js'
-import Json from '../js/json_data.js'
+import Headertitle from './Headertitle'
+// import Loading from './loading/Loading'
+import Path from '../../js/path.js'
+import ResetData from '../../data/headerinfo.js'
+import Json from '../../js/json_data.js'
 
 export default {
   name: 'header-show',
   data () {
     return {
       headerinfo: ResetData,
-      loadingStyle: {
-        position: 'absolute',
-        width: '100%'
-      },
+      // loadingStyle: {
+      //   position: 'absolute',
+      //   width: '100%'
+      // },
       ready: true
     }
   },
@@ -55,14 +55,14 @@ export default {
     })
   },
   components: {
-    Loading, Headertitle
+    Headertitle
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@import '../sass/_base.scss';
+@import '../../sass/_base.scss';
 .header-info, .header-show{
   box-sizing: border-box;
   @extend %width;
@@ -71,7 +71,6 @@ export default {
   position: relative;
   box-sizing: border-box;
   border: solid 10px #fff;
-  margin-top: 120px;
   height: $headerheight;
   background-size: cover;
   background-repeat: no-repeat;

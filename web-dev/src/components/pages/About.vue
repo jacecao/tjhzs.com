@@ -56,8 +56,8 @@
 <script>
 import JobHead from 'components/job/Jobheader'
 import Works from 'components/job/works'
-import Path from '../js/path.js'
-import Json from '../js/json_data.js'
+import Path from '@js/path.js'
+import Json from '@js/json_data.js'
 export default {
   name: 'tjhzs_about',
   data () {
@@ -103,7 +103,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../sass/about.scss';
+@import '../../sass/about.scss';
 .tjhzs_about{
 	@extend %middlewidth;
   padding-top: 60px;

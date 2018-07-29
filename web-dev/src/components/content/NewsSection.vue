@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import Displayimg from './content/Displayimg'
-import News from './content/News'
-import Hotel from './content/Hotel'
-import Path from '../js/path.js'
-import Json from '../js/json_data.js'
+import Displayimg from './Displayimg'
+import News from './News'
+import Hotel from './Hotel'
+import Path from '../../js/path.js'
+import Json from '../../js/json_data.js'
 export default {
   name: 'main-content',
   data () {
@@ -62,7 +62,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@import '../sass/_base.scss';
+@import '../../sass/_base.scss';
   .tjhzs-content{
     margin: 30px auto 0 auto;
   }

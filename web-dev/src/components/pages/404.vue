@@ -11,15 +11,19 @@
 </template>
 
 <script>
-  import HeaderShow from '../components/Headershow.vue'
+  import HeaderShow from 'components/header/Headershow.vue'
   export default {
     name: 'undefined_page',
+    props: {navPosition: String},
+    created () {
+      console.log(this.navPosition)
+    },
     components: {HeaderShow}
   }
 </script>
 
 <style scoped lang="scss">
-@import '../sass/_base.scss';
+@import '../../sass/_base.scss';
 	.undefined{
 		@extend %middlewidth;
 		height: 800px;

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import play from '../../js/PlayImg.js'
+import play from '@js/PlayImg.js'
 import AppImg from '../img/AppImg'
 export default {
   name: 'main-content',

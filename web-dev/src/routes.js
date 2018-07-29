@@ -1,10 +1,10 @@
 // 定路由组件
-import Home from './pages/Home'
-import Product from './pages/product'
-import news from './pages/news'
-import Hotels from './pages/Hotels'
-import About from './pages/About'
-import Undefined from './pages/404'
+import Home from 'components/pages/Home'
+import Product from 'components/pages/product'
+import news from 'components/pages/news'
+import Hotels from 'components/pages/Hotels'
+import About from 'components/pages/About'
+import Undefined from 'components/pages/404'
 
 export default [
   {path: '/', component: Home},

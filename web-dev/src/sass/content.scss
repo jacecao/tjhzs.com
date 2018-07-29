@@ -207,48 +207,53 @@ $padding: 10px;
 .hotel-list
 {
 	@extend %ul;
-	width: 920px;
+	width: 100%;
   overflow: hidden;
   margin: 40px auto 0 auto;
+  text-align: center;
 	li {
 		position: relative;
-		float: left;
+    display: inline-block;
 		margin-left: 15px;
+    padding: 5px;
     %imgsize {
       width: 210px;
-      height: 180px;
+      height: 240px;
     }
 		.hot_img_box {
 			@include a_css(#fff);
       @extend %imgsize;
 			display: block;
-			border: 2px solid #fff;
+			border: 2px solid #eee;
 			transition: all 400ms;
-			overflow: hidden;
+      box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+			/*overflow: hidden;*/
       img {
         @extend %imgsize;
       }
 			.img_info {
 				display: block;
 				position: absolute;
-				height: 30px;
+				height: 50px;
 				width: 210px;
 				bottom: 0;
-				line-height: 30px;
-				background-color: $imgtextbg;
+				line-height: 50px;
+				background-color: rgba(65, 225, 189, 0.66);
 				text-align: center;
 				font-size: 1.2 * $font;
 				transition: all 400ms;
 				opacity: 0;
 			}
 			&:hover{
-				transform: scale(1.15);
-				box-shadow: 0 0 8px rgba(0,0,0,0.6);
+        box-shadow: 0 0 5px rgba(0, 0, 0, .4);
 				.img_info{
-					bottom: 35px;
+					bottom: 100px;
 					opacity: 1;
 				}
 			}
 		}
+    &:first-child {
+      margin-left: 0;
+    }
 	}
 }

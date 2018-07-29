@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import NewsSection from '../components/NewsSection.vue'
-import HeaderShow from '../components/Headershow.vue'
-import Hotel from '../components/content/Hotel.vue'
+import NewsSection from 'components/content/NewsSection.vue'
+import HeaderShow from 'components/header/Headershow.vue'
+import Hotel from 'components/content/Hotel.vue'
 export default {
   name: 'tjhzs_home',
   components: {

@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import DisplayImg from '../components/content/Displayimg'
-import Path from '../js/path.js'
-import Json from '../js/json_data.js'
+import DisplayImg from 'components/content/Displayimg'
+import Path from '@js/path.js'
+import Json from '@js/json_data.js'
 export default {
   data () {
     return {
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../sass/news.scss';
+@import '../../sass/news.scss';
 .tjhzs-new{
 	@extend %middlewidth;
 	margin: 50px auto;

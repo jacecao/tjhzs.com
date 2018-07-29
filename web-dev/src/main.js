@@ -5,7 +5,7 @@ import routes from './routes.js'
 // 引入ajax模块文件
 import VueResource from 'vue-resource'
 // 引入主模板
-import Main from './layouts/Main'
+import App from './App.vue'
 // 将中间件引入到实例中
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -20,6 +20,6 @@ new Vue({
   router: router,
   // 加入主视图模块
   // 其他模块根据路径按需加载
-  render: (h) => h(Main)
+  render: (h) => h(App)
 }).$mount('#app')
 

@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer class="tjhzs-footer">
     <div class="footer-box">
       <!-- 注意这里如果需要动态传入数据 需要使用v-bind来绑定props,使其认为式js运算 -->
       <block v-for="item in items" :info="item"></block>
@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import Block from './footer/Block'
-import WebInfo from './footer/Address'
-import Path from '../js/path.js'
+import Block from './Block'
+import WebInfo from './Address'
+import Path from '../../js/path.js'
 // 加载预设数据，当后台数据获取成功后再更新
-import ResetData from '../data/footer.js'
-import Json from '../js/json_data.js'
+import ResetData from '../../data/footer.js'
+import Json from '../../js/json_data.js'
 export default {
   name: 'footer',
   data () {
@@ -72,8 +72,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@import '../sass/footer.scss';
-  .footer{
+@import '../../sass/footer.scss';
+  .tjhzs-footer{
     position: relative;
     @extend %width;
     height: $footerheight;
