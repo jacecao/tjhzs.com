@@ -4,7 +4,7 @@ tjhzs web the new version , code name V1
 
 ### v-1
 
-与源码项目中php_vue版本（也就是v0.0.1）的改变
+与源码项目中php_web_v0版本（0.0.1版本）的改变
 
 1. 本次将彻底实现前后端独立代码结构和开发，也就是从本版本后后端开发和前端开发将独立进行。
 2. 除去headerbar组件
