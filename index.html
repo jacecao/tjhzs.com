@@ -1,0 +1,44 @@
+<!DOCTYPE html5>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>TJHZS后台数据录入系统</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- <link rel="icon" href="static/img/favicon.ico" type="image/x-icon"> -->
+    <link rel="stylesheet" href="http://tjhzs.com/beta/server/static/css/reset.css">
+    <link rel="stylesheet" href="http://tjhzs.com/beta/server/static/css/main.css">
+    <link rel="stylesheet" href="http://tjhzs.com/beta/server/static/css/message.css">
+  </head>
+
+  <body>
+
+    <header class="main-header">
+      <nav class="navbar navbar-default container-fluid">
+        <div class="row">
+          <div class="navbar-header col-md-4">
+            <a href="/beta/tjhzs_admin" class="navbar-brand">
+                <img class="navbar-logo" src="./static/img/logo.png" alt="HBHZ-LOGO">
+            </a>
+            <p class="navbar-text">和谐 / 包容 / 发展 / 共赢</p>
+          </div>
+          <p class="navbar-text text-center navbar-ver col-md-4">后台数据管理 V-0.0.1</p>
+          <p class="navbar-text text-right col-md-3" id="user-info">请登录您的账号</p>
+        </div>
+      </nav>
+    </header>
+
+    <div id="app-body"></div>
+
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="./static/js/php_api.js"></script>
+    <script src="./static/js/common.js"></script>
+    <script>
+      $('document').ready(function () {
+        run();
+      });
+    </script>
+  </body>
+
+</html>

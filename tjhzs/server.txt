@@ -1,5 +1,0 @@
-|add server module
-1 express
-2 body-parser
-3 morgan
-4 mongoose
