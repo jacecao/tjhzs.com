@@ -24,7 +24,7 @@
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
 export default {
-  name: 'nav-bar',
+  name: 'tjhzs-navbar',
   data () {
     return {
       // 这里得数据需要从服务器获取
@@ -38,7 +38,7 @@ export default {
   },
   created () {
     let vm = this
-    vm.$http.get(Path.dataURL + 'navbar.json').then(function (res) {
+    vm.$http.get(Path.dataURL + 'navbar.json').then((res) => {
       // tjhzs服务端需要JSON.parse()使用此步骤
       let data = Json(res.body)
       vm.title = data.title
@@ -51,7 +51,7 @@ export default {
         vm.$emit('position', vm.style.position)
       })
       // window.sessionStorage.setItem('_navbarinfo', window.JSON.stringify(res.body))
-    }, function () {
+    }, () => {
       console.error('获取导航条数据出现错误：请检查配置信息是否正确或者网络故障')
     })
   },

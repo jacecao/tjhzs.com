@@ -31,7 +31,8 @@ export default {
   },
   created () {
     let vm = this
-    vm.$http.get(Path.dataURL + 'news.json').then(function (res) {
+
+    vm.$http.get(Path.dataURL + 'news.json').then((res) => {
       // tjhzs服务端需要JSON.parse()使用此步骤
       let data = Json(res.body)
       let _images = []
@@ -49,11 +50,11 @@ export default {
         }
       }
       vm.images = _images
-    }, function () {
+    }, () => {
       console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
     })
   },
-  mounted: function () {
+  mounted () {
     window.scrollTo(0, 0)
   },
   components: { DisplayImg }

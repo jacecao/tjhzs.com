@@ -1,19 +1,25 @@
 <template>
   <div class="tjhzs-main-content">
   	<div class="product-header clearfix">
-  		<Card :cardStyle="cardFirst"
+  		<Card
+        v-if="productShow"
+        :cardStyle="cardFirst"
         :background="path + 'park_01.jpg'"
         :item="productShow"
         v-on:click.native="get_f"
       />
-  	  <Card :cardStyle="cardStyle"
+  	  <Card
+        v-if="productAd"
+        :cardStyle="cardStyle"
         :background="path + 'park_02.jpg'"
         :item="productAd"
         v-on:click.native="get_s"
       />
       <!--通过给组件绑定原始事件，来实现对当前key值的更新 -->
       <!-- .navtive 在组件的根元素中监听原始事件 -->
-  	  <Card :cardStyle="cardStyle"
+  	  <Card
+        v-if="productAc"
+        :cardStyle="cardStyle"
         :background="path + 'park_03.jpg'"
         :item="productAc"
         v-on:click.native="get_t"
@@ -23,7 +29,7 @@
     <!-- 可查看官方文档中《过渡效果》中的《多个组件过渡》 -->
     <transition name="fade-in" mode="out-in">
       <!-- key值的更新使得过渡动画生效，并将指定数据传入组件渲染 -->
-      <list :index="index" :item="product"/>
+      <list v-if="product" :index="index" :item="product"/>
     </transition>
   	<span class="bottom-text">全心/全意/服务糖酒</span>
   </div>
@@ -34,8 +40,6 @@ import Card from 'components/product/Card'
 import List from 'components/product/List'
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
-// 渲染时使用模板数据渲染 这里引入模板数据
-import testdata from '../../data/productData.js'
 let cardStyle = {
   float: 'left',
   marginLeft: '30px',
@@ -52,33 +56,19 @@ export default {
     return {
       cardStyle,
       cardFirst,
-      productShow: testdata[0],
-      productAd: testdata[1],
-      productAc: testdata[2],
+      productShow: null,
+      productAd: null,
+      productAc: null,
       index: 'Show',
-      product: testdata[0].show,
+      product: null,
       path: Path.productimgURL
     }
   },
-  methods: {
-    get_f () {
-      this.index = 'Show'
-      this.product = this.productShow.show
-    },
-    get_s () {
-      this.index = 'Ad'
-      this.product = this.productAd.show
-    },
-    get_t () {
-      this.index = 'Ac'
-      this.product = this.productAc.show
-    },
-    getdata () {
-      let vm = this
-      let fun = function (dataname) {
-        vm.$http.get(Path.dataURL + dataname + '.json').then(function (res) {
-          // tjhzs服务端需要JSON.parse()使用此步骤
-          // let data = window.JSON.parse(res.body)
+  created () {
+    let vm = this
+    let getData = function (dataname) {
+      if (dataname) {
+        vm.$http.get(Path.dataURL + dataname + '.json').then((res) => {
           let data = Json(res.body)
           let _images = []
           for (let img of data.show.images) {
@@ -93,19 +83,32 @@ export default {
           if (dataname === 'productShow') {
             vm.get_f()
           }
-        }, function (err) {
-          console.error(err + '\n' + '数据连接错误啦')
+        }).catch((err) => {
+          if (err) {
+            console.error(`${dataname} - 数据获取出错或被误认为广告链接被屏蔽`)
+          }
         })
       }
-      fun('productShow')
-      fun('productAd')
-      fun('productAc')
+    }
+    getData('productShow')
+    getData('productAd')
+    getData('productAc')
+  },
+  methods: {
+    get_f () {
+      this.index = 'Show'
+      this.product = this.productShow.show
+    },
+    get_s () {
+      this.index = 'Ad'
+      this.product = this.productAd.show
+    },
+    get_t () {
+      this.index = 'Ac'
+      this.product = this.productAc.show
     }
   },
-  mounted: function () {
-    this.getdata()
-  },
-  components: { Card, List }
+  components: {Card, List}
 }
 </script>
 

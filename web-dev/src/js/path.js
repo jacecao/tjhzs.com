@@ -1,7 +1,7 @@
 // 路径参数
 
-// const dataPath = '/'
-const dataPath = '/beta/'
+const dataPath = '/'
+// const dataPath = '/beta/'
 
 const pagePath = '/'
 

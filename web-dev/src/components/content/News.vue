@@ -38,11 +38,12 @@ export default {
 <style scoped lang="scss">
 @import '../../sass/content.scss';
 $height: 300px;
-$width: 400px;
+$width: 420px;
   .news{
-    float: right;
+    float: left;
     height: $height;
     width: $width;
+    margin-left: 16px;
     background-color: #fff;
     overflow: hidden;
     box-shadow: 0 0 3px 3px rgba(50, 177, 108, 0.12941176470588237);

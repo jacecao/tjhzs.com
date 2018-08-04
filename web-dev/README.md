@@ -1,32 +1,6 @@
-# tjhzs
+### tjhzs-web-v1
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-# use scss in style
+#### use scss in style
 step 1
 ```
 npm install node-sass --save-dev
@@ -51,3 +25,9 @@ step3，use scss in styls like this
 </style>
 
 ```
+
+#### 需要下一个版本中解决的问题
+
+1. 文件名规范
+
+该版本中由于文件名包含一些比较敏感的词，productAd这样的文件命名会导致广告屏蔽插件误伤，这在开发者会误认为文件请求失败，为了避免这样的问题发生，需要对所有的数据传递文件指定规范的命名方式

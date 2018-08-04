@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import PlayImg from '../content/Displayimg.vue'
+import PlayImg from 'components/content/Displayimg.vue'
 export default {
   name: 'list',
   props: {

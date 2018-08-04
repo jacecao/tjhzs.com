@@ -1,5 +1,5 @@
 <template>
-	<div class="tjhzs_loading" :style="style">
+	<div class="tjhzs_loading" :style="setcss">
     <slot name="loading_bg"></slot>
 		<maskdiv v-if="havemask" :auto="false" :parentNode="this"/>
 		<div :class="'loading'+' '+'loading_'+size">
@@ -30,7 +30,7 @@
         default: true
       },
       // 样式添加
-      style: {
+      setcss: {
         type: Object
       },
       // loading尺寸选择

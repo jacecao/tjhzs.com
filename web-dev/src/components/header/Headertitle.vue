@@ -5,7 +5,7 @@
       <p>主办方：{{headerinfo.zhuban}}</p>
       <p>承办方：{{headerinfo.chenban}}</p>
     </div>
-    <timer :time="time" :isActive="isActive"/>
+    <timer v-if="time" :time="time" :isActive="isActive"/>
   </div>
 </template>
 
@@ -22,14 +22,15 @@ export default {
       isActive: true
     }
   },
-  mounted: function () {
-    // console.log(this.headerinfo)
-  },
   computed: {
     // 计算倒计时或日期
     time: function () {
-      let time = this.headerinfo.starttime
-      return funtimer(time)
+      let _time = this.headerinfo.starttime
+      if (_time) {
+        return funtimer(_time)
+      } else {
+        return false
+      }
     }
   },
   methods: {

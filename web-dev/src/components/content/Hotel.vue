@@ -27,27 +27,22 @@ export default {
       path: Path.hotelPAGE
     }
   },
-  methods: {
-    getdata () {
-      let vm = this
-      vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
-        // tjhzs服务器返回的json字符串
-        let data = Json(res.body)
-        data.forEach(function (_data) {
-          let images = _data.images
-          images.forEach(function (image) {
-            let _url = image.url
-            image.imgurl = _url
-          })
+  created () {
+    let vm = this
+    vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
+      // tjhzs服务器返回的json字符串
+      let data = Json(res.body)
+      data.forEach(function (_data) {
+        let images = _data.images
+        images.forEach(function (image) {
+          let _url = image.url
+          image.imgurl = _url
         })
-        vm.items = data
-      }, function (err) {
-        console.error(err + '\n' + '获取酒店信息出现错误：请检查配置信息是否正确或者网络故障')
       })
-    }
-  },
-  mounted: function () {
-    this.getdata()
+      vm.items = data
+    }, function () {
+      console.error('获取酒店信息出现错误：请检查配置信息是否正确或者网络故障')
+    })
   },
   components: {AppImg}
 }

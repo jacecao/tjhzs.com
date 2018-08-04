@@ -6,6 +6,7 @@ import routes from './routes.js'
 import VueResource from 'vue-resource'
 // 引入主模板
 import App from './App.vue'
+// import check from './check.vue'
 // 将中间件引入到实例中
 Vue.use(VueRouter)
 Vue.use(VueResource)

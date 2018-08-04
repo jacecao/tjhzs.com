@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'address',
+  name: 'tjhzs-address',
   props: {
     webinfo: Object
   },

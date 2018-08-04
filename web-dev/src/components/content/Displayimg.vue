@@ -30,7 +30,7 @@
 import play from '@js/PlayImg.js'
 import AppImg from 'components/img/AppImg'
 export default {
-  name: 'main-content',
+  name: 'play-img',
   props: {
     // 是否含有链接
     isLink: {
@@ -48,7 +48,7 @@ export default {
       }
     },
     // 轮播图CSS
-    style: {
+    setcss: {
       type: Object
     },
     // 轮播图图片
@@ -60,7 +60,7 @@ export default {
     _style_ () {
       // 将尺寸和元素定位反应给父元素
       // 这里使用了ES6中赋值对象功能
-      return Object.assign(this.size, this.style)
+      return Object.assign(this.size, this.setcss)
     },
     _show_ctl () {
       if (this.images.length === 1) {

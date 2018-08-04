@@ -138,7 +138,7 @@ $padding: 10px;
 			}
 			h4 {
 				display: inline;
-        @include break(260px);
+        @include break(300px);
 				margin: 0;
 				padding: 0;
 				font-size: 0.9 * $font;

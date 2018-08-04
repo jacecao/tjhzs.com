@@ -77,21 +77,21 @@ export default {
       let data = Json(res.body)
       vm.info = data.tjhzs
     }, () => {
-      console.log('获取数据出错，网络链接不成功')
+      console.log('about数据出错，网络链接不成功或未找到文件')
     })
 
     vm.$http.get(Path.dataURL + 'jobs.json').then((res) => {
       let data = res.body
       vm.jobs = data.jobs
     }, () => {
-      console.log('获取数据出错，网络链接不成功')
+      console.log('jobs数据出错，网络链接不成功或未找到文件')
     })
 
     vm.$http.get(Path.dataURL + 'email.json').then((res) => {
       let data = res.body
       vm.contact = data
     }, () => {
-      console.log('获取数据出错，网络链接不成功')
+      console.log('email数据出错，网络链接不成功或未找到文件')
     })
   },
   components: {JobHead, Works}

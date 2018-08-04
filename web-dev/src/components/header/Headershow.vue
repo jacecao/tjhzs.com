@@ -29,21 +29,20 @@
 import Headertitle from './Headertitle'
 import Loading from 'components/loading/Loading_v1'
 import Path from '@js/path.js'
-import ResetData from '../../data/headerinfo.js'
 import Json from '@js/json_data.js'
 
 export default {
-  name: 'header-show',
+  name: 'tjhzs-header',
   data () {
     return {
-      headerinfo: ResetData,
+      headerinfo: {},
       bgimg: '',
       ready: false
     }
   },
   created () {
     let vm = this
-    vm.$http.get(Path.dataURL + 'headerinfo.json').then(function (res) {
+    vm.$http.get(Path.dataURL + 'headerinfo.json').then((res) => {
       // 这里一定要注意如果data中headerinfo:{},那么这里的数据是没办法得到响应的
       // 类似mongodb中的schema一样需要预先定义headerinfo，然后再通过这里获取变更传到子组件
       // tjhzs服务端需要JSON.parse()使用此步骤
@@ -54,7 +53,7 @@ export default {
       img.src = vm.headerinfo.bgimg.img_url
       vm.bg_img_src = vm.headerinfo.bgimg.img_url
       img.onload = () => { vm.ready = true }
-    }, function () {
+    }, () => {
       console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
     })
   },
@@ -80,20 +79,21 @@ export default {
   box-sizing: border-box;
   @extend %width;
 }
+$radius: 6px;
 .header-show {
   position: relative;
   box-sizing: border-box;
-  border: solid 10px #fff;
+  border: solid 2px #fff;
   height: $headerheight;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 0;
   box-shadow: 0 0 4px 3px rgba(184, 184, 184, 0.23);
-  border-radius: 5px;
+  border-radius: $radius;
   .header-img {
     width: 100%;
     height: 100%;
-    border-radius: 5px;
+    border-radius: $radius / 2;
     transition: all 1s;
     opacity: 0;
     /* filter: blur(2px); */

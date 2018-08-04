@@ -30,7 +30,7 @@ export default {
   },
   created () {
     let vm = this
-    vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
+    vm.$http.get(Path.dataURL + 'hotel.json').then((res) => {
       // tjhzs服务端需要JSON.parse()使用此步骤
       let data = Json(res.body)
       let _images = []
@@ -48,9 +48,8 @@ export default {
           return
         }
       }
-    }, function (err) {
-      console.log(err)
-      console.log('\n' + '获取数据出错，请检查数据和网络是否有问题')
+    }, () => {
+      console.log('hotel获取数据出错')
     })
   },
   mounted: function () {

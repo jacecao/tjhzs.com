@@ -5,7 +5,7 @@
       <block v-for="item in items" :info="item"></block>
       <web-info :webinfo='webInfo'/>
     </div>
-    <p class="version">&copy;和邦会展&nbsp;&nbsp;{{version}}</p>
+    <p class="version">Copyright&nbsp;&copy;&nbsp;TJHZS.COM&nbsp;隶属于成都和邦会议展览服务有限公司&nbsp;&nbsp;{{version}}</p>
   </footer>
 </template>
 
@@ -13,58 +13,50 @@
 import Block from './Block'
 import WebInfo from './Address'
 import Path from '@js/path.js'
-// 加载预设数据，当后台数据获取成功后再更新
-import ResetData from '../../data/footer.js'
 import Json from '@js/json_data.js'
 export default {
-  name: 'footer',
+  name: 'tjhzs-footer',
   data () {
     return {
-      items: ResetData.blockinfo,
-      webInfo: ResetData.webinfo,
-      version: ResetData.blockinfo.version
+      items: {},
+      webInfo: {},
+      version: '2009-2018 V1.0'
     }
   },
-  mounted: function () {
-    this.getinfo()
-  },
-  methods: {
-    // 重新构造获取的数据
-    getinfo () {
-      let _items = []
-      let vm = this
-      vm.$http.get(Path.dataURL + 'footer.json').then(function (res) {
-        // console.log('ok')
-        // tjhzs服务端需要JSON.parse()使用此步骤
-        let data = Json(res.body)
-        // console.log('footer' + '\n' + data)
-        // 获取数据成功后
-        for (let item of data.blockinfo) {
-          if (item.link) {
-            _items.push({
-              title: item.title,
-              smalltitle: item.smalltitle,
-              // 该模组已经默认链接为首页
-              url: item.url,
-              // 是否为可点击链接
-              pointer: item.link
-            })
-          } else {
-            _items.push({
-              title: item.title,
-              smalltitle: item.smalltitle,
-              pointer: item.link
-            })
-          }
+  created () {
+    let _items = []
+    let vm = this
+    vm.$http.get(Path.dataURL + 'footer.json').then((res) => {
+      // console.log('ok')
+      // tjhzs服务端需要JSON.parse()使用此步骤
+      let data = Json(res.body)
+      // console.log('footer' + '\n' + data)
+      // 获取数据成功后
+      for (let item of data.blockinfo) {
+        if (item.link) {
+          _items.push({
+            title: item.title,
+            smalltitle: item.smalltitle,
+            // 该模组已经默认链接为首页
+            url: item.url,
+            // 是否为可点击链接
+            pointer: item.link
+          })
+        } else {
+          _items.push({
+            title: item.title,
+            smalltitle: item.smalltitle,
+            pointer: item.link
+          })
         }
-        // console.log(_items)
-        vm.items = _items
-        vm.webInfo = data.webinfo
-        vm.version = data.webinfo.version
-      }, function () {
-        console.error('获取底部数据出现错误：请检查配置信息是否正确或者网络故障')
-      })
-    }
+      }
+      // console.log(_items)
+      vm.items = _items
+      vm.webInfo = data.webinfo
+      // vm.version = data.webinfo.version
+    }, () => {
+      console.error('获取底部数据出现错误：请检查配置信息是否正确或者网络故障')
+    })
   },
   components: {Block, WebInfo}
 }
