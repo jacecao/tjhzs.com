@@ -54,10 +54,11 @@ export default {
 <style lang="scss">
 @import '../../sass/content.scss';
 .hotel-content{
-  @extend %mainwidth;
   position: relative;
+  width: 1000px;
   margin: 40px auto;
-  padding-top: 20px;
+  border: 1px solid #dadada;
+  //padding-top: 20px;
   //box-shadow:  $shadow;
 }
 </style>

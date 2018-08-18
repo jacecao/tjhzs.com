@@ -77,23 +77,24 @@ export default {
 @import '../../sass/_base.scss';
 .header-info, .header-show{
   box-sizing: border-box;
-  @extend %width;
+  width: 1020px;
+  margin: 0 auto;
 }
 $radius: 6px;
 .header-show {
   position: relative;
   box-sizing: border-box;
-  border: solid 2px #fff;
+  border: solid 10px #fff;
   height: $headerheight;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 0;
-  box-shadow: 0 0 4px 3px rgba(184, 184, 184, 0.23);
-  border-radius: $radius;
+  box-shadow: 0 0 4px 3px hsla(0, 0, 72%, 0.1);
+  //border-radius: $radius;
   .header-img {
     width: 100%;
     height: 100%;
-    border-radius: $radius / 2;
+    //border-radius: $radius / 2;
     transition: all 1s;
     opacity: 0;
     /* filter: blur(2px); */
