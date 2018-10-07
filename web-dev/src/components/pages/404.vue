@@ -20,6 +20,7 @@
       }
     },
     mounted () {
+      window.scrollTo(0, 0)
       const vm = this
       const action = () => {
         if (vm.time > 1) {

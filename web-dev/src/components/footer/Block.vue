@@ -1,9 +1,18 @@
 <template>
-  <router-link v-if="info.pointer" :to="info.url ? info.url : '/'" class="footer-block" v-bind:style=" info.pointer ? style : ''">
+  <router-link
+    v-if="info.pointer"
+    :to="info.url ? info.url : '/'"
+    class="footer-block"
+    v-bind:style=" info.pointer ? style : ''"
+  >
     <p class="title">{{info.title}}</p>
     <p class="smalltitle">{{info.smalltitle}}</p>
   </router-link>
-  <div v-else class="footer-block" v-bind:style=" info.pointer ? style : ''">
+  <div
+    v-else
+    class="footer-block"
+    v-bind:style=" info.pointer ? style : ''"
+  >
     <p class="title">{{info.title}}</p>
     <p class="smalltitle">{{info.smalltitle}}</p>
   </div>
@@ -19,8 +28,7 @@ export default {
     return {
       style: {cursor: 'pointer'}
     }
-  },
-  components: {}
+  }
 }
 </script>
 
