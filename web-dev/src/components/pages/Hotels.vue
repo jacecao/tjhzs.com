@@ -9,7 +9,7 @@
 		<section class="new-content">
 			<p>{{hotel.content}}</p>
 		</section>
-    <span class="bottom-text">全心/全意/服务糖酒</span>
+    <span class="bottom-text">全心全意服务糖酒会</span>
 	</div>
 </template>
 
@@ -37,10 +37,21 @@ export default {
       for (let hotel of data) {
         if (hotel.id === this.$route.params.id) {
           let images = hotel.images
-          for (let image of images) {
+          // 检查images是否为一个数组
+          // 即是否有更多图片显示
+          if (images && images instanceof Array) {
+            for (let image of images) {
+              _images.push({
+                imgurl: image.url,
+                desc: image.desc
+              })
+            }
+          // 如果没有图片组
+          // 则显示封面图片
+          } else {
             _images.push({
-              imgurl: image.url,
-              desc: image.desc
+              imgurl: hotel.poster.url,
+              desc: hotel.poster.desc
             })
           }
           vm.hotel = hotel

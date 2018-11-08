@@ -31,7 +31,7 @@
       <!-- key值的更新使得过渡动画生效，并将指定数据传入组件渲染 -->
       <list v-if="product" :index="index" :item="product"/>
     </transition>
-  	<span class="bottom-text">全心/全意/服务糖酒</span>
+  	<span class="bottom-text">全心全意服务糖酒会</span>
   </div>
 </template>
 

@@ -32,13 +32,16 @@ export default {
     vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
       // tjhzs服务器返回的json字符串
       let data = Json(res.body)
-      data.forEach(function (_data) {
-        let images = _data.images
-        images.forEach(function (image) {
-          let _url = image.url
-          image.imgurl = _url
-        })
-      })
+      // data.forEach(function (_data) {
+      //   let images = _data.images
+      //   // 检查images是否为一个图片组
+      //   if (images && images instanceof Array) {
+      //     images.forEach(function (image) {
+      //       let _url = image.url
+      //       image.imgurl = _url
+      //     })
+      //   }
+      // })
       vm.items = data
     }, function () {
       console.error('获取酒店信息出现错误：请检查配置信息是否正确或者网络故障')
