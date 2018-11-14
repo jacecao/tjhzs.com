@@ -45,10 +45,6 @@ $('.sub-header').on('click', function () {
   // $(this).attr('disabled', true);
   // 执行数据提交处理
   up_form_data(URL.sub_header, URL.headerSet, '.header-form');
-  // $.post(URL.sub_header, $('.header-form').serialize(), function (res) {
-  //   // document.write(res);
-  //   console.log(res);
-  // });
 });
 
 /********************************
@@ -59,9 +55,6 @@ $('.sub-nav').on('click', function () {
   $(this).attr('disabled', true);
   // 执行数据提交处理
   up_form_data(URL.sub_nav, URL.navSet, '.nav-form');
-  // $.post(URL.sub_nav, $('.nav-form').serialize(), function (res) {
-  //   console.log(res);
-  // });
 });
 /********************************
 **       新闻录制编写          **
@@ -85,10 +78,6 @@ $('.sub-news').on('click', function () {
   if (id) {
     // 执行修改数据处理
     up_form_data(URL.sub_edit_news, URL.newsList, '.news-form');
-    // $.post(URL.sub_edit_news, $('.news-form').serialize(), function (res) {
-    //   // document.write(res);
-    //   console.log(res);
-    // });
   } else {
     // 执行数据提交处理
     up_form_data(URL.sub_news, URL.newsList, '.news-form');
@@ -109,10 +98,6 @@ $('.news-del').on('click', function () {
   $(this).attr('disabled', true);
   // 执行修改数据处理
   del_data(URL.del_news, URL.newsList, id);
-  // $.post(URL.del_job, {'id': id}, function (res) {
-  //   // document.write(res);
-  //   console.log(res);
-  // });
 });
 
 /********************************
@@ -137,10 +122,6 @@ $('.sub-hotel').on('click', function () {
   if (id) {
     // 执行修改数据处理
     up_form_data(URL.sub_edit_hotel, URL.hotelList, '.hotel-form');
-    // $.post(URL.sub_edit_hotel, $('.hotel-form').serialize(), function (res) {
-    //   // document.write(res);
-    //   console.log(res);
-    // });
   } else {
     // 执行数据提交处理
     up_form_data(URL.sub_hotel, URL.hotelList, '.hotel-form');
@@ -160,11 +141,7 @@ $('.hotel-del').on('click', function () {
   var id = $(this).data('id');
   $(this).attr('disabled', true);
   // 执行修改数据处理
-  del_data(URL.del_news, URL.newsList, id);
-  // $.post(URL.del_job, {'id': id}, function (res) {
-  //   // document.write(res);
-  //   console.log(res);
-  // });
+  del_data(URL.del_hotel, URL.hotelList, id);
 });
 
 /********************************
@@ -175,10 +152,6 @@ $('.sub-about').on('click', function () {
   // $(this).attr('disabled', true);
   // 执行数据提交处理
   up_form_data(URL.sub_about, URL.aboutSet, '.about-form');
-  // $.post(URL.sub_about, $('.about-form').serialize(), function (res) {
-  //   document.write(res);
-  //   console.log(res);
-  // });
 });
 
 /********************************
@@ -196,10 +169,6 @@ $('.sub-footer').on('click', function () {
   $(this).attr('disabled', true);
   // 执行数据提交处理
   up_form_data(URL.sub_footer, URL.footerSet, '.web-form');
-  // $.post(URL.sub_footer, $('.web-form').serialize(), function (res) {
-  //   // document.write(res);
-  //   console.log(res);
-  // });
 });
 
 /********************************
@@ -264,10 +233,6 @@ $('.sub-job').on('click', function () {
   if (id) {
     // 执行修改数据处理
     up_form_data(URL.sub_edit_job, URL.jobList, '.job-form');
-    // $.post(URL.sub_edit_job, $('.job-form').serialize(), function (res) {
-    //   // document.write(res);
-    //   console.log(res);
-    // });
   } else {
     // 执行数据提交处理
     up_form_data(URL.sub_job, URL.jobList, '.job-form');
@@ -289,8 +254,4 @@ $('.job-del').on('click', function () {
   $(this).attr('disabled', true);
   // 执行修改数据处理
   del_data(URL.del_job, URL.jobList, id);
-  // $.post(URL.del_job, {'id': id}, function (res) {
-  //   // document.write(res);
-  //   console.log(res);
-  // });
 });
