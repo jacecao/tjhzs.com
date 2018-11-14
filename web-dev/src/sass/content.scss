@@ -207,13 +207,14 @@ $padding: 10px;
 {
 	@extend %ul;
 	width: 100%;
-  margin: 40px auto;
-  text-align: center;
+  margin: 10px auto 30px auto;
+  /* text-align: center; */
+  text-align: left;
 	li {
 		position: relative;
     display: inline-block;
-		margin-left: 15px;
-    padding: 5px;
+		margin: 20px 0 0 22px;
+    padding: 4px;
     %imgsize {
       width: 210px;
       height: 240px;
@@ -252,7 +253,7 @@ $padding: 10px;
 			}
 		}
     &:first-child {
-      margin-left: 0;
+      /* margin-left: 0; */
     }
 	}
 }
