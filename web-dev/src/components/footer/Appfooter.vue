@@ -20,7 +20,7 @@ export default {
     return {
       items: {},
       webInfo: {},
-      version: '2009-2018 V1.0'
+      version: '2009-2019 V1.0'
     }
   },
   created () {
