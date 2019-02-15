@@ -14,23 +14,31 @@ import Block from './Block'
 import WebInfo from './Address'
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
+import {getServerYear} from '@js/tool.js'
 export default {
   name: 'tjhzs-footer',
   data () {
     return {
       items: {},
       webInfo: {},
-      version: '2009-2019 V1.0'
+      date: new Date().getFullYear()
+    }
+  },
+  computed: {
+    version () {
+      return `2009-${this.date} v1.0`
     }
   },
   created () {
     let _items = []
     let vm = this
     vm.$http.get(Path.dataURL + 'footer.json').then((res) => {
-      // console.log('ok')
+      // 获取服务端年份
+      let dateInfo = res.headers.map.date[0]
+      // 截取日期信息字符串中的年份
+      vm.date = getServerYear(dateInfo)
       // tjhzs服务端需要JSON.parse()使用此步骤
       let data = Json(res.body)
-      // console.log('footer' + '\n' + data)
       // 获取数据成功后
       for (let item of data.blockinfo) {
         if (item.link) {
