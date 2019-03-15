@@ -1,21 +1,19 @@
 <div class="win-login">
-  <section class="main-info">
-    <div class="login-info">
-      <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close fade" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        {if $have_root }
-        <strong>Warning!</strong>请不要轻易使用超级账户登录！
-        {else}
-        <strong>Warning!</strong>请注册一个超级用户！
-        {/if}
-      </div>
+  <section class="login-info">
+    <div class="alert alert-info alert-dismissible" role="alert">
+      <button type="button" class="close fade" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       {if $have_root }
-      <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close fade" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        如果你想成为管理员，请超级用户为你注册管理员账号！
-      </div>
+      <strong>Warning!</strong>请不要轻易使用超级账户登录！
+      {else}
+      <strong>Warning!</strong>请注册一个超级用户！
       {/if}
     </div>
+    {if $have_root }
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close fade" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      如果你想成为管理员，请超级用户为你注册管理员账号！
+    </div>
+    {/if}
   </section>
   <form class="main-login userform">
     <div class="form-box">
@@ -48,7 +46,7 @@
         <div class="input-group">
           <input type="text" class="form-control" id="captchar" placeholder="Captchar">
           <span class="input-group-addon captchar-box">
-            <img class="captchar-img" src="http://tjhzs.com/beta/server/enter/captchar.php" alt="识别码">
+            <img class="captchar-img" src="./enter/captchar.php" alt="识别码">
           </span>
         </div>
       </div>
