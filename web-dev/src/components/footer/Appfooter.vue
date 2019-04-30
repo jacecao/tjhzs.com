@@ -5,7 +5,7 @@
       <block v-for="item in items" :info="item"></block>
       <web-info :webinfo='webInfo'/>
     </div>
-    <p class="version">Copyright&nbsp;&copy;&nbsp;TJHZS.COM&nbsp;隶属于成都和容兴邦广告有限公司&nbsp;&nbsp;{{version}} <a href="http://www.beian.miit.gov.cn/state/outPortal/loginPortal.action" title="备案查询">蜀ICP备17004863号</a></p>
+    <p class="version">Copyright&nbsp;&copy;&nbsp;TJHZS.COM&nbsp;隶属于成都和容兴邦广告有限公司&nbsp;&nbsp;{{version}} &nbsp;&nbsp;<a class="beian" href="http://www.beian.miit.gov.cn" title="备案查询">蜀ICP备17004863号</a></p>
   </footer>
 </template>
 
@@ -80,5 +80,7 @@ export default {
     background-color: #fff;
     border-top: 1px solid #e2e2e2;
   }
-
+  .beian{
+    color: #333;
+  }
 </style>
