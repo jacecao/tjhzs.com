@@ -68,8 +68,7 @@ export default {
       } else {
         return true
       }
-    },
-
+    }
   },
   methods: {
     play () {
@@ -87,10 +86,10 @@ export default {
 
     // 过滤描述文件
     filter_desc (string) {
-      if (string != "no message" && string) {
-        return string;
+      if (string !== 'no message' && string) {
+        return string
       }
-      return '';
+      return ''
     }
 
   },
