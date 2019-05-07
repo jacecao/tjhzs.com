@@ -34,7 +34,12 @@ export default {
     let vm = this
     vm.$http.get(Path.dataURL + 'footer.json').then((res) => {
       // 获取服务端年份
-      let dateInfo = res.headers.map.date[0]
+      // +---------------------------------------
+      // | 浏览器兼容问题
+      // | 获取到的头部信息的属性有些是大写有些是小写
+      // | 这里对此作一个兼容
+      // +---------------------------------------
+      let dateInfo = res.headers.map.date ? res.headers.map.date[0] : res.headers.map.Date[0]
       // 截取日期信息字符串中的年份
       vm.date = getServerYear(dateInfo)
       // tjhzs服务端需要JSON.parse()使用此步骤
