@@ -1,10 +1,6 @@
 <template>
   <div class="header-title">
     <h1>{{headerinfo.city}} - {{headerinfo.season}}<span>{{headerinfo.city}} - {{headerinfo.season}}</span></h1>
-    <div class="metting-info">
-      <p>主办方：{{headerinfo.zhuban}}</p>
-      <p>承办方：{{headerinfo.chenban}}</p>
-    </div>
     <timer v-if="time" :time="time" :isActive="isActive"/>
   </div>
 </template>
@@ -56,7 +52,7 @@ $height: 300px;
     position: absolute;
     width: 100%;
     height: $height;
-    top: 30px;
+    top: 100px;
     left: 0;
     color: $header-title-color;
     z-index: 2;
@@ -86,19 +82,5 @@ $height: 300px;
         z-index: -1;
       }
     }
-    .metting-info{
-      padding: 40px 20px;
-      p{
-        @extend %h1;
-        margin-top: 10px;
-        text-align: center;
-        font-size: 1.2 * $font;
-        color: #fff;
-        text-shadow:0.2rem 0.2rem 0.2rem black;
-        font-weight: bold;
-      }
-
-    }
-
   }
 </style>

@@ -10,23 +10,18 @@
         >
         <loading v-else/>
         <!-- 绑定data数据到组件的props -->
-        <headertitle :headerinfo='headerinfo' />
+        <header-title :headerinfo='headerinfo' />
       </div>
-      <div class="header-info">
-        <span>布展时间：{{headerinfo.readytime}}</span><i>/</i>
-        <span>开展时间：{{headerinfo.starttime}}</span><i>/</i>
-        <span>展会地址：{{headerinfo.addr}}</span>
-      </div>
+
+      <meeting-info :headerinfo='headerinfo' />
+
     </header>
-    <!-- 在相同标签中使用过去时需要添加key属性来予以区别 -->
-<!--     <div v-else class="header-show" key="loading">
-      <loading/>
-    </div> -->
   </transition>
 </template>
 
 <script>
 import Headertitle from './Headertitle'
+import MeetingInfo from './MeetingInfo'
 import Loading from 'components/loading/Loading_v1'
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
@@ -67,7 +62,9 @@ export default {
     }
   },
   components: {
-    Headertitle, Loading
+    'header-title': Headertitle,
+    'meeting-info': MeetingInfo,
+    Loading
   }
 }
 </script>
@@ -98,15 +95,6 @@ $radius: 6px;
     transition: all 1s;
     opacity: 0;
     /* filter: blur(2px); */
-  }
-}
-.header-info {
-  margin-top: 30px;
-  color: #888;
-  text-align: center;
-  // text-shadow: 0 0 0.1rem #222;
-  i {
-    margin:0 20px;
   }
 }
 </style>

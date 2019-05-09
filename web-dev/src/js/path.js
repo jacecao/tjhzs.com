@@ -1,10 +1,10 @@
 // 路径参数
 
 /* 开发和测试环境 */
-const dataPath = '/'
+// const dataPath = '/'
 
 /* 真实环境 */
-// const dataPath = '/beta/'
+const dataPath = '/beta/'
 
 const pagePath = '/'
 
