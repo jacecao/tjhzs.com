@@ -27,9 +27,11 @@ $padding: 10px;
 		a{
 			display: block;
 		}
-		img{
+		/*
+    img{
 			@extend %showsize;
 		}
+    */
 		.img_desc{
 			display: block;
 			position: absolute;

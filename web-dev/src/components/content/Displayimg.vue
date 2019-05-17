@@ -1,17 +1,18 @@
 <template>
+  <!-- 首页新闻图片浏览组件 -->
   <div class="display-img" :style="_style_">
     <ul v-if='isLink' id="show_img" class="clearfix img_box" key="link">
       <li v-for="item in images" :style='size'>
         <router-link :to="item.url">
           <!-- 由于在appimg组件中没有父级标签包裹且其中子元素已有绑定了style的情况,那么这里如果通过style传导样式就会出现无法识别的问题，所以这里绑定css属性来传递样式 -->
-          <app-img :src="item.imgurl" :css='size'/>
+          <auto-img :src="item.imgurl" :css='size'/>
           <span class="img_desc">{{filter_desc(item.desc)}}</span>
         </router-link>
       </li>
     </ul>
     <ul v-else id="show_img" class="clearfix img_box" key="img">
       <li v-for="item in images" :style='size'>
-        <app-img :src="item.imgurl" :css="size"/>
+        <auto-img :src="item.imgurl" :css="size"/>
         <span class="img_desc">{{filter_desc(item.desc)}}</span>
       </li>
     </ul>
@@ -28,7 +29,8 @@
 
 <script>
 import play from '@js/PlayImg.js'
-import AppImg from 'components/img/AppImg'
+// import AppImg from 'components/img/AppImg'
+import ResponsImg from 'components/img/ResponseImg'
 export default {
   name: 'play-img',
   props: {
@@ -37,7 +39,7 @@ export default {
       type: Boolean,
       default: true
     },
-    // 轮播图尺寸
+    // 轮播图片容器尺寸
     size: {
       type: Object,
       default () {
@@ -62,6 +64,7 @@ export default {
       // 这里使用了ES6中赋值对象功能
       return Object.assign(this.size, this.setcss)
     },
+
     _show_ctl () {
       if (this.images.length === 1) {
         return false
@@ -94,17 +97,21 @@ export default {
 
   },
   mounted: function () {
+    // 在挂载组件后必须将组件高度值传给子组件（也就是图片组件）
+    let selfCss = window.getComputedStyle(this.$el)
+    this.size.height = selfCss.getPropertyValue('height')
+
     this.play()
     // 这里需要监听数据变化时，需要再次调动play函数
     this.$watch('images', function (now, old) {
       if (now !== old) {
-        // console.log('************************')
-        // console.log(now)
         this.play()
       }
     }, {deep: true})
   },
-  components: {AppImg}
+  components: {
+    'auto-img': ResponsImg
+  }
 }
 </script>
 
@@ -116,10 +123,8 @@ export default {
     box-sizing: border-box;
     border: 5px solid #fff;
     margin: 0 auto;
-    // height: 300px;
-    // width: 740px;
-    // float: left;
-    background-color: #009688;
+    /* 加入背景模糊后 舍弃背景颜色 */
+    /*background-color: #009688;*/
     box-shadow: $shadow;
   }
 </style>
