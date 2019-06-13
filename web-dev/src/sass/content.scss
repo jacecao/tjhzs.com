@@ -2,7 +2,7 @@
 $height: 300px;
 $width: 740px;
 $imgtextbg: rgba(65, 225, 189, 0.66);
-$textheight: 50px;
+$textheight: 30px;
 $textcolor: #fff;
 $padding: 10px;
 /* show image css */
@@ -36,11 +36,11 @@ $padding: 10px;
 			display: block;
 			position: absolute;
 			background-color: $imgtextbg;
-			bottom: -$textheight;
-			width: 100%;
-			height: $textheight;
+			bottom: -100%;
+			width: 96%;
+			/* height: $textheight; */
 			line-height: $textheight;
-			padding: 0 10px 0 10px;
+			padding: 0 10px 10px 10px;
 			transition: all 500ms;
 			color: $textcolor;
 		}
