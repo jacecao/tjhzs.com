@@ -9,19 +9,19 @@
         v-on:click.native="get_f"
       />
   	  <Card
-        v-if="productAd"
+        v-if="productMake"
         :cardStyle="cardStyle"
         :background="path + 'park_02.jpg'"
-        :item="productAd"
+        :item="productMake"
         v-on:click.native="get_s"
       />
       <!--通过给组件绑定原始事件，来实现对当前key值的更新 -->
       <!-- .navtive 在组件的根元素中监听原始事件 -->
   	  <Card
-        v-if="productAc"
+        v-if="productActivity"
         :cardStyle="cardStyle"
         :background="path + 'park_03.jpg'"
-        :item="productAc"
+        :item="productActivity"
         v-on:click.native="get_t"
       />
   	</div>
@@ -57,8 +57,8 @@ export default {
       cardStyle,
       cardFirst,
       productShow: null,
-      productAd: null,
-      productAc: null,
+      productMake: null,
+      productActivity: null,
       index: 'Show',
       product: null,
       path: Path.productimgURL
@@ -91,8 +91,8 @@ export default {
       }
     }
     getData('productShow')
-    getData('productAd')
-    getData('productAc')
+    getData('productMake')
+    getData('productActivity')
   },
   methods: {
     get_f () {
@@ -100,12 +100,12 @@ export default {
       this.product = this.productShow.show
     },
     get_s () {
-      this.index = 'Ad'
-      this.product = this.productAd.show
+      this.index = 'make'
+      this.product = this.productMake.show
     },
     get_t () {
-      this.index = 'Ac'
-      this.product = this.productAc.show
+      this.index = 'activity'
+      this.product = this.productActivity.show
     }
   },
   components: {Card, List}
