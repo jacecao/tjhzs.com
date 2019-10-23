@@ -4,12 +4,14 @@
     <div class="meeting-info">
       <p class="small-title"><i class="icon-circle"></i>主办方</p>
       <p>{{headerinfo.zhuban}}</p>
-      <p class="small-title"><i class="icon-circle"></i>承办方</p>
-      <p>中糖新世纪国际会展（北京）有限公司</p>
-      <p>天津市商务局</p>
-      <p class="small-title"><i class="icon-circle"></i>协办方</p>
-      <p>天津市全国商品交易会办公室</p>
-      <p>天津食品集团</p>
+      <div v-if="chenbanArr">
+        <p class="small-title"><i class="icon-circle"></i>承办方</p>
+        <p v-for="name in chenbanArr" :key="chenbanArr.id">{{delSpace(name)}}</p>
+      </div>
+      <div v-if="xiebanArr">
+        <p class="small-title"><i class="icon-circle"></i>协办方</p>
+        <p v-for="name in xiebanArr" :key="xiebanArr.id">{{delSpace(name)}}</p>
+      </div>
     </div>
     <div class="header-info">
       <span>布展时间：{{headerinfo.readytime}}</span><i>/</i>
@@ -22,8 +24,32 @@
 <script>
 export default {
   name: 'meetingInfo',
+
   props: {
     headerinfo: Object
+  },
+  computed: {
+    chenbanArr () {
+      let chenban = this.headerinfo['chenban']
+      if (typeof chenban === 'string' && chenban.trim()) {
+        return chenban.split('+')
+      } else {
+        return false
+      }
+    },
+    xiebanArr () {
+      let xieban = this.headerinfo['xieban']
+      if (typeof xieban === 'string' && xieban.trim()) {
+        return xieban.split('+')
+      } else {
+        return false
+      }
+    }
+  },
+  methods: {
+    delSpace (str) {
+      return str.trim()
+    }
   }
 }
 </script>

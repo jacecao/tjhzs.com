@@ -26,7 +26,3 @@ tjhzs web the new version , code name V1
 | 酒店内容图片 | 760 x 460 | px |
 | 产品图片 | 960 x 460 | px |
 
-
-#### 再下一个版本需要注意事项
-1. 对文件名命名需要指定规范
-2. productAd这样的文件会被浏览器广告屏蔽插件误伤

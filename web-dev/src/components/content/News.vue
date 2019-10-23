@@ -1,6 +1,8 @@
 <template>
   <div class="news">
-    <h3>我们最新动态</h3>
+    <h3>我们最新动态
+      <span class="get-more"><router-link v-if="newsCount > 6" to="/news_list">>更多</router-link></span>
+    </h3>
     <ul class="news-list">
       <li v-for="item in newsdata">
         <router-link v-bind:to="path+item.id" v-bind:title="item.title">
@@ -22,7 +24,8 @@ export default {
   },
   data () {
     return {
-      path: Path.newsPAGE
+      path: Path.newsPAGE,
+      newsCount: 7 // 当前新闻总数
     }
   },
   methods: {
@@ -50,6 +53,13 @@ $width: 420px;
     h3 {
       box-shadow:0 0 1px 1px  rgba(0,0,0,0.2);
       border-radius: 5px;
+      .get-more {
+        position: absolute;
+        font-size: 12px;
+        margin-left: 20px;
+      }
+      a {color: #e8e8e8; text-decoration: none;}
+      a:hover {color: $hovercolor;}
     }
   }
 </style>

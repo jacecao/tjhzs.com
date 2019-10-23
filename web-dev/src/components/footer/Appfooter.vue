@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     version () {
-      return `2009-${this.date} v1.0`
+      return `2009-${this.date} v1.1`
     }
   },
   created () {

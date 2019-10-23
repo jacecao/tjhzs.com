@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import routes from '../../routes'
+  import routes from '@src/routes'
 
   export default {
     props: {
