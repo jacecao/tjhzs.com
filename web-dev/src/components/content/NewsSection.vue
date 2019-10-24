@@ -1,6 +1,6 @@
 <template>
   <section class="home-middle">
-    <displayimg :setcss="style" :images='items' :size='size'></displayimg>
+    <displayimg v-if="items.length > 0" :setcss="style" :images='items' :size='size'></displayimg>
     <news :newsdata="news"></news>
   </section>
 </template>
@@ -11,6 +11,7 @@ import News from './News'
 import Hotel from './Hotel'
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
+import {saveSession} from '@js/tool.js'
 export default {
   name: 'main-content',
   data () {
@@ -30,10 +31,8 @@ export default {
     let vm = this
     let _images = []
     vm.$http.get(Path.dataURL + 'news.json').then((res) => {
-      // tjhzs服务端需要JSON.parse()使用此步骤
-      // let data = window.JSON.parse(res.body)
       let data = Json(res.body)
-      // console.log('news' + '\n' + data)
+      // 重组新闻中图片数据
       for (let n of data) {
         _images.push({
           url: _url + n.id,
@@ -43,6 +42,9 @@ export default {
       }
       vm.items = _images
       vm.news = data
+      // 设置临时储存
+      saveSession('newsImageItems', vm.items)
+      saveSession('newsData', vm.news)
     }, () => {
       console.error('获取新闻数据出现错误：请检查配置信息是否正确或者网络故障')
     })

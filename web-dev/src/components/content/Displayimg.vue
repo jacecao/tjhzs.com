@@ -100,7 +100,6 @@ export default {
     // 在挂载组件后必须将组件高度值传给子组件（也就是图片组件）
     let selfCss = window.getComputedStyle(this.$el)
     this.size.height = selfCss.getPropertyValue('height')
-
     this.play()
     // 这里需要监听数据变化时，需要再次调动play函数
     this.$watch('images', function (now, old) {

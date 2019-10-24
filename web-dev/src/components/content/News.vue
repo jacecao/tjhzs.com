@@ -1,7 +1,7 @@
 <template>
   <div class="news">
     <h3>我们最新动态
-      <span class="get-more"><router-link v-if="newsCount > 6" to="/news_list">>更多</router-link></span>
+      <span class="get-more"><router-link v-if="isShowMore" to="/news_list">>更多</router-link></span>
     </h3>
     <ul class="news-list">
       <li v-for="item in newsdata">
@@ -25,8 +25,20 @@ export default {
   data () {
     return {
       path: Path.newsPAGE,
-      newsCount: 7 // 当前新闻总数
+      isShowMore: false // 当前新闻总数
     }
+  },
+  created () {
+    // get news data info
+    const _newsInfo = `${Path.webControl}getNewsTotal`
+    const vm = this
+    vm.$http.get(_newsInfo).then((res) => {
+      if (parseInt(res.body) > 6) {
+        this.isShowMore = true
+      }
+    }, () => {
+      console.error('获取新闻数据出现错误')
+    })
   },
   methods: {
     dateFilter (date) {

@@ -1,14 +1,11 @@
 <template>
   <section class="news-list">
-    <display-img :images='items' :size='size'/>
+    <display-img :images='imageItems' :size='size'/>
     <h4>新闻列表</h4>
     <ul class="news-list">
-      <li><a class="news-href" href="">testtetasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdsststststsststst</a><span class="news-time">2019-09-12</span></li>
-      <li><a class="news-href" href="">testtetasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdsststststsststst</a><span class="news-time">2019-09-12</span></li>
-      <li><a class="news-href" href="">testtetasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdsststststsststst</a><span class="news-time">2019-09-12</span></li>
-      <li><a class="news-href" href="">testtetasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdsststststsststst</a><span class="news-time">2019-09-12</span></li>
-      <li><a class="news-href" href="">testtetasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdsststststsststst</a><span class="news-time">2019-09-12</span></li>
-      <li><a class="news-href" href="">testtetasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdsststststsststst</a><span class="news-time">2019-09-12</span></li>
+      <li v-for="item in news">
+        <a class="news-href" :href="newsLink+item.id" :title="item.title">{{item.title}}</a><span class="news-time">{{dateFilter(item.date)}}</span>
+      </li>
     </ul>
     <div v-if="pageCount > 1" class="list-navgation">
       <a v-if="showPreventPage"
@@ -27,6 +24,7 @@
 import DisplayImg from 'components/content/Displayimg'
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
+import {getSession} from '@js/tool.js'
 export default {
   name: 'news_list',
   data () {
@@ -37,54 +35,64 @@ export default {
         height: '460px',
         width: '760px'
       },
+      newsLink: Path.newsPAGE,
+      pageCount: 1,
       pageSumNumber: 0, // 新闻总页码数
       currentPage: 1, // 当前新闻列表页码
       showPreventPage: false, // 是否显示前一页按钮
       pageNumber: [], // 当前显示的页码数组
-      items: [],
+      imageItems: [],
       news: []
     }
   },
   created () {
-    const _url = Path.newsPAGE
-    let vm = this
-    let _images = []
-    vm.$http.get(Path.dataURL + 'news.json').then((res) => {
-      let data = Json(res.body)
-      for (let n of data) {
-        _images.push({
-          url: _url + n.id,
-          imgurl: n.poster.url,
-          desc: n.poster.desc
-        })
+    const vm = this
+    // 检查是否有临时储存新闻数据信息
+    let _tempNewsData = getSession('newsData')
+    let _tempNewsImageItems = getSession('newsImageItems')
+    if (_tempNewsData && _tempNewsImageItems) {
+      // 获取临时数据后传递值到页面
+      this.imageItems = _tempNewsImageItems
+      this.news = _tempNewsData
+    } else {
+      // 如果没有检查到临时储存数据重新请求JSON数据
+      const _url = Path.newsPAGE
+      let _images = []
+      vm.$http.get(Path.dataURL + 'news.json').then((res) => {
+        let data = Json(res.body)
+        for (let n of data) {
+          _images.push({
+            url: _url + n.id,
+            imgurl: n.poster.url,
+            desc: n.poster.desc
+          })
+        }
+        vm.imageItems = _images
+        vm.news = data
+      }, () => {
+        console.error('获取新闻数据出现错误：请检查配置信息是否正确或者网络故障')
+      })
+    }
+    // 获取服务端新闻总页码数
+    const _newsInfo = `${Path.webControl}getNewsPages`
+    vm.$http.get(_newsInfo).then((res) => {
+      vm.pageCount = parseInt(res.body)
+      if (vm.pageCount > 6) {
+        // 初始需要显示的页码
+        vm.pageNumber = [1, 2, 3, 4, 5, vm.pageCount]
+      } else {
+        let _pageNumber = []
+        for (let i = 1; i <= vm.pageCount; i++) {
+          _pageNumber.push(i)
+        }
+        vm.pageNumber = _pageNumber
       }
-      vm.items = _images
-      vm.news = data
     }, () => {
-      console.error('获取新闻数据出现错误：请检查配置信息是否正确或者网络故障')
+      console.error('获取新闻总页数失败')
     })
   },
   mounted () {
     window.scrollTo(0, 0)
-  },
-  computed: {
-    // 重新计算页码显示
-    pageCount () {
-      // 获取服务端新闻总页码数
-      let _pageCount = 7
-      this.pageSumNumber = _pageCount
-      if (_pageCount > 6) {
-        // 初始需要显示的页码
-        this.pageNumber = [1, 2, 3, 4, 5, _pageCount]
-      } else {
-        let _pageNumber = []
-        for (let i = 1; i <= _pageCount; i++) {
-          _pageNumber.push(i)
-        }
-        this.pageNumber = _pageNumber
-      }
-      return _pageCount
-    } // 新闻总页数
   },
   methods: {
     pageClick (event) {
@@ -93,8 +101,15 @@ export default {
         let _clickPage = parseInt(event.target.dataset['page'])
         if (_clickPage !== this.currentPage) {
           this.currentPage = _clickPage
-          console.log('new page')
           // 获取当页码数据
+          const _getNewsPage = `${Path.webControl}newsPageList&pageNum=${this.currentPage - 1}`
+          let vm = this
+          vm.$http.get(_getNewsPage).then((res) => {
+            let resultData = Json(res.body)
+            vm.news = resultData.data
+          }, () => {
+            console.error('获取新闻数据出现错误')
+          })
         }
         // 如果点击的页码为跳转码(即倒数第二个页码),则需要重新计算需要显示的页码数
         if (_clickPage === this.pageNumber[4] && this.pageSumNumber > 6) {
@@ -126,10 +141,23 @@ export default {
       }
       if (this.currentPage !== 1) {
         this.currentPage = this.currentPage - 1
+        // 获取当页码数据
+        const _getNewsPage = `${Path.webControl}newsPageList&pageNum=${this.currentPage - 1}`
+        let vm = this
+        vm.$http.get(_getNewsPage).then((res) => {
+          let resultData = Json(res.body)
+          vm.news = resultData.data
+        }, () => {
+          console.error('获取新闻数据出现错误')
+        })
         if (this.currentPage === 1) {
           this.showPreventPage = false
         }
       }
+    },
+    // 时间修正
+    dateFilter (date) {
+      return date.split(' ')[0]
     }
   },
   components: { 'display-img': DisplayImg }

@@ -1,11 +1,12 @@
 <template>
 	<div class="tjhzs-new tjhzs-main-content">
+    <router-link class="return_list" to="/news_list">返回新闻列表</router-link>
 		<header>
 			<h3>{{news.title}}</h3>
 			<span class="news_time">编写时间：{{news.date}}</span>
 		</header>
 		<section class="img-group">
-			<display-img :isLink="false" :images='images' :size='size'/>
+			<display-img v-if="images.length > 0" :isLink="false" :images='images' :size='size'/>
 		</section>
 		<section class="new-content">
 			<p>{{news.content}}</p>
@@ -31,27 +32,24 @@ export default {
   },
   created () {
     let vm = this
-
-    vm.$http.get(Path.dataURL + 'news.json').then((res) => {
+    const _newsLink = `${Path.webControl}getOneNews&id=${this.$route.params.id}`
+    // 请求单挑数据
+    vm.$http.get(_newsLink).then((res) => {
       // tjhzs服务端需要JSON.parse()使用此步骤
-      let data = Json(res.body)
+      let resultData = Json(res.body)
       let _images = []
-      for (let news of data) {
-        // this.$route.params这里获取我们路由中规定的匹配值
-        if (news.id === this.$route.params.id) {
-          vm.news = news
-          vm.news.images.forEach(function (image) {
-            // console.log(image.url)
-            _images.push({
-              imgurl: image.url,
-              desc: image.desc
-            })
+      vm.news = resultData.data
+      if (vm.news.images instanceof Array) {
+        vm.news.images.forEach(function (image) {
+          _images.push({
+            imgurl: image.url,
+            desc: image.desc
           })
-        }
+        })
       }
       vm.images = _images
     }, () => {
-      console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
+      console.error('获取单挑新闻数据失败')
     })
   },
   mounted () {
@@ -66,5 +64,11 @@ export default {
 .tjhzs-new{
 	@extend %mainwidth;
 	margin: 50px auto;
+}
+.return_list {
+  color: #868686;
+  text-decoration: none;
+  margin-left: 120px;
+  border-bottom: 1px solid #fe005b;
 }
 </style>
