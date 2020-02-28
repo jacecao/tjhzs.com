@@ -21,5 +21,5 @@ export default {
   productimgURL: localImgPath + 'static/images/product/',
   productPAGE: pagePath + 'product/',
   // 前端数据获取路径
-  webControl: '/server_ori/enter/main.php?controller=web&method='
+  webControl: '/server/enter/main.php?controller=web&method='
 }

@@ -10,10 +10,13 @@
         >
         <loading v-else/>
         <!-- 绑定data数据到组件的props -->
-        <header-title :headerinfo='headerinfo' />
+        <header-title
+          v-if="headerinfo.showtime"
+          :headerinfo='headerinfo'
+        />
       </div>
 
-      <meeting-info :headerinfo='headerinfo' />
+      <meeting-info  :headerinfo='headerinfo' />
 
     </header>
   </transition>
