@@ -5,7 +5,13 @@
       <block v-for="item in items" :info="item"></block>
       <web-info :webinfo='webInfo'/>
     </div>
-    <p class="version">Copyright&nbsp;&copy;&nbsp;TJHZS.COM&nbsp;隶属于成都和容兴邦广告有限公司&nbsp;&nbsp;{{version}} &nbsp;&nbsp;<a class="beian" href="http://www.beian.miit.gov.cn" title="备案查询">蜀ICP备17004863号</a></p>
+    <p class="version">Copyright&nbsp;&copy;&nbsp;TJHZS.COM&nbsp;隶属于成都和容兴邦广告有限公司&nbsp;&nbsp;{{version}} &nbsp;&nbsp;
+      <a class="beian"
+        href="http://beian.miit.gov.cn/"
+        target="_blank" style="text-decoration: none;"
+        title="工信备案">{{show_icp}}
+      </a>
+    </p>
   </footer>
 </template>
 
@@ -27,6 +33,22 @@ export default {
   computed: {
     version () {
       return `2009-${this.date} v1.1`
+    },
+    // 适配多个域名的ICP
+    show_icp () {
+      let _icp = ''
+      switch (window.location.host) {
+        case 'www.tjhzs.com':
+        case 'www.cdhrxb.com':
+          _icp = '蜀ICP备17004863号-2'
+          break
+        case 'www.cdhbhz.com':
+          _icp = '蜀ICP备19018426号-1'
+          break
+        default:
+          _icp = '蜀ICP备17004863号-2'
+      }
+      return _icp
     }
   },
   created () {
