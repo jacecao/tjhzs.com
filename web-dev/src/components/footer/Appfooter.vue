@@ -38,11 +38,11 @@ export default {
     show_icp () {
       let _icp = ''
       switch (window.location.host) {
-        case 'www.tjhzs.com':
-        case 'www.cdhrxb.com':
+        case 'tjhzs.com':
+        case 'cdhrxb.com':
           _icp = '蜀ICP备17004863号-2'
           break
-        case 'www.cdhbhz.com':
+        case 'cdhbhz.com':
           _icp = '蜀ICP备19018426号-1'
           break
         default:
