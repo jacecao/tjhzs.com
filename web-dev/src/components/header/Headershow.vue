@@ -9,13 +9,12 @@
           alt="header-img" class="header-img"
         >
         <loading v-else/>
-        <!-- 绑定data数据到组件的props -->
-        <header-title
-          v-if="headerinfo.showtime"
-          :headerinfo='headerinfo'
-        />
       </div>
-
+      <!-- 绑定data数据到组件的props -->
+      <header-title
+        v-if="headerinfo.showtime"
+        :headerinfo='headerinfo'
+      />
       <meeting-info  :headerinfo='headerinfo' />
 
     </header>

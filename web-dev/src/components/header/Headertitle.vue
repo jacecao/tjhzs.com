@@ -49,10 +49,10 @@ export default {
 $height: 300px;
   .header-title
   {
-    position: absolute;
-    width: 100%;
-    height: $height;
-    top: 100px;
+    //position: absolute;
+    //width: 100%;
+    //height: $height;
+    //top: 100px;
     left: 0;
     color: $header-title-color;
     z-index: 2;
