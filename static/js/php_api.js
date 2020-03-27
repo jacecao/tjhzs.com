@@ -1,5 +1,4 @@
 // 所有后端的接口
-// var PATH = 'http://tjhzs.com/beta/server';
 var PATH = '.';
 var URL = {
   // 入口
@@ -50,7 +49,7 @@ var URL = {
   sub_news: PATH + '/enter/main.php?controller=data&method=news_sub',
   // 删除数据
   del_news: PATH + '/enter/main.php?controller=data&method=news_del',
-  // 招聘数据修改
+  // 新闻数据修改
   edit_news: PATH + '/enter/main.php?controller=admin&method=view&view=news&id=',
   // 修改后的新闻数据上传
   sub_edit_news: PATH + '/enter/main.php?controller=data&method=news_update',
@@ -59,15 +58,15 @@ var URL = {
   hotelAdd: PATH + '/enter/main.php?controller=admin&method=view&view=hotel',
   // 酒店列表界面
   hotelList: PATH + '/enter/main.php?controller=admin&method=list_win&list=hotel',
-  // 新闻图片上传
+  // 酒店图片上传
   upHotel: PATH + '/enter/main.php?controller=data&method=hotelup',
-  // 新闻数据上传
+  // 酒店数据上传
   sub_hotel: PATH + '/enter/main.php?controller=data&method=hotel_sub',
   // 删除数据
   del_hotel: PATH + '/enter/main.php?controller=data&method=hotel_del',
-  // 招聘数据修改
+  // 数据修改
   edit_hotel: PATH + '/enter/main.php?controller=admin&method=view&view=hotel&id=',
-  // 修改后的新闻数据上传
+  // 修改后的数据上传
   sub_edit_hotel: PATH + '/enter/main.php?controller=data&method=hotel_update',
 
 

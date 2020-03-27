@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-23 08:02:40
+/* Smarty version 3.1.30, created on 2019-03-15 13:32:35
   from "d:\enkjhost\tjhzs123\web\tjhzs\beta\server\smart_dir\tpl\login.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5923eca01deab8_65096711',
+  'unifunc' => 'content_5c8b38f3831807_89002464',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1212a1ff278092cfeae93aa04380b7bbe4343e67' => 
     array (
       0 => 'd:\\enkjhost\\tjhzs123\\web\\tjhzs\\beta\\server\\smart_dir\\tpl\\login.html',
-      1 => 1495523762,
+      1 => 1552519666,
       2 => 'file',
     ),
   ),
@@ -20,26 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5923eca01deab8_65096711 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5c8b38f3831807_89002464 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="win-login">
-  <section class="main-info">
-    <div class="login-info">
-      <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close fade" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <?php if ($_smarty_tpl->tpl_vars['have_root']->value) {?>
-        <strong>Warning!</strong>请不要轻易使用超级账户登录！
-        <?php } else { ?>
-        <strong>Warning!</strong>请注册一个超级用户！
-        <?php }?>
-      </div>
+  <section class="login-info">
+    <div class="alert alert-info alert-dismissible" role="alert">
+      <button type="button" class="close fade" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <?php if ($_smarty_tpl->tpl_vars['have_root']->value) {?>
-      <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close fade" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        如果你想成为管理员，请超级用户为你注册管理员账号！
-      </div>
+      <strong>Warning!</strong>请不要轻易使用超级账户登录！
+      <?php } else { ?>
+      <strong>Warning!</strong>请注册一个超级用户！
       <?php }?>
     </div>
+    <?php if ($_smarty_tpl->tpl_vars['have_root']->value) {?>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close fade" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      如果你想成为管理员，请超级用户为你注册管理员账号！
+    </div>
+    <?php }?>
   </section>
   <form class="main-login userform">
     <div class="form-box">
@@ -72,7 +70,7 @@ function content_5923eca01deab8_65096711 (Smarty_Internal_Template $_smarty_tpl)
         <div class="input-group">
           <input type="text" class="form-control" id="captchar" placeholder="Captchar">
           <span class="input-group-addon captchar-box">
-            <img class="captchar-img" src="http://tjhzs.com/beta/server/enter/captchar.php" alt="识别码">
+            <img class="captchar-img" src="./enter/captchar.php" alt="识别码">
           </span>
         </div>
       </div>

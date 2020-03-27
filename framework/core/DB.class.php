@@ -52,5 +52,8 @@
       return self::$db->del($table_name, $where);
     }
 
+    public static function pageList ($pageNo=0, $pageSize=10, $status=1, $tableName) {
+      return self::$db->pageList($pageNo, $pageSize, $status, $tableName);
+    }
   }
 ?>

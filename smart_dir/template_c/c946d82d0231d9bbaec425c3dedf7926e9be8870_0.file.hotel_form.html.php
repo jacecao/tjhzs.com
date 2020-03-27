@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-06-02 04:30:30
+/* Smarty version 3.1.30, created on 2018-11-14 08:56:07
   from "d:\enkjhost\tjhzs123\web\tjhzs\beta\server\smart_dir\tpl\hotel_form.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5930e9e6ec7068_47774100',
+  'unifunc' => 'content_5bebe3272e71d6_52854683',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c946d82d0231d9bbaec425c3dedf7926e9be8870' => 
     array (
       0 => 'd:\\enkjhost\\tjhzs123\\web\\tjhzs\\beta\\server\\smart_dir\\tpl\\hotel_form.html',
-      1 => 1496377468,
+      1 => 1542185385,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5930e9e6ec7068_47774100 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bebe3272e71d6_52854683 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <form class="hotel-form form-reset">
   <h3>酒店信息录入</h3><hr>
@@ -160,12 +160,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
     </div>
   </div>
 </div>
-
 <?php echo '<script'; ?>
- src="static/js/mainform.js"><?php echo '</script'; ?>
+ type="text/javascript" src="static/js/mainform.js"><?php echo '</script'; ?>
 >
 <?php echo '<script'; ?>
- src="static/js/control.js"><?php echo '</script'; ?>
+ type="text/javascript" src="static/js/control.js"><?php echo '</script'; ?>
 >
 
 <?php }

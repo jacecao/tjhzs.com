@@ -238,11 +238,11 @@
               VIEW::assign(array('api'=>'show'));
               break;
             case 'ad':
-              $this->get_json_data('productAd');
+              $this->get_json_data('productMake');
               VIEW::assign(array('api'=>'ad'));
               break;
             case 'ac':
-              $this->get_json_data('productAc');
+              $this->get_json_data('productActivity');
               VIEW::assign(array('api'=>'ac'));
               break;
           }

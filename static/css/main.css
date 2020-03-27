@@ -1,4 +1,9 @@
-
+label i.tip-info, div.time_box i.tip-info{
+  color: #d80a55;
+  padding-left: 20px;
+  font-size: 14px;
+  font-style: normal;
+}   
 
 /* 顶部导航 */
 #user-info {

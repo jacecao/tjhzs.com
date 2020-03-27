@@ -1,24 +1,4 @@
 // 所有数据管理界面获取都再这里发出
-// var GetWin = function (ele, url) {
-//   this.ele = ele;
-//   this.url = url;
-//   this.res();
-// };
-// GetWin.prototype.res = function () {
-//   var that = this;
-//   $(that.ele).on('click', function () {
-//     $.ajax({
-//       url : that.url,
-//       type : 'GET',
-//       beforeSend:function(){
-//         $('.control-win').append(loading());
-//       },
-//       success : function(res) {
-//         $('.control-win').html(res);
-//       }
-//     });
-//   });
-// };
 var GetWin = function (ele, url) {
   $(ele).on('click', function () {
     $.ajax({

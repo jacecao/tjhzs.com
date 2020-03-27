@@ -122,6 +122,8 @@
     ********************************/
     private function header_model () {
       $imagedata = $this->dataCONTROL();
+      // 检查页面是否勾选了需要显示时间框
+      $_show_time = isset($_POST['showtime']) ? true: false;
       // 重组数据结构
       $res = array(
         'city' => Daddslashes($_POST['city']),
@@ -129,8 +131,10 @@
         'season' => Daddslashes($_POST['season']),
         'zhuban' => Daddslashes($_POST['zhuban']),
         'chenban' => Daddslashes($_POST['chenban']),
+        'xieban' => Daddslashes($_POST['xieban']),
         'readytime' => Daddslashes($_POST['readytime']),
         'starttime' => Daddslashes($_POST['starttime']),
+        'showtime' => $_show_time,
         'bgimg' => $imagedata['postimg']
       );
       return FILE::writeJson('headerinfo', $res);
@@ -170,12 +174,12 @@
 
     // 写入广告制作数据
     public function write_ad () {
-      return $this->product_model('广告制作', 'Ad');
+      return $this->product_model('广告制作', 'Make');
     }
 
     // 写入活动推广数据
     public function write_ac () {
-      return $this->product_model('活动推广', 'Ac');
+      return $this->product_model('活动推广', 'Activity');
     }
 
 
@@ -283,8 +287,8 @@
     **       新闻数据结构模型     **
     ********************************/
     public function write_news () {
-      $job = M('news_hotel');
-      $data = $job->get_image_news();
+      $news = M('news_hotel');
+      $data = $news->get_image_news();
       return FILE::writeJson('news', $data);
     }
 
@@ -292,8 +296,8 @@
     **       酒店数据结构模型     **
     ********************************/
     public function write_hotel () {
-      $job = M('news_hotel');
-      $data = $job->get_image_hotel();
+      $hotel = M('news_hotel');
+      $data = $hotel->get_image_hotel();
       return FILE::writeJson('hotel', $data);
     }
 

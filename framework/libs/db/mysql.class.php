@@ -142,6 +142,18 @@
       return $this->query($sql);
     }
 
+    // 获取数据列表
+    // $pageNo : 当前页号
+    // $pagesize: 当前每页显示数量
+    // $status: 状态显示为已经上线的数据
+    public function pageList ($pageNo=0, $pageSize=10, $status=1, $tableName) {
+      // 起始值
+      $start = $pageNo * ($pageSize-1) + ($pageNo==0?0:1);
+      // sql语句
+      $sql = "select * from `".$tableName."` where `status`=".$status." order by `date` desc limit ".$start.", ".$pageSize;
+      $query = $this->query($sql);
+      return $this->findAll($query);
+    }
 
   }
 ?>

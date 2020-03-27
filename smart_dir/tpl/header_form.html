@@ -5,6 +5,18 @@
 <form class="show-form header-form form-reset form-static">
   <h3>头部信息设置</h3><hr>
   <div class="form-group">
+    <label for="show_time">是否显示时间计时框</label>
+    <div class="time_box">
+      {if isset($showtime) && $showtime}
+      <input type="checkbox" class="checkbox_show_time" style="display: inline-block; height: 20px; width: 20px;" name="showtime" data-id="1" value="1" checked>
+      {else}
+      <input type="checkbox" class="checkbox_show_time" style="display:inline- block; height: 20px; width: 20px;" name="showtime" data-id="1" value="1">
+      {/if}
+      <i class="tip-info" style="color:;">(若有多个单位则使用"+"隔开)</i>
+    </div>
+    
+  </div>
+  <div class="form-group">
     <label for="city">举办城市</label>
     <input type="text" class="form-control" id="city" name="city" placeholder="City" value="{$city|default: '成都'}">
   </div>
@@ -22,15 +34,19 @@
   </div>
   <div class="form-group">
     <label for="addr">举办地址</label>
-    <input type="text" class="form-control" id="addr" name="addr" placeholder="Address" value="{$addr|default: '成都新会展中心'}">
+    <input type="text" class="form-control" id="addr" name="addr" placeholder="举办地址" value="{$addr|default: '成都新会展中心'}">
   </div>
   <div class="form-group">
     <label for="zhuban">主办方</label>
-    <input type="text" class="form-control" id="zhuban" name="zhuban" placeholder="Zhuban" value="{$zhuban|default: ''}">
+    <input type="text" class="form-control" id="zhuban" name="zhuban" placeholder="主办方" value="{$zhuban|default: ''}">
   </div>
   <div class="form-group">
-    <label for="chenban">承办方</label>
+    <label for="chenban">承办方<i class="tip-info">(若有多个单位则使用"+"隔开)</i></label>
     <input type="text" class="form-control" id="chenban" name="chenban" placeholder="Chenban" value="{$chenban|default: ''}">
+  </div>
+  <div class="form-group">
+    <label for="xieban">协办方<i class="tip-info">(若有多个单位则使用"+"隔开)</i></label>
+    <input type="text" class="form-control" id="xieban" name="xieban" placeholder="协办方" value="{$xieban|default: ''}">
   </div>
   <div class="form-group">
     <label for="imgfile">上传背景图片</label>

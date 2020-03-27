@@ -141,6 +141,8 @@ $('.hotel-del').on('click', function () {
   var id = $(this).data('id');
   $(this).attr('disabled', true);
   // 执行修改数据处理
+  console.log(id);
+  console.log(URL.del_hotel);
   del_data(URL.del_hotel, URL.hotelList, id);
 });
 
@@ -152,6 +154,10 @@ $('.sub-about').on('click', function () {
   // $(this).attr('disabled', true);
   // 执行数据提交处理
   up_form_data(URL.sub_about, URL.aboutSet, '.about-form');
+  // $.post(URL.sub_about, $('.about-form').serialize(), function (res) {
+  //   document.write(res);
+  //   console.log(res);
+  // });
 });
 
 /********************************

@@ -11,7 +11,7 @@
     // web引用地址
     private static $url;
     // 图片资源路径
-    private static $_img = 'static/images/';
+    private static $_img = 'images/';
     // json资源路径
     private static $_json = 'static/data/';
 

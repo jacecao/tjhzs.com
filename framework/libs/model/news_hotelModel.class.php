@@ -183,7 +183,7 @@
       return $allNews = $this->put_images($allNews);
     }
 
-    public function get_image_hotel ($max=4) {
+    public function get_image_hotel ($max=8) {
       // 获取所有的新闻数据
       $allNews = $this->get_all_hotel();
       // 如果数据超过指定个数
@@ -212,6 +212,8 @@
         $data['poster'] = $this->get_img_data($data['poster']);
         $data['images'] = $this->get_img_data($data['images']);
         return $data;
+      } else {
+        return false;
       }
     }
 
@@ -229,6 +231,9 @@
       }
     }
 
+    /**************************************
+    **  获取数据总数目
+    **************************************/
     // 获取酒店信息总数
     public function total_hotels () {
       $sql = 'SELECT * FROM '.$this->hotel_table;
@@ -239,6 +244,21 @@
     public function total_news () {
       $sql = 'SELECT * FROM '.$this->news_table;
       return DB::num_rows($sql);
+    }
+
+    /************************************
+    ** 获取数据分页信息
+    ************************************/
+    // 新闻
+    public function pageList_news ($pageNo=0, $pageSize=10, $status = 1) {
+      $res = DB::pageList($pageNo, $pageSize, $status, $this->news_table);
+
+      if (!$res) {
+        return false;
+      } else {
+        // 在新闻数据中读取图片信息，加入到数据中
+        return $this->put_images($res);
+      }
     }
 
   }
