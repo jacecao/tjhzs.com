@@ -11,6 +11,12 @@
         target="_blank" style="text-decoration: none;"
         title="工信备案">{{show_icp}}
       </a>
+      <a v-if="showPoliceID"
+        class="beian"
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51010602001077"
+        target="_blank" style="text-decoration: none; margin-left: 6px;"
+        title="公安备案"><img src="/static/img/police.png" alt="公安备案" style="width: 12px; position: relative; top: 1px;">川公网安备51010602001077号
+      </a>
     </p>
   </footer>
 </template>
@@ -27,7 +33,8 @@ export default {
     return {
       items: {},
       webInfo: {},
-      date: new Date().getFullYear()
+      date: new Date().getFullYear(),
+      showPoliceID: true
     }
   },
   computed: {
@@ -52,6 +59,9 @@ export default {
     }
   },
   created () {
+    // 如果域名为cdhrxb.com，则不显示公安备案
+    this.showPoliceID = !(window.location.host === 'cdhrxb.com')
+    // 获取脚部数据
     let _items = []
     let vm = this
     vm.$http.get(Path.dataURL + 'footer.json').then((res) => {

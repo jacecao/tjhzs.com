@@ -1,12 +1,12 @@
 <template>
-  <div class="tjhzs_job_head" v-if="contact.name">
+  <div v-if="contact.name" class="tjhzs_job_head">
     <div class="title title-n">招聘岗位</div>
     <div class="email email-n">
       <span>简历投递邮箱：</span>
       <span class="hrEmail hrEmail-n" >{{contact.email}}({{contact.name}})</span>
     </div>
   </div>
-  <div class="tjhzs_job_head" v-else>
+  <div v-else class="tjhzs_job_head">
     <div class="title">招聘岗位</div>
     <div class="email">
       <span>简历投递邮箱：</span>
