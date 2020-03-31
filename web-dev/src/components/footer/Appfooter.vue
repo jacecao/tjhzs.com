@@ -46,6 +46,8 @@ export default {
       let _icp = ''
       switch (window.location.host) {
         case 'tjhzs.com':
+          _icp = '蜀ICP备17004863号-1'
+          break
         case 'cdhrxb.com':
           _icp = '蜀ICP备17004863号-2'
           break
@@ -53,7 +55,7 @@ export default {
           _icp = '蜀ICP备19018426号-1'
           break
         default:
-          _icp = '蜀ICP备17004863号-2'
+          _icp = '蜀ICP备17004863号-1'
       }
       return _icp
     }
