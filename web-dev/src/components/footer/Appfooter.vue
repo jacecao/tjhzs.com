@@ -46,12 +46,15 @@ export default {
       let _icp = ''
       switch (window.location.host) {
         case 'tjhzs.com':
+        case 'www.tjhzs.com':
           _icp = '蜀ICP备17004863号-1'
           break
         case 'cdhrxb.com':
+        case 'www.cdhrxb.com':
           _icp = '蜀ICP备17004863号-2'
           break
         case 'cdhbhz.com':
+        case 'www.cdhbhz.com':
           _icp = '蜀ICP备19018426号-1'
           break
         default:
@@ -62,7 +65,7 @@ export default {
   },
   created () {
     // 如果域名为cdhrxb.com，则不显示公安备案
-    this.showPoliceID = !(window.location.host === 'cdhrxb.com')
+    // this.showPoliceID = !(window.location.host === 'cdhrxb.com')
     // 获取脚部数据
     let _items = []
     let vm = this
