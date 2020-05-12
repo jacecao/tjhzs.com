@@ -30,3 +30,18 @@ export function getSession (key) {
   }
 }
 
+// 替换字符串
+// @value 字符串
+// @regexp 正则对象
+export function replaceStr (value, regexp) {
+  let _str = ''
+  if (value && value instanceof Array) {
+    _str = value.join(' ').replace(regexp, '')
+  } else if (typeof value === 'string') {
+    _str = value.replace(regexp, '')
+  } else {
+    _str = '传入的值不正确，无法解析'
+  }
+  return _str
+}
+

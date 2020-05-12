@@ -10,10 +10,11 @@
           <span>位置：</span><span>{{job.loc}}</span>
         </div>
         <div class="requirement">
-          <span>要求：</span><span>{{job.req}}</span>
+          <span>要求：</span><div ref="job_req" v-html="getJobHtml(job.req)">{{getJobHtml(job.req)}}</div>
         </div>
-        <div class="job_des">岗位描述
-          <p v-for="(text, index) in job.des">{{index+1}}、{{text}};</p>
+        <div class="job_des">
+          <span>岗位描述:</span>
+          <div ef="job_des" v-html="getJobHtml(job.des)">{{getJobHtml(job.des)}}</div>
         </div>
       </div>
     </template>
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+import {replaceStr} from '@js/tool.js'
 export default {
   name: 'job_content',
   props: {
@@ -33,6 +35,15 @@ export default {
   },
   data () {
     return {}
+  },
+  created () {
+    // this.$refs.job_req.innerHTML = ''
+  },
+  methods: {
+    getJobHtml (value) {
+      let reg = new RegExp(/\\/, 'g')
+      return replaceStr(value, reg)
+    }
   }
 }
 </script>
@@ -71,10 +82,10 @@ export default {
     }
     .job_des{
       margin-top: 10px;
-      p {
-        @extend %h1;
-        text-align: left;
-      }
+    }
+    p {
+      @extend %h1;
+      text-align: left;
     }
   }
   .no_job {

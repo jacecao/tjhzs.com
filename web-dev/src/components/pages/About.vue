@@ -9,8 +9,7 @@
       <div class="head">
         <div class="title">{{item.title}}</div>
       </div>
-      <div class="content">
-        <p v-for="text in item.content">{{text}}</p>
+      <div class="content" v-html="getHtml(item.content)">{{getHtml(item.content)}}
       </div>
     </section>
     <section class="about_list about_weal">
@@ -58,6 +57,7 @@ import JobHead from 'components/job/Jobheader'
 import Works from 'components/job/works'
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
+import {replaceStr} from '@js/tool.js'
 export default {
   name: 'tjhzs_about',
   data () {
@@ -93,6 +93,12 @@ export default {
     }, () => {
       console.log('email数据出错，网络链接不成功或未找到文件')
     })
+  },
+  methods: {
+    getHtml (value) {
+      let reg = new RegExp(/\\/, 'g')
+      return replaceStr(value, reg)
+    }
   },
   components: {JobHead, Works}
 }
