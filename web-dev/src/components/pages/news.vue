@@ -1,5 +1,5 @@
 <template>
-	<div class="tjhzs-new tjhzs-main-content">
+	<div class="tjhzs-news tjhzs-main-content">
     <router-link class="return_list" to="/news_list">返回新闻列表</router-link>
 		<header>
 			<h3>{{news.title}}</h3>
@@ -8,7 +8,7 @@
 		<section class="img-group">
 			<display-img v-if="images.length > 0" :isLink="false" :images='images' :size='size'/>
 		</section>
-		<section class="new-content" v-html="getHtml(news.content)">{{getHtml(news.content)}}</section>
+		<section class="news-content" v-html="getHtml(news.content)">{{getHtml(news.content)}}</section>
 	</div>
 </template>
 

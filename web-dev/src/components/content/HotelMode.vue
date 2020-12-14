@@ -1,16 +1,16 @@
 <template>
   <section class="hotel-content">
     <div class="hot-logo">
-      <h3>
-        <span class="red">HOT</span><br/>
-        <span class="red">HOT</span><span>EL</span></h3>
+        <h3>
+            <span class="red">{{setTitle}}-</span><span class="red">HOT</span><span>EL</span>
+        </h3>
       <span class="title">热点商务洽谈酒店介绍</span>
     </div>
     <ul class="hotel-list">
       <li v-for="item in items">
         <router-link class="hot_img_box" :to="path + item.id">
           <app-img :src="item.poster.url" size="small"/>
-          <span class="img_info">{{item.name}}</span>
+          <div class="img_info">{{item.name}}</div>
         </router-link>
       </li>
     </ul>
@@ -29,9 +29,19 @@ export default {
       path: Path.hotelPAGE
     }
   },
+  props: {
+    setTitle: {
+      type: String,
+      default: ''
+    },
+    pathName: {
+      type: String,
+      default: 'hotel.json'
+    }
+  },
   created () {
     let vm = this
-    vm.$http.get(Path.dataURL + 'hotel.json').then(function (res) {
+    vm.$http.get(Path.dataURL + vm.pathName).then(function (res) {
       // tjhzs服务器返回的json字符串
       let data = Json(res.body)
       vm.items = data

@@ -10,7 +10,7 @@ $padding: 10px;
 	height: $height;
 	width: $width;
 }
-.display-img{
+.header-img, .display-img{
 	@extend %showsize;
 	overflow: hidden;
 	ul{
@@ -74,6 +74,14 @@ $padding: 10px;
 		{
 			left: 76px;
 		}
+		@at-root #header_control_right
+		{
+			right: 76px;
+		}
+		@at-root #header_control_left
+		{
+			left: 76px;
+		}
 	}
 }
 
@@ -98,14 +106,14 @@ $padding: 10px;
 	h3 {
 		margin: 0;
 		height: 60px;
-    width: 100%;
+    	width: 100%;
 		line-height: 60px;
 		text-align: center;
 		background-color: $bgcolor;
-    background: #a1b042 linear-gradient(to right, transparent, rgba(255, 199, 0, 0.8) 0%, rgba(39, 226, 233, 0.85) 100%, transparent);
-    background-size: 200% 100%;
-    background-position: 100% 0;
-    animation: process-animation 2s linear infinite alternate;
+    	background: #a1b042 linear-gradient(to right, transparent, rgba(255, 199, 0, 0.8) 0%, rgba(39, 226, 233, 0.85) 100%, transparent);
+    	background-size: 200% 100%;
+    	background-position: 100% 0;
+    	animation: process-animation 2s linear infinite alternate;
 		color: #fff;
 		font-size: 1.8 * $font;
 		letter-spacing: 3px;
@@ -173,7 +181,7 @@ $padding: 10px;
   @extend %bg_flow;
   h3{
     margin: 0 auto;
-    width: 240px;
+    width: 400px;
 		font-size: 3.7 * $font;
 		text-align: center;
 		color: $textcolor;
@@ -233,12 +241,11 @@ $padding: 10px;
         @extend %imgsize;
       }
 			.img_info {
-				display: block;
+				box-sizing: border-box;
 				position: absolute;
-				height: 50px;
 				width: 210px;
 				bottom: 0;
-				line-height: 50px;
+				padding: 6px;
 				background-color: rgba(65, 225, 189, 0.66);
 				text-align: center;
 				font-size: 1.2 * $font;

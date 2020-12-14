@@ -1,14 +1,14 @@
 <template>
-	<div class="tjhzs-new tjhzs-main-content">
+	<div class="tjhzs-news tjhzs-main-content">
 		<header>
 			<h3>{{hotel.name}}</h3>
 		</header>
 		<section class="img-group" :style='size'>
 			<display-img :isLink="false" :images='images' :size='size'/>
 		</section>
-		<section class="new-content">
-			<p>{{hotel.content}}</p>
-		</section>
+		<section class="news-content" v-html="getHtml(hotel.content)">
+      {{getHtml(hotel.content)}}
+    </section>
     <span class="bottom-text">全心全意服务糖酒会</span>
 	</div>
 </template>
@@ -17,6 +17,7 @@
 import DisplayImg from 'components/content/Displayimg'
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
+import {replaceStr} from '@js/tool.js'
 export default {
   data () {
     return {
@@ -66,13 +67,19 @@ export default {
   mounted: function () {
     window.scrollTo(0, 0)
   },
+  methods: {
+    getHtml (value) {
+      let reg = new RegExp(/\\/, 'g')
+      return replaceStr(value, reg)
+    }
+  },
   components: { DisplayImg }
 }
 </script>
 
 <style scoped lang="scss">
 @import '../../sass/news.scss';
-.tjhzs-new{
+.tjhzs-hotel{
 	@extend %middlewidth;
 	margin: 50px auto;
 }

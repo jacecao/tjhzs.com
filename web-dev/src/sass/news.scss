@@ -1,5 +1,5 @@
 @import './_base.scss';
-.tjhzs-new{
+.tjhzs-news{
 	header, section{
 		padding: 0 20px;
 	}
@@ -14,7 +14,7 @@
 		span{
 			display: block;
 			width: 100%;
-      color: #bfbfbf;
+      		color: #bfbfbf;
 		}
 	}
 	.img-group{
@@ -22,7 +22,7 @@
 		margin: 30px auto;
 		padding: 0;
 	}
-	.new-content{
+	.news-content{
     @extend %middlewidth;
 		p{
 			text-indent: 2em;
