@@ -17,7 +17,8 @@ export default {
   newsPAGE: pagePath + 'news/',
   newsimgURL: localImgPath + 'static/images/news/',
   hotelimgURL: localImgPath + 'static/images/hotel/',
-  hotelPAGE: pagePath + 'hotels/',
+  hotelPAGE: pagePath + 'hotel/',
+  autumnHotelPAGE: pagePath + 'autumn_hotel/',
   productimgURL: localImgPath + 'static/images/product/',
   productPAGE: pagePath + 'product/',
   // 前端数据获取路径

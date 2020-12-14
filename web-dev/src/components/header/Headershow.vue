@@ -2,17 +2,11 @@
   <transition name="main-fade" mode="out-in">
     <header>
       <div class="header-show" key="show">
-        <!-- <img
-          v-if="ready"
-          :src="bg_img_src"
-          :style="opacity"
-          alt="header-img" class="header-img"
-        >
-        <loading v-else/> -->
+        <!-- 头部图片显示模块 -->
         <repeat-img 
           :isLink = 'isLink'
           :size = 'size'
-          :images = 'bgimg'
+          :images = 'images_arr'
         />
       </div>
       <!-- 绑定data数据到组件的props -->
@@ -39,7 +33,7 @@ export default {
   data () {
     return {
       headerinfo: {},
-      bgimg: [],
+      header_img: [],
       size: {
         height: '440px',
         width: '980px'
@@ -60,19 +54,22 @@ export default {
       // let img = new window.Image()
       // img.src = vm.headerinfo.bgimg.img_url
       // img.onload = () => { vm.ready = true }
-      vm.bgimg = vm.headerinfo.bgimg
+      vm.header_img = vm.headerinfo.bgimg
     }, () => {
       console.error('获取头部信息出现错误：请检查配置信息是否正确或者网络故障')
     })
   },
   computed: {
-    // opacity () {
-    //   if (this.ready) {
-    //     return {opacity: 1}
-    //   } else {
-    //     return {opacity: 0}
-    //   }
-    // }
+    images_arr () {
+      if (this.header_img instanceof Array) {
+        return this.header_img
+      } else {
+        let _arr = new Array(1)
+        let _ele = this.header_img
+        _arr[0] = _ele
+        return _arr
+      }
+    }
   },
   components: {
     'header-title': Headertitle,

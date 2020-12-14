@@ -29,7 +29,6 @@
 
 <script>
 import play from '@js/PlayImg.js'
-// import AppImg from 'components/img/AppImg'
 import ResponsImg from 'components/img/ResponseImg'
 export default {
   name: 'play-img',

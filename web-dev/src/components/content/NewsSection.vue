@@ -8,7 +8,6 @@
 <script>
 import Displayimg from './Displayimg'
 import News from './News'
-import Hotel from './Hotel'
 import Path from '@js/path.js'
 import Json from '@js/json_data.js'
 import {saveSession} from '@js/tool.js'
@@ -50,7 +49,7 @@ export default {
     })
   },
   components: {
-    Displayimg, News, Hotel
+    Displayimg, News
   }
 }
 </script>

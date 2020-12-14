@@ -6,9 +6,9 @@
         </h3>
       <span class="title">热点商务洽谈酒店介绍</span>
     </div>
-    <ul class="hotel-list">
+    <ul v-if="show_the_model" class="hotel-list">
       <li v-for="item in items">
-        <router-link class="hot_img_box" :to="path + item.id">
+        <router-link class="hot_img_box" :to="pagePath + item.id">
           <app-img :src="item.poster.url" size="small"/>
           <div class="img_info">{{item.name}}</div>
         </router-link>
@@ -26,7 +26,7 @@ export default {
   data () {
     return {
       items: [],
-      path: Path.hotelPAGE
+      show_the_model: true
     }
   },
   props: {
@@ -34,18 +34,24 @@ export default {
       type: String,
       default: ''
     },
-    pathName: {
+    dataName: {
       type: String,
       default: 'hotel.json'
+    },
+    pagePath: {
+      type: String,
+      default: 'hotels/'
     }
   },
   created () {
     let vm = this
-    vm.$http.get(Path.dataURL + vm.pathName).then(function (res) {
+    vm.$http.get(Path.dataURL + vm.dataName).then(function (res) {
       // tjhzs服务器返回的json字符串
       let data = Json(res.body)
       vm.items = data
     }, function () {
+      // 如果读取失败则不显示此模块
+      vm.show_the_model = false
       console.error('获取酒店信息出现错误：请检查配置信息是否正确或者网络故障')
     })
   },
